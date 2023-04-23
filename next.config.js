@@ -7,6 +7,10 @@ const nextConfig = {
 				protocol: 'https',
 				hostname: 'api.spoonacular.com',
 			},
+			{
+				protocol: 'https',
+				hostname: 'www.soyhenry.com',
+			},
 		],
 	},
 };
