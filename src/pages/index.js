@@ -3,9 +3,12 @@ import Image from 'next/image';
 import styles from '@/styles/Home.module.css';
 
 // Components
+import { motion } from 'framer-motion';
+
+// Images-Icons
 import HenryLogo from '../assets/images/logo-henry.png';
 import CookSpotHorizontalLogo from '../assets/svgs/Logo-H.svg';
-import { motion } from 'framer-motion';
+import { IoIosArrowForward } from 'react-icons/io';
 
 export default function Home() {
 	return (
@@ -24,12 +27,12 @@ export default function Home() {
 						scale: [0.5, 1.3],
 					}}
 					transition={{
-						duration: 4,
+						duration: 5,
 						delay: 0,
 						ease: 'easeIn',
 					}}
 				>
-					<Image src={HenryLogo} style={{ width: 230, height: 45 }} priority alt="Henry black variant" />
+					<Image src={HenryLogo} style={{ width: 210, height: 40 }} priority alt="Henry black variant" />
 					<p className={styles.welcomeRegularText} style={{ marginLeft: 10 }}>
 						- Agustin Rezett
 					</p>
@@ -42,7 +45,7 @@ export default function Home() {
 					}}
 					transition={{
 						duration: 4,
-						delay: 3.75,
+						delay: 4.7,
 						ease: 'easeIn',
 					}}
 				>
@@ -56,8 +59,8 @@ export default function Home() {
 						scale: [0.5, 1],
 					}}
 					transition={{
-						duration: 4,
-						delay: 8,
+						duration: 3,
+						delay: 8.7,
 						ease: 'easeInOut',
 					}}
 				>
@@ -73,13 +76,28 @@ export default function Home() {
 							opacity: [0, 1],
 						}}
 						transition={{
-							duration: 4,
-							delay: 10,
+							duration: 2,
+							delay: 12,
 							ease: 'easeInOut',
 						}}
 					>
 						<div className={styles.welcomeLogoDivisor}></div>
-						<h6 className={styles.subTitleText}>FOOD . SPOONACULAR . API</h6>
+						<h6 className={styles.subTitleText}>RECIPES . SPOONACULAR . API</h6>
+						<motion.div
+							className={styles.welcomeDivisorContainer}
+							animate={{
+								marginTop: ['65px', '50px'],
+							}}
+							transition={{
+								duration: 1,
+								delay: 11.5,
+								ease: 'easeInOut',
+							}}
+						>
+							<div className={styles.nextViewButton}>
+								<IoIosArrowForward />
+							</div>
+						</motion.div>
 					</motion.div>
 				</motion.div>
 			</main>

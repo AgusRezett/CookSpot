@@ -97,6 +97,30 @@
   font-size: 1.5rem;
   margin-top: 20px;
 }
+.welcome .wordsColumnContainer .nextViewButton,
+.welcome .wordsRowContainer .nextViewButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  background-color: #2d2926;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  position: absolute;
+}
+.welcome .wordsColumnContainer .nextViewButton:hover,
+.welcome .wordsRowContainer .nextViewButton:hover {
+  background-color: #3e3a36;
+}
+.welcome .wordsColumnContainer .nextViewButton svg,
+.welcome .wordsRowContainer .nextViewButton svg {
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  margin-left: 2px;
+}
 
 @keyframes fadeIn {
   0% {
