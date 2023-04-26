@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 // Router
 import { Link } from 'react-router-dom';
@@ -12,22 +12,22 @@ import CookSpotHorizontalLogo from '../assets/svgs/Logo-H.svg';
 
 const navigation = [
 	{ name: 'Home', href: '/home' },
-	{ name: 'My Recipes', href: '/recipe' },
-	{ name: 'Likes', href: '/likes' },
-	{ name: 'About Us', href: '/team' },
+	{ name: 'Recipes', href: '/recipe' },
+	{ name: 'Saved', href: '/saved' },
+	{ name: 'Liked', href: '/likes' },
 ];
 
 const Navbar = (props) => {
 	return (
 		<nav className="navbars-container">
 			<div className="first-navbar-container">
-				<Link to={'/home'} passHref key={'Home'}>
+				<Link to={'/home'} key={'Home'}>
 					<img src={CookSpotHorizontalLogo} alt="CookSpot vertical logo" className="logo-image" />
 				</Link>
 			</div>
 			<div className="second-navbar-container">
 				{navigation.map((item) => (
-					<Link to={item.href} passHref key={item.name} className="nav-item">
+					<Link to={item.href} key={item.name} className="nav-item">
 						{item.name}
 					</Link>
 				))}
@@ -36,6 +36,6 @@ const Navbar = (props) => {
 	);
 };
 
-Navbar.propTypes = {};
+//Navbar.propTypes = {};
 
 export default Navbar;
