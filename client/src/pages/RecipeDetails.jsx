@@ -587,12 +587,6 @@ export default function RecipeDetails(props) {
 						</div>
 						<p>{recipeDetails.healthScore ? recipeDetails.healthScore : '--'}%</p>
 					</div>
-					<div className="score-recipe-container">
-						<div className="score-recipe-bubble score">
-							<IoIosPie size={20} color="#fff" />
-						</div>
-						<p>{recipeDetails.spoonacularScore ? recipeDetails.spoonacularScore : '--'}%</p>
-					</div>
 				</div>
 
 				{recipeDetails.dishTypes && (

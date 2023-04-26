@@ -8,12 +8,50 @@
 	justify-self: center;
 	margin: 0px 30px;
 
+	.search-recipe-container {
+		@include displayFlex(row, space-between, center);
+		position: relative;
+		width: 100%;
+		background-color: #ffffff;
+		padding: 10px 10px;
+		border: 1px solid black;
+		margin-top: 25px;
+
+		.search-input {
+			background-color: transparent;
+			border: none;
+			width: 100%;
+			font-family: 'HarmoniaSans';
+			font-size: 1rem;
+			outline: none;
+		}
+
+		.search-button {
+			@include displayFlex(null, center, center);
+			background-color: transparent;
+			border: none;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			width: 40px;
+			cursor: pointer;
+
+			svg > path {
+				color: #6b7280;
+				transition: all 150ms ease-in-out;
+			}
+			&:hover > svg > path {
+				color: #2e3137;
+			}
+		}
+	}
+
 	.filter-selects-container {
 		@include displayFlex(row, space-between, center);
 		width: 100%;
-		padding-top: 35px;
-		margin-top: 25px;
-		border-top: 1px solid #2f2a21;
+		margin-top: 35px;
+		margin-bottom: 45px;
 
 		.filter-container {
 			width: 32%;
@@ -27,7 +65,7 @@
 					width: 100%;
 					position: absolute;
 					transition: all 100ms ease-in-out;
-					top: 11px;
+					top: 10px;
 					left: 10px;
 					opacity: 0.6;
 					user-select: none;

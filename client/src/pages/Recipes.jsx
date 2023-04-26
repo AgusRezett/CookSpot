@@ -560,6 +560,8 @@ export default function Recipes() {
 	return (
 		<div className="all-recipes-container">
 			<h1 className="initialMsg">Recipes</h1>
+			<p style={{ fontWeight: 400, marginTop: 10 }}>Look through your favorites plates.</p>
+			<SearchBar />
 			{/* <div>
 				<button className="refreshButton" onClick={handleClick}>
 					Refresh recipes
@@ -623,7 +625,7 @@ export default function Recipes() {
 					</div>
 				</div> */}
 			</div>
-			<SearchBar />
+
 			<div></div>
 			<Paged recipesPage={recipesPage} allRecipes={allRecipes.length} paged={paged} currentPage={page} />
 			<div className="recipes-container">
