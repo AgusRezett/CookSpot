@@ -85,8 +85,8 @@ export default function LandingPage() {
 							marginTop: ['85px', '40px'],
 						}}
 						transition={{
-							duration: 0.5,
-							delay: 12.5,
+							duration: 1,
+							delay: 12,
 							ease: 'easeInOut',
 						}}
 					>

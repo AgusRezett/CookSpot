@@ -7,10 +7,12 @@ import {
 	SEARCH_RECIPE,
 	GET_DIET_TYPES,
 	GET_RECIPE_DETAILS,
+	GET_RANDOM_PICKS,
 } from '../actions/types';
 
 const initialState = {
 	recipes: [],
+	randomPicks: [],
 	allRecipes: [],
 	dietTypes: [],
 	recipeDetails: [],
@@ -23,6 +25,12 @@ export default function rootReducer(state = initialState, action) {
 				...state,
 				recipes: action.payload,
 				allRecipes: action.payload,
+			};
+
+		case GET_RANDOM_PICKS:
+			return {
+				...state,
+				randomPicks: action.payload,
 			};
 
 		case DIET_TYPE_FILTER:

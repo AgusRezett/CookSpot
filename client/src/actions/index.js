@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
 	GET_RECIPES,
+	GET_RANDOM_PICKS,
 	GET_RECIPE_DETAILS,
 	DIET_TYPE_FILTER,
 	ALPHABETICAL_SORT,
@@ -16,6 +17,19 @@ export function getRecipes() {
 			.get(`${LOCAL_HOST}/api/recipes`)
 			.then((response) => {
 				return dispatch({ type: GET_RECIPES, payload: response.data });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+}
+
+export function getRandomPicks() {
+	return function (dispatch) {
+		axios
+			.get(`${LOCAL_HOST}/api/recipes/random`)
+			.then((response) => {
+				return dispatch({ type: GET_RANDOM_PICKS, payload: response.data });
 			})
 			.catch((error) => {
 				console.log(error);

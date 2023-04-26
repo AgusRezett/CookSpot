@@ -3,18 +3,19 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes, dietTypeFilter, aplhabeticalSort, scoreSort } from '../actions';
-import Recipe from './Recipe';
+import { getRecipes, getRandomPicks, dietTypeFilter, aplhabeticalSort, scoreSort } from '../actions';
+import Recipe from '../components/Recipe';
 import { Link } from 'react-router-dom';
-import Paged from './Paged';
-import SearchBar from './SearchBar';
-import './home.css';
+import Paged from '../components/Paged';
+import SearchBar from '../components/SearchBar';
+//import './home.css';
 
 let prevId = 1;
 
 export default function Home() {
 	const dispatch = useDispatch();
 	const allRecipes = useSelector((state) => state.recipes);
+	const randomPicks = useSelector((state) => state.randomPicks);
 
 	const [order, setOrder] = useState('');
 
@@ -30,7 +31,9 @@ export default function Home() {
 	};
 
 	useEffect(() => {
-		dispatch(getRecipes());
+		//dispatch(getRecipes(), getRandomPicks());
+		//dispatch(getRecipes());
+		dispatch(getRandomPicks());
 	}, [dispatch]);
 
 	function handleClick(e) {

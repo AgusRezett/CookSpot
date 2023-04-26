@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const axios = require('axios');
-const { getApiById, getAllRecipes, getDbById } = require('../controllers/recipes');
+const { getApiById, getAllRecipes, getDbById, getRandomPicks } = require('../controllers/recipes');
 const { Recipe, Diet } = require('../db');
 const { API_KEY, API_KEY1 } = process.env;
 
@@ -10,6 +10,7 @@ router.get('/', async (req, res, next) => {
 	try {
 		const { name } = req.query;
 		let allRecipes = await getAllRecipes();
+		console.log(name);
 
 		if (name) {
 			let recipeByName = await allRecipes.filter((e) =>
@@ -41,6 +42,31 @@ router.get('/', async (req, res, next) => {
 			});
 			return res.status(200).send(recipes);
 		}
+	} catch (error) {
+		return res.status(400).send(error.message);
+	}
+});
+
+router.get('/random', async (req, res, next) => {
+	try {
+		let randomPicks = await getRandomPicks();
+
+		console.log(randomPicks.data.recipes);
+
+		let recipes = randomPicks.data.recipes.map((e) => {
+			return {
+				id: e.id,
+				name: e.title,
+				image: e.image,
+				summary: e.summary,
+				cuisins: e.cuisins,
+				dishTypes: e.dishTypes,
+				readyInMinutes: e.readyInMinutes,
+				aggregateLikes: e.aggregateLikes,
+			};
+		});
+
+		return res.status(200).send(recipes);
 	} catch (error) {
 		return res.status(400).send(error.message);
 	}

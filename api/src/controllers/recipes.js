@@ -7,7 +7,7 @@ const { API_KEY } = process.env;
 const getApiInfo = async () => {
 	try {
 		const apiUrl = await axios.get(
-			`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
+			`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=10`
 		);
 
 		const apiInfo = await apiUrl.data.results.map((e) => {
@@ -55,6 +55,10 @@ const getApiById = async (id) => {
 	return await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
 };
 
+const getRandomPicks = async () => {
+	return await axios.get(`https://api.spoonacular.com/recipes/random?number=5&apiKey=${API_KEY}`);
+};
+
 const getDbById = async (id) => {
 	return await Recipe.findByPk(id, {
 		include: {
@@ -81,4 +85,5 @@ module.exports = {
 	getAllRecipes,
 	getDbById,
 	getApiById,
+	getRandomPicks,
 };
