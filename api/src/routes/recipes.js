@@ -49,25 +49,58 @@ router.get('/', async (req, res, next) => {
 
 router.get('/random', async (req, res, next) => {
 	try {
-		let randomPicks = await getRandomPicks();
+		let randomBreakfast = await getRandomPicks('breakfast');
+		let randomMeal = await getRandomPicks('meal');
+		let randomLunch = await getRandomPicks('lunch');
+		let randomSnack = await getRandomPicks('snack');
+		let randomDinner = await getRandomPicks('dinner');
 
-		console.log(randomPicks.data.recipes);
+		let todaysMeals = [
+			{ ...randomBreakfast.data, type: 'breakfast' },
+			{ ...randomMeal.data, type: 'meal' },
+			{ ...randomLunch.data, type: 'lunch' },
+			{ ...randomSnack.data, type: 'snack' },
+			{ ...randomDinner.data, type: 'dinner' },
+		];
 
-		let recipes = randomPicks.data.recipes.map((e) => {
+		let recipes = todaysMeals.map((e) => {
+			const recipe = e.recipes[0];
+			console.log(recipe);
 			return {
-				id: e.id,
-				name: e.title,
-				image: e.image,
-				summary: e.summary,
-				cuisins: e.cuisins,
-				dishTypes: e.dishTypes,
-				readyInMinutes: e.readyInMinutes,
-				aggregateLikes: e.aggregateLikes,
+				id: recipe.id,
+				name: recipe.title,
+				type: e.type,
+				image: recipe.image,
+				summary: recipe.summary,
+				cuisins: recipe.cuisines,
+				dishTypes: recipe.dishTypes,
+				readyInMinutes: recipe.readyInMinutes,
+				aggregateLikes: recipe.aggregateLikes,
 			};
 		});
 
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log();
+		console.log(JSON.stringify(todaysMeals));
+
 		return res.status(200).send(recipes);
 	} catch (error) {
+		console.log(error);
 		return res.status(400).send(error.message);
 	}
 });

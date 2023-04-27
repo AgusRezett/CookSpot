@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Styles
-import '../styles/Home.css';
+import '../styles/Landing.css';
 
 // Components
 import { motion } from 'framer-motion';

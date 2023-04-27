@@ -8,7 +8,8 @@ import Recipe from '../components/Recipe';
 import { Link } from 'react-router-dom';
 import Paged from '../components/Paged';
 import SearchBar from '../components/SearchBar';
-//import './home.css';
+import PrincipalRecipe from '../components/PrincipalRecipe';
+import '../styles/Home.css';
 
 let prevId = 1;
 
@@ -257,7 +258,11 @@ export default function Home() {
 
 	return (
 		<div className="home">
-			<h1 className="initialMsg">Let's do it!</h1>
+			<div className="todays-recipes-container">
+				{randomPicks?.map((recipe, index) => {
+					return <PrincipalRecipe key={recipe.id} data={recipe} index={index + 1} />;
+				})}
+			</div>
 			{/* <div>
 				<button className="refreshButton" onClick={handleClick}>
 					Refresh recipes

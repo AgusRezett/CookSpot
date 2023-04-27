@@ -55,8 +55,10 @@ const getApiById = async (id) => {
 	return await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
 };
 
-const getRandomPicks = async () => {
-	return await axios.get(`https://api.spoonacular.com/recipes/random?number=5&apiKey=${API_KEY}`);
+const getRandomPicks = async (type, number = 1) => {
+	return await axios.get(
+		`https://api.spoonacular.com/recipes/random?type=${type}&number=${number}&apiKey=${API_KEY}`
+	);
 };
 
 const getDbById = async (id) => {

@@ -11,7 +11,7 @@ function App() {
 
 	const paddingMainContainerStyles = {
 		padding: 20,
-		paddingTop: mainContainerPaddingTop === 40 ? mainContainerPaddingTop + 50 : mainContainerPaddingTop + 10,
+		paddingTop: mainContainerPaddingTop === 40 ? mainContainerPaddingTop + 50 : mainContainerPaddingTop + 15,
 	};
 
 	// Apply the current navbar height used for padding the main
@@ -44,7 +44,6 @@ function App() {
 					<Route path="/recipe" exact component={AddRecipe} />
 					<Route path="/home/:id" component={RecipeDetails} />
 				</Switch>
-				{mainContainerPaddingTop + 10}
 			</div>
 		</BrowserRouter>
 	);
