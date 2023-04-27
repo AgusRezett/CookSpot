@@ -12,7 +12,7 @@ import HenryLogo from '../assets/images/logo-henry.png';
 import CookSpotHorizontalLogo from '../assets/svgs/Logo-H.svg';
 import { IoIosArrowForward } from 'react-icons/io';
 
-export default function LandingPage() {
+export default function Landing() {
 	return (
 		<div className={'welcome'}>
 			<motion.div

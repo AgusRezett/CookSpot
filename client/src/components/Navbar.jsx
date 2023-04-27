@@ -19,7 +19,7 @@ const navigation = [
 
 const Navbar = (props) => {
 	return (
-		<nav className="navbars-container">
+		<nav id="navbars-container">
 			<div className="first-navbar-container">
 				<Link to={'/home'} key={'Home'}>
 					<img src={CookSpotHorizontalLogo} alt="CookSpot vertical logo" className="logo-image" />

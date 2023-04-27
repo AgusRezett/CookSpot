@@ -1,8 +1,9 @@
 @import 'mixins';
 @import 'fonts';
 
-.navbars-container {
+#navbars-container {
 	@include displayFlex(column, center, center);
+	position: fixed;
 	width: 100%;
 	height: auto;
 	background: #fff;

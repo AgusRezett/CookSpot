@@ -12,7 +12,7 @@ import SearchBar from '../components/SearchBar';
 
 let prevId = 1;
 
-export default function Home() {
+export default function Recipes() {
 	const dispatch = useDispatch();
 	const allRecipes = useSelector((state) => state.recipes);
 	const randomPicks = useSelector((state) => state.randomPicks);
