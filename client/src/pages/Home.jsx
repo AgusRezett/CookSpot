@@ -16,7 +16,18 @@ import { Carousel } from 'primereact/carousel';
 // Redux
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes, getRandomPicks, dietTypeFilter, aplhabeticalSort, scoreSort } from '../actions';
+import {
+	getRecipes,
+	getRandomPicks,
+	getVeganRecipes,
+	getAmericanRecipes,
+	getCaribbeanRecipes,
+	getItalianRecipes,
+	getJapaneseRecipes,
+	dietTypeFilter,
+	aplhabeticalSort,
+	scoreSort,
+} from '../actions';
 
 let prevId = 1;
 
@@ -24,6 +35,9 @@ export default function Home() {
 	const dispatch = useDispatch();
 	const allRecipes = useSelector((state) => state.recipes);
 	//const randomPicks = useSelector((state) => state.randomPicks);
+	//const veganRecipes = useSelector((state) => state.homeCarrouselRecipes);
+	const homeCarrouselRecipes = useSelector((state) => state.homeCarrouselRecipes);
+
 	const randomPicks = [
 		{
 			type: 'breakfast',
@@ -266,6 +280,11 @@ export default function Home() {
 		//dispatch(getRecipes(), getRandomPicks());
 		//dispatch(getRecipes());
 		//dispatch(getRandomPicks());
+		//dispatch(getVeganRecipes(10));
+		//dispatch(getAmericanRecipes(10));
+		//dispatch(getCaribbeanRecipes(10));
+		//dispatch(getItalianRecipes(10));
+		//dispatch(getJapaneseRecipes(10));
 	}, [dispatch]);
 
 	const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -277,8 +296,8 @@ export default function Home() {
 			<div className="home-todays-picks-title-container">
 				<h2>Today's Menú</h2>
 				<div className="todays-recipes-divisor"></div>
-
-				<p>our daily {day.toLocaleLowerCase()} balanced picks...</p>
+				{JSON.stringify(homeCarrouselRecipes)}
+				<p>our {day.toLocaleLowerCase()} balanced picks...</p>
 			</div>
 			<div className="todays-recipes-container">
 				{randomPicks?.map((recipe, index) => {

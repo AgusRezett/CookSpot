@@ -8,6 +8,11 @@ import {
 	GET_DIET_TYPES,
 	GET_RECIPE_DETAILS,
 	GET_RANDOM_PICKS,
+	GET_VEGAN_RECIPES,
+	GET_AMERICAN_RECIPES,
+	GET_CARIBBEAN_RECIPES,
+	GET_ITALIAN_RECIPES,
+	GET_JAPANESE_RECIPES,
 } from '../actions/types';
 
 const initialState = {
@@ -16,6 +21,7 @@ const initialState = {
 	allRecipes: [],
 	dietTypes: [],
 	recipeDetails: [],
+	homeCarrouselRecipes: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -31,6 +37,36 @@ export default function rootReducer(state = initialState, action) {
 			return {
 				...state,
 				randomPicks: action.payload,
+			};
+
+		case GET_VEGAN_RECIPES:
+			return {
+				...state,
+				homeCarrouselRecipes: { ...state.homeCarrouselRecipes, veganRecipes: action.payload },
+			};
+
+		case GET_AMERICAN_RECIPES:
+			return {
+				...state,
+				homeCarrouselRecipes: { ...state.homeCarrouselRecipes, americanRecipes: action.payload },
+			};
+
+		case GET_CARIBBEAN_RECIPES:
+			return {
+				...state,
+				homeCarrouselRecipes: { ...state.homeCarrouselRecipes, caribbeanRecipes: action.payload },
+			};
+
+		case GET_ITALIAN_RECIPES:
+			return {
+				...state,
+				homeCarrouselRecipes: { ...state.homeCarrouselRecipes, italianRecipes: action.payload },
+			};
+
+		case GET_JAPANESE_RECIPES:
+			return {
+				...state,
+				homeCarrouselRecipes: { ...state.homeCarrouselRecipes, japaneseRecipes: action.payload },
 			};
 
 		case DIET_TYPE_FILTER:

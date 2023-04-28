@@ -127,8 +127,6 @@ router.get('/american/:ammount', async (req, res, next) => {
 	try {
 		let americanRecipes = await getAmericanRecipes(ammount);
 
-		console.log(americanRecipes);
-
 		let recipes = americanRecipes.data.recipes.map((e) => {
 			return {
 				id: e.id,

@@ -2,6 +2,11 @@ import axios from 'axios';
 import {
 	GET_RECIPES,
 	GET_RANDOM_PICKS,
+	GET_VEGAN_RECIPES,
+	GET_AMERICAN_RECIPES,
+	GET_CARIBBEAN_RECIPES,
+	GET_ITALIAN_RECIPES,
+	GET_JAPANESE_RECIPES,
 	GET_RECIPE_DETAILS,
 	DIET_TYPE_FILTER,
 	ALPHABETICAL_SORT,
@@ -30,6 +35,71 @@ export function getRandomPicks() {
 			.get(`${LOCAL_HOST}/api/recipes/random-picks`)
 			.then((response) => {
 				return dispatch({ type: GET_RANDOM_PICKS, payload: response.data });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+}
+
+export function getVeganRecipes(payload) {
+	return function (dispatch) {
+		axios
+			.get(`${LOCAL_HOST}/api/recipes/vegan/${payload}`)
+			.then((response) => {
+				return dispatch({ type: GET_VEGAN_RECIPES, payload: response.data });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+}
+
+export function getAmericanRecipes(payload) {
+	return function (dispatch) {
+		axios
+			.get(`${LOCAL_HOST}/api/recipes/american/${payload}`)
+			.then((response) => {
+				return dispatch({ type: GET_AMERICAN_RECIPES, payload: response.data });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+}
+
+export function getCaribbeanRecipes(payload) {
+	return function (dispatch) {
+		axios
+			.get(`${LOCAL_HOST}/api/recipes/american/${payload}`)
+			.then((response) => {
+				return dispatch({ type: GET_CARIBBEAN_RECIPES, payload: response.data });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+}
+
+export function getItalianRecipes(payload) {
+	return function (dispatch) {
+		axios
+			.get(`${LOCAL_HOST}/api/recipes/american/${payload}`)
+			.then((response) => {
+				return dispatch({ type: GET_ITALIAN_RECIPES, payload: response.data });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+}
+
+export function getJapaneseRecipes(payload) {
+	return function (dispatch) {
+		axios
+			.get(`${LOCAL_HOST}/api/recipes/american/${payload}`)
+			.then((response) => {
+				return dispatch({ type: GET_JAPANESE_RECIPES, payload: response.data });
 			})
 			.catch((error) => {
 				console.log(error);
