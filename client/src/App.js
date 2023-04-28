@@ -11,7 +11,7 @@ function App() {
 
 	const paddingMainContainerStyles = {
 		padding: 20,
-		paddingTop: mainContainerPaddingTop === 40 ? mainContainerPaddingTop + 50 : mainContainerPaddingTop + 15,
+		paddingTop: mainContainerPaddingTop === 40 ? mainContainerPaddingTop + 50 : mainContainerPaddingTop + 25,
 	};
 
 	// Apply the current navbar height used for padding the main

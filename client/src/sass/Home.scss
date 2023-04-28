@@ -2,25 +2,63 @@
 @import 'fonts';
 
 .home {
-	@include displayFlex(column, flex-start, flex-start);
+	@include displayFlex(column, flex-start, center);
 	width: 100%;
-	height: 100%;
+	height: fit-content;
+
+	.home-todays-picks-title-container {
+		@include displayFlex(column, center, center);
+		width: 100%;
+		margin-bottom: 30px;
+
+		h2 {
+			font-size: 2.3rem;
+		}
+
+		.todays-recipes-divisor {
+			width: 60%;
+			height: 1px;
+			background-color: #b9ae9e;
+			margin: 10px 0px;
+		}
+
+		p {
+			text-align: center;
+		}
+	}
 
 	.todays-recipes-container {
-		width: 100%;
+		width: 90%;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat(3, 1fr);
-		grid-column-gap: 15px;
-		grid-row-gap: 15px;
+		grid-column-gap: 20px;
+		grid-row-gap: 20px;
 		height: 450px;
+
+		@media screen and (max-width: 670px) {
+			width: 100%;
+			grid-column-gap: 15px;
+			grid-row-gap: 15px;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(5, 1fr);
+		}
 
 		.random-pick-container {
 			position: relative;
 			width: 100%;
-
+			overflow: hidden;
 			border-radius: 10px;
 			box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.15);
+
+			@media screen and (max-width: 670px) {
+				height: 200px;
+			}
+
+			&:hover > .random-pick-like {
+				opacity: 1;
+				transform: scale(1);
+			}
 
 			.random-pick-background {
 				position: absolute;
@@ -31,7 +69,117 @@
 				background-repeat: no-repeat;
 				background-size: cover;
 				border-radius: 10px;
-				filter: brightness(0.6);
+				filter: brightness(0.4);
+				z-index: 1;
+				transition: all 350ms ease-in-out;
+
+				&:hover {
+					filter: brightness(0.5);
+					scale: 1.1;
+				}
+			}
+
+			.random-pick-bubble {
+				@include displayFlex(row, flex-start, center);
+				position: absolute;
+				z-index: 2;
+				color: #000;
+				padding: 5px 10px;
+				border-radius: 7.5px;
+			}
+
+			.random-pick-category {
+				@extend .random-pick-bubble;
+				top: 15px;
+				left: 15px;
+				background: #ffda08;
+			}
+
+			.random-pick-stats {
+				@extend .random-pick-bubble;
+				bottom: 15px;
+				right: 15px;
+				background: #fff;
+
+				svg {
+					margin-right: 5px;
+				}
+			}
+
+			.random-pick-title {
+				@extend .random-pick-bubble;
+				display: inline-block;
+				bottom: 15px;
+				left: 15px;
+				background: #fff;
+				max-width: 65%;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+
+				@media screen and (min-width: 1450px) {
+					max-width: 65%;
+				}
+				@media screen and (min-width: 1000px) {
+					max-width: 45% !important;
+				}
+				@media screen and (max-width: 1000px) {
+					max-width: 40%;
+				}
+				@media screen and (min-width: 670px) and (max-width: 900px) {
+					max-width: 60%;
+				}
+				@media screen and (max-width: 670px) {
+					max-width: 65%;
+				}
+
+				svg {
+					margin-right: 5px;
+				}
+			}
+
+			.random-pick-like {
+				@extend .random-pick-bubble;
+				top: 13px;
+				right: 15px;
+				padding: 0px;
+				cursor: pointer;
+				opacity: 0;
+				transform: scale(0);
+				transition: all 150ms ease-in-out;
+
+				&:hover {
+					transform: scale(1.1);
+				}
+
+				&:active {
+					transform: scale(0.9);
+				}
+			}
+
+			.random-pick-like--inactive {
+				svg {
+					fill: none;
+
+					path {
+						stroke: #ff3535;
+						fill: rgba(255, 137, 137, 0.202);
+						stroke-width: 2px;
+					}
+				}
+			}
+
+			.random-pick-like--active {
+				svg {
+					fill: #ff3535;
+					filter: drop-shadow(0 0 0.75rem rgba(220, 20, 60, 0.468));
+
+					path {
+						fill: #ff4a4a;
+						stroke: #ff4a4a;
+						stroke-width: 2px;
+					}
+				}
 			}
 		}
 	}
@@ -50,5 +198,41 @@
 	}
 	.recipe-5 {
 		grid-area: 3 / 3 / 4 / 5;
+	}
+
+	@media screen and (max-width: 900px) {
+		.recipe-1 {
+			grid-area: 1 / 1 / 3 / 3;
+		}
+		.recipe-2 {
+			grid-area: 3 / 1 / 4 / 3;
+		}
+		.recipe-3 {
+			grid-area: 1 / 3 / 2 / 5;
+		}
+		.recipe-4 {
+			grid-area: 2 / 3 / 3 / 5;
+		}
+		.recipe-5 {
+			grid-area: 3 / 3 / 4 / 5;
+		}
+	}
+
+	@media screen and (max-width: 670px) {
+		.recipe-1 {
+			grid-area: 1 / 1 / 2 / 3;
+		}
+		.recipe-2 {
+			grid-area: 2 / 1 / 3 / 3;
+		}
+		.recipe-3 {
+			grid-area: 3 / 1 / 4 / 3;
+		}
+		.recipe-4 {
+			grid-area: 4 / 1 / 5 / 3;
+		}
+		.recipe-5 {
+			grid-area: 5 / 1 / 6 / 3;
+		}
 	}
 }

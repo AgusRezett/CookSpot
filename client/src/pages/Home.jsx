@@ -19,6 +19,7 @@ export default function Home() {
 	//const randomPicks = useSelector((state) => state.randomPicks);
 	const randomPicks = [
 		{
+			type: 'breakfast',
 			vegetarian: false,
 			vegan: false,
 			glutenFree: false,
@@ -76,6 +77,7 @@ export default function Home() {
 			spoonacularSourceUrl: 'https://spoonacular.com/veal-piccatas-664359',
 		},
 		{
+			type: 'Meal',
 			vegetarian: false,
 			vegan: false,
 			glutenFree: true,
@@ -115,6 +117,7 @@ export default function Home() {
 			spoonacularSourceUrl: 'https://spoonacular.com/persian-rhubarb-stew-khoresh-rivas-655771',
 		},
 		{
+			type: 'lunch',
 			vegetarian: false,
 			vegan: false,
 			glutenFree: false,
@@ -155,6 +158,7 @@ export default function Home() {
 			spoonacularSourceUrl: 'https://spoonacular.com/easy-key-lime-pie-642003',
 		},
 		{
+			type: 'snack',
 			vegetarian: true,
 			vegan: false,
 			glutenFree: true,
@@ -198,6 +202,7 @@ export default function Home() {
 			spoonacularSourceUrl: 'https://spoonacular.com/coconut-israeli-couscous-studded-with-pomegranate-639778',
 		},
 		{
+			type: 'dinner',
 			vegetarian: true,
 			vegan: false,
 			glutenFree: false,
@@ -256,8 +261,18 @@ export default function Home() {
 		//dispatch(getRandomPicks());
 	}, [dispatch]);
 
+	const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	const d = new Date();
+	let day = weekday[d.getDay()];
+
 	return (
 		<div className="home">
+			<div className="home-todays-picks-title-container">
+				<h2>Today's Menú</h2>
+				<div className="todays-recipes-divisor"></div>
+
+				<p>our daily {day.toLocaleLowerCase()} balanced picks...</p>
+			</div>
 			<div className="todays-recipes-container">
 				{randomPicks?.map((recipe, index) => {
 					return <PrincipalRecipe key={recipe.id} data={recipe} index={index + 1} />;
