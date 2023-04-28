@@ -27,7 +27,7 @@ export function getRecipes() {
 export function getRandomPicks() {
 	return function (dispatch) {
 		axios
-			.get(`${LOCAL_HOST}/api/recipes/random`)
+			.get(`${LOCAL_HOST}/api/recipes/random-picks`)
 			.then((response) => {
 				return dispatch({ type: GET_RANDOM_PICKS, payload: response.data });
 			})

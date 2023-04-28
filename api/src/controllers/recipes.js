@@ -55,9 +55,37 @@ const getApiById = async (id) => {
 	return await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
 };
 
-const getRandomPicks = async (type, number = 1) => {
+const getRandomPicks = async (type, ammount = 1) => {
 	return await axios.get(
-		`https://api.spoonacular.com/recipes/random?type=${type}&number=${number}&apiKey=${API_KEY}`
+		`https://api.spoonacular.com/recipes/random?type=${type}&number=${ammount}&apiKey=${API_KEY}`
+	);
+};
+
+const getVeganRecipes = async (ammount = 1) => {
+	return await axios.get(`https://api.spoonacular.com/recipes/random?number=${ammount}&tags=vegan&apiKey=${API_KEY}`);
+};
+
+const getAmericanRecipes = async (ammount = 1) => {
+	return await axios.get(
+		`https://api.spoonacular.com/recipes/random?&cuisine=American&number=${ammount}&apiKey=${API_KEY}`
+	);
+};
+
+const getItalianRecipes = async (ammount = 1) => {
+	return await axios.get(
+		`https://api.spoonacular.com/recipes/random?&cuisine=Italian&number=${ammount}&apiKey=${API_KEY}`
+	);
+};
+
+const getCaribbeanRecipes = async (ammount = 1) => {
+	return await axios.get(
+		`https://api.spoonacular.com/recipes/random?&cuisine=Caribbean&number=${ammount}&apiKey=${API_KEY}`
+	);
+};
+
+const getJapaneseRecipes = async (ammount = 1) => {
+	return await axios.get(
+		`https://api.spoonacular.com/recipes/random?&cuisine=Japanese&number=${ammount}&apiKey=${API_KEY}`
 	);
 };
 
@@ -88,4 +116,9 @@ module.exports = {
 	getDbById,
 	getApiById,
 	getRandomPicks,
+	getVeganRecipes,
+	getAmericanRecipes,
+	getItalianRecipes,
+	getCaribbeanRecipes,
+	getJapaneseRecipes,
 };

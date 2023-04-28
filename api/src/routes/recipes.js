@@ -1,6 +1,16 @@
 const { Router } = require('express');
 const axios = require('axios');
-const { getApiById, getAllRecipes, getDbById, getRandomPicks } = require('../controllers/recipes');
+const {
+	getApiById,
+	getAllRecipes,
+	getDbById,
+	getRandomPicks,
+	getVeganRecipes,
+	getAmericanRecipes,
+	getItalianRecipes,
+	getCaribbeanRecipes,
+	getJapaneseRecipes,
+} = require('../controllers/recipes');
 const { Recipe, Diet } = require('../db');
 const { API_KEY, API_KEY1 } = process.env;
 
@@ -47,7 +57,7 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
-router.get('/random', async (req, res, next) => {
+router.get('/random-picks', async (req, res, next) => {
 	try {
 		let randomBreakfast = await getRandomPicks('breakfast');
 		let randomMeal = await getRandomPicks('meal');
@@ -68,7 +78,7 @@ router.get('/random', async (req, res, next) => {
 			console.log(recipe);
 			return {
 				id: recipe.id,
-				name: recipe.title,
+				title: recipe.title,
 				type: e.type,
 				image: recipe.image,
 				summary: recipe.summary,
@@ -79,24 +89,137 @@ router.get('/random', async (req, res, next) => {
 			};
 		});
 
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log();
-		console.log(JSON.stringify(todaysMeals));
+		return res.status(200).send(recipes);
+	} catch (error) {
+		console.log(error);
+		return res.status(400).send(error.message);
+	}
+});
+
+router.get('/vegan/:ammount', async (req, res, next) => {
+	const { ammount } = req.params;
+	try {
+		let veganRecipes = await getVeganRecipes(ammount);
+
+		let recipes = veganRecipes.data.recipes.map((e) => {
+			return {
+				id: e.id,
+				title: e.title,
+				type: e.type,
+				image: e.image,
+				summary: e.summary,
+				cuisins: e.cuisines,
+				dishTypes: e.dishTypes,
+				readyInMinutes: e.readyInMinutes,
+				aggregateLikes: e.aggregateLikes,
+			};
+		});
+
+		return res.status(200).send(recipes);
+	} catch (error) {
+		console.log(error);
+		return res.status(400).send(error.message);
+	}
+});
+
+router.get('/american/:ammount', async (req, res, next) => {
+	const { ammount } = req.params;
+	try {
+		let americanRecipes = await getAmericanRecipes(ammount);
+
+		console.log(americanRecipes);
+
+		let recipes = americanRecipes.data.recipes.map((e) => {
+			return {
+				id: e.id,
+				title: e.title,
+				type: e.type,
+				image: e.image,
+				summary: e.summary,
+				cuisins: e.cuisines,
+				dishTypes: e.dishTypes,
+				readyInMinutes: e.readyInMinutes,
+				aggregateLikes: e.aggregateLikes,
+			};
+		});
+
+		return res.status(200).send(recipes);
+	} catch (error) {
+		console.log(error);
+		return res.status(400).send(error.message);
+	}
+});
+
+router.get('/italian/:ammount', async (req, res, next) => {
+	const { ammount } = req.params;
+	try {
+		let italianRecipes = await getItalianRecipes(ammount);
+
+		let recipes = italianRecipes.data.recipes.map((e) => {
+			return {
+				id: e.id,
+				title: e.title,
+				type: e.type,
+				image: e.image,
+				summary: e.summary,
+				cuisins: e.cuisines,
+				dishTypes: e.dishTypes,
+				readyInMinutes: e.readyInMinutes,
+				aggregateLikes: e.aggregateLikes,
+			};
+		});
+
+		return res.status(200).send(recipes);
+	} catch (error) {
+		console.log(error);
+		return res.status(400).send(error.message);
+	}
+});
+
+router.get('/caribbean/:ammount', async (req, res, next) => {
+	const { ammount } = req.params;
+	try {
+		let caribbeanRecipes = await getCaribbeanRecipes(ammount);
+
+		let recipes = caribbeanRecipes.data.recipes.map((e) => {
+			return {
+				id: e.id,
+				title: e.title,
+				type: e.type,
+				image: e.image,
+				summary: e.summary,
+				cuisins: e.cuisines,
+				dishTypes: e.dishTypes,
+				readyInMinutes: e.readyInMinutes,
+				aggregateLikes: e.aggregateLikes,
+			};
+		});
+
+		return res.status(200).send(recipes);
+	} catch (error) {
+		console.log(error);
+		return res.status(400).send(error.message);
+	}
+});
+
+router.get('/japanese/:ammount', async (req, res, next) => {
+	const { ammount } = req.params;
+	try {
+		let japaneseRecipes = await getJapaneseRecipes(ammount);
+
+		let recipes = japaneseRecipes.data.recipes.map((e) => {
+			return {
+				id: e.id,
+				title: e.title,
+				type: e.type,
+				image: e.image,
+				summary: e.summary,
+				cuisins: e.cuisines,
+				dishTypes: e.dishTypes,
+				readyInMinutes: e.readyInMinutes,
+				aggregateLikes: e.aggregateLikes,
+			};
+		});
 
 		return res.status(200).send(recipes);
 	} catch (error) {

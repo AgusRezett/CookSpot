@@ -1,15 +1,22 @@
 /* eslint-disable no-unused-vars */
 
 import React from 'react';
+import Paged from '../components/Paged';
+import SearchBar from '../components/SearchBar';
+
+//Styles
+import '../styles/Home.css';
+
+// Components
+import { Link } from 'react-router-dom';
+import Recipe from '../components/Recipe';
+import PrincipalRecipe from '../components/PrincipalRecipe';
+import { Carousel } from 'primereact/carousel';
+
+// Redux
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRecipes, getRandomPicks, dietTypeFilter, aplhabeticalSort, scoreSort } from '../actions';
-import Recipe from '../components/Recipe';
-import { Link } from 'react-router-dom';
-import Paged from '../components/Paged';
-import SearchBar from '../components/SearchBar';
-import PrincipalRecipe from '../components/PrincipalRecipe';
-import '../styles/Home.css';
 
 let prevId = 1;
 
