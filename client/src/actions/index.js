@@ -21,6 +21,7 @@ export function getRecipes() {
 		axios
 			.get(`${LOCAL_HOST}/api/recipes`)
 			.then((response) => {
+				//return dispatch({ type: GET_RECIPES, payload: response.data });
 				return dispatch({ type: GET_RECIPES, payload: response.data });
 			})
 			.catch((error) => {

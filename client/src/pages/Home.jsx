@@ -33,8 +33,6 @@ import {
 	scoreSort,
 } from '../actions';
 
-let prevId = 1;
-
 export default function Home() {
 	const dispatch = useDispatch();
 	const allRecipes = useSelector((state) => state.recipes);

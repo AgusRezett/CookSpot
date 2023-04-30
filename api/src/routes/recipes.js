@@ -16,42 +16,48 @@ const { API_KEY, API_KEY1 } = process.env;
 
 const router = Router();
 
+const Data = require('../../../client/src/data/featured_recipes.json');
+
 router.get('/', async (req, res, next) => {
+	/* const allRecipes = Data.featuredRecipes;
+	console.log(fina); */
 	try {
 		const { name } = req.query;
 		let allRecipes = await getAllRecipes();
-		console.log(name);
+		let finalRecipes = allRecipes;
 
 		if (name) {
-			let recipeByName = await allRecipes.filter((e) =>
-				e.name.toLowerCase().includes(name.toString().toLowerCase())
+			let recipesByName = allRecipes.filter((e) =>
+				e.title.toLowerCase().includes(title.toString().toLowerCase())
 			);
-
-			if (recipeByName.length) {
-				let recipes = recipeByName.map((e) => {
+			console.log(recipesByName);
+			console.log('recipesByName');
+			if (recipesByName.length) {
+				finalRecipes = recipesByName;
+				/* let recipes = recipesByName.map((e) => {
 					return {
 						image: e.image,
-						name: e.name,
-						dietTypes: e.dietTypes ? e.dietTypes : e.diets.map((e) => e.name),
-						score: e.score,
+						title: e.title,
+						diets: e.diets ? e.diets : e.diets.map((e) => e.title),
+						healthScore: e.healthScore,
 						id: e.id,
 					};
-				});
-				return res.status(200).send(recipes);
+				}); */
+				//return res.status(200).send(recipes);
 			}
 			return res.status(404).send('Sorry, recipe not found');
 		} else {
 			let recipes = allRecipes.map((e) => {
 				return {
 					image: e.image,
-					name: e.name,
-					dietTypes: e.dietTypes ? e.dietTypes : e.diets.map((e) => e.name),
-					score: e.score,
+					title: e.title,
+					diets: e.diets ? e.diets : e.diets.map((e) => e.title),
+					healthScore: e.healthScore,
 					id: e.id,
 				};
 			});
-			return res.status(200).send(recipes);
 		}
+		return res.status(200).send(finalRecipes);
 	} catch (error) {
 		return res.status(400).send(error.message);
 	}
@@ -237,13 +243,16 @@ router.get('/:id', async (req, res, next) => {
 			apiRecipesById = await getApiById(id);
 			console.log('encontre');
 			if (apiRecipesById.data.id) {
-				let recipeDetails = {
+				//console.log(apiRecipesById.data);
+				/* let recipeDetails = {
+					id: apiRecipesById.data.id,
 					image: apiRecipesById.data.image,
-					name: apiRecipesById.data.title,
+					title: apiRecipesById.data.title,
 					dishTypes: apiRecipesById.data.dishTypes,
 					dietTypes: apiRecipesById.data.diets,
 					summary: apiRecipesById.data.summary,
 					score: apiRecipesById.data.spoonacularScore,
+					algo: null,
 					healthScore: apiRecipesById.data.healthScore,
 					steps: apiRecipesById.data.analyzedInstructions[0]?.steps.map((e) => {
 						return {
@@ -251,11 +260,13 @@ router.get('/:id', async (req, res, next) => {
 							step: e.step,
 						};
 					}),
-				};
-				return res.status(200).send(recipeDetails);
+				}; */
+				console.log(apiRecipesById);
+				return res.status(200).send(apiRecipesById.data);
 			}
 		}
-	} catch {
+	} catch (error) {
+		console.log(error);
 		return res.status(404).send('Recipe not found');
 	}
 });

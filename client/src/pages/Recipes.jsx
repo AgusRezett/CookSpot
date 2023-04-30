@@ -8,6 +8,7 @@ import Recipe from '../components/Recipe';
 import { Link } from 'react-router-dom';
 import Paged from '../components/Paged';
 import SearchBar from '../components/SearchBar';
+import Data from '../data/featured_recipes.json';
 //import './home.css';
 
 let prevId = 1;
@@ -15,8 +16,6 @@ let prevId = 1;
 export default function Recipes() {
 	const dispatch = useDispatch();
 	const allRecipes = useSelector((state) => state.recipes);
-	const randomPicks = useSelector((state) => state.randomPicks);
-
 	const [order, setOrder] = useState('');
 
 	const [page, setPage] = useState(1);
@@ -31,9 +30,7 @@ export default function Recipes() {
 	};
 
 	useEffect(() => {
-		//dispatch(getRecipes(), getRandomPicks());
-		//dispatch(getRecipes());
-		dispatch(getRandomPicks());
+		dispatch(getRecipes());
 	}, [dispatch]);
 
 	function handleClick(e) {
@@ -119,8 +116,9 @@ export default function Recipes() {
 											? e.image
 											: 'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'
 									}
-									name={e.name}
-									dietTypes={e.dietTypes}
+									name={e.title}
+									dietTypes={e.diets}
+									score={e.spoonacularScore}
 								/>
 							</Link>
 						</div>

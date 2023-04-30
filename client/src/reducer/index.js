@@ -72,7 +72,7 @@ export default function rootReducer(state = initialState, action) {
 		case DIET_TYPE_FILTER:
 			const allRecipes = state.allRecipes;
 			const filteredByDietType = allRecipes.filter((r) =>
-				r.dietTypes?.some((d) => d.toLowerCase() === action.payload.toLowerCase())
+				r.diets?.some((d) => d.toLowerCase() === action.payload.toLowerCase())
 			);
 			return {
 				...state,
@@ -84,13 +84,13 @@ export default function rootReducer(state = initialState, action) {
 			sortedRecipes =
 				action.payload === 'atoz'
 					? state.recipes.sort(function (a, b) {
-							if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-							if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+							if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
+							if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
 							return 0;
 					  })
 					: state.recipes.sort(function (a, b) {
-							if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
-							if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+							if (a.title.toLowerCase() < b.title.toLowerCase()) return 1;
+							if (a.title.toLowerCase() > b.title.toLowerCase()) return -1;
 							return 0;
 					  });
 			return {
@@ -103,13 +103,13 @@ export default function rootReducer(state = initialState, action) {
 			sortedRecipesByScore =
 				action.payload === 'asc'
 					? state.recipes.sort(function (a, b) {
-							if (a.score > b.score) return 1;
-							if (a.score < b.score) return -1;
+							if (a.healthScore > b.healthScore) return 1;
+							if (a.healthScore < b.healthScore) return -1;
 							return 0;
 					  })
 					: state.recipes.sort(function (a, b) {
-							if (a.score < b.score) return 1;
-							if (a.score > b.score) return -1;
+							if (a.healthScore < b.healthScore) return 1;
+							if (a.healthScore > b.healthScore) return -1;
 							return 0;
 					  });
 			return {

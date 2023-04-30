@@ -10,12 +10,14 @@ const getApiInfo = async () => {
 			`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=10`
 		);
 
-		const apiInfo = await apiUrl.data.results.map((e) => {
+		console.log(apiUrl.data.results);
+
+		/* const apiInfo = await apiUrl.data.results.map((e) => {
 			return {
 				id: e.id,
 				image: e.image,
-				name: e.title,
-				dietTypes: e.diets,
+				title: e.title,
+				diets: e.diets,
 				summary: e.summary,
 				score: e.spoonacularScore,
 				healthScore: e.healthScore,
@@ -27,9 +29,9 @@ const getApiInfo = async () => {
 					};
 				}),
 			};
-		});
+		}); */
 
-		return apiInfo;
+		return apiUrl.data.results;
 	} catch (error) {
 		console.log(error.response.data.message);
 		return [];

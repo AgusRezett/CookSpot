@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
 import Landing from './pages/Landing';
+import Home from './pages/Home';
+import Recipes from './pages/Recipes';
 import AddRecipe from './components/AddRecipe';
 import RecipeDetails from './components/RecipeDetails';
 
@@ -42,6 +43,7 @@ function App() {
 					<Route exact path="/" component={Landing} />
 					<Route path="/home" exact component={Home} />
 					<Route path="/recipe" exact component={AddRecipe} />
+					<Route path="/recipes" exact component={Recipes} />
 					<Route path="/home/:id" component={RecipeDetails} />
 				</Switch>
 			</div>
