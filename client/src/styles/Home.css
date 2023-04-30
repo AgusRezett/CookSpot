@@ -436,11 +436,11 @@
   background-size: cover;
   transform: scale(1);
   z-index: 2;
-  transition: all 150ms ease-in-out;
+  transition: all 100ms ease-in-out;
   filter: brightness(0.9);
 }
 .carousel-item-container .carousel-item-content .carousel-item-image:hover {
-  filter: brightness(1.2);
+  filter: brightness(1);
 }
 .carousel-item-container .carousel-item-content .random-pick-stats {
   display: flex;

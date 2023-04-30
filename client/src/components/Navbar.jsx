@@ -12,7 +12,8 @@ import CookSpotHorizontalLogo from '../assets/svgs/Logo-H.svg';
 
 const navigation = [
 	{ name: 'Home', href: '/home' },
-	{ name: 'Recipes', href: '/recipe' },
+	{ name: 'Add Recipe', href: '/recipe' },
+	{ name: 'All Recipes', href: '/recipes' },
 	{ name: 'Saved', href: '/saved' },
 	{ name: 'Liked', href: '/likes' },
 ];
