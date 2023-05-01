@@ -1,0 +1,84 @@
+/* ------------------------------------------
+--------------- AFTIKA FONTS ----------------
+------------------------------------------ */
+@font-face {
+  font-family: "Aftika";
+  src: url("../assets/fonts/Aftika/Aftika-Black.otf");
+  font-weight: 900;
+}
+@font-face {
+  font-family: "Aftika";
+  src: url("../assets/fonts/Aftika/Aftika-Bold.otf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Aftika";
+  src: url("../assets/fonts/Aftika/Aftika-Extrabold.otf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Aftika";
+  src: url("../assets/fonts/Aftika/Aftika-Semibold.otf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Aftika";
+  src: url("../assets/fonts/Aftika/Aftika-Regular.otf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Aftika";
+  src: url("../assets/fonts/Aftika/Aftika-Light.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Aftika";
+  src: url("../assets/fonts/Aftika/Aftika-Extralight.otf");
+  font-weight: 300;
+}
+.recipe-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.recipe-details-container .recipe-details-content {
+  width: 100%;
+  height: 100%;
+  max-width: 1300px;
+}
+.recipe-details-container .recipe-details-content .recipe-details-header-container {
+  display: flex;
+  flex-direction: column;
+}
+.recipe-details-container .recipe-details-content .recipe-details-header-container .recipe-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+.recipe-details-container .recipe-details-content .recipe-details-header-container .recipe-image-container img {
+  width: 100%;
+  height: auto;
+}
+.recipe-details-container .recipe-details-content .recipe-details-header-container h4 {
+  margin-top: 5px;
+  font-weight: 300;
+}
+.recipe-details-container .recipe-details-content .middle-article-title {
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+  font-size: 0.9rem;
+  color: red;
+  font-family: "Aftika";
+}
+
+/*# sourceMappingURL=RecipeDetails.css.map */
