@@ -69,7 +69,7 @@
 @media (prefers-color-scheme: light) {
 	:root {
 		--foreground-rgb: 0, 0, 0;
-		--background-rgb: 242, 237, 233;
+		--background-rgb: 247, 246, 245;
 
 		--tile-start-rgb: 2, 13, 46;
 		--tile-end-rgb: 2, 5, 19;
@@ -112,7 +112,7 @@ body > iframe {
 .main-container {
 	display: flex;
 	width: 100%;
-	height: auto;
+	height: 100%;
 }
 
 @media screen and (max-width: 640px) {

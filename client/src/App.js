@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Recipes from './pages/Recipes';
 import AddRecipe from './components/AddRecipe';
-import RecipeDetails from './components/RecipeDetails';
+import RecipeDetails from './pages/RecipeDetails';
 
 function App() {
 	const [mainContainerPaddingTop, setMainContainerPaddingTop] = useState('');
@@ -15,29 +15,9 @@ function App() {
 		paddingTop: mainContainerPaddingTop === 40 ? mainContainerPaddingTop + 50 : mainContainerPaddingTop + 25,
 	};
 
-	// Apply the current navbar height used for padding the main
-	useEffect(() => {
-		const navbarContainer = document.getElementById('navbars-container');
-		const onResizeGetPadding = () => {
-			setMainContainerPaddingTop(navbarContainer.offsetHeight);
-		};
-
-		onResizeGetPadding();
-
-		window.addEventListener('resize', function () {
-			onResizeGetPadding();
-		});
-
-		return () => {
-			window.removeEventListener('resize', function () {
-				onResizeGetPadding();
-			});
-		};
-	}, []);
-
 	return (
 		<BrowserRouter>
-			<Navbar />
+			<Navbar applyHeight={setMainContainerPaddingTop} />
 			<div className="main-container" style={paddingMainContainerStyles}>
 				<Switch>
 					<Route exact path="/" component={Landing} />

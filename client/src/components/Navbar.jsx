@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 //import PropTypes from 'prop-types';
 
 // Router
@@ -18,7 +18,26 @@ const navigation = [
 	{ name: 'Liked', href: '/likes' },
 ];
 
-const Navbar = (props) => {
+const Navbar = ({ applyHeight }) => {
+	// Apply the current navbar height used for padding the main
+	useEffect(() => {
+		const navbarContainer = document.getElementById('navbars-container');
+		const onResizeGetPadding = () => {
+			applyHeight(navbarContainer.offsetHeight);
+		};
+		onResizeGetPadding();
+
+		window.addEventListener('resize', function () {
+			onResizeGetPadding();
+		});
+
+		return () => {
+			window.removeEventListener('resize', function () {
+				onResizeGetPadding();
+			});
+		};
+	}, [applyHeight]);
+
 	return (
 		<nav id="navbars-container">
 			<div className="first-navbar-container">
