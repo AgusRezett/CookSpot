@@ -17,6 +17,7 @@ const getApiInfo = async () => {
 				id: e.id,
 				image: e.image,
 				title: e.title,
+				cheap: e.cheap,
 				diets: e.diets,
 				aggregateLikes: e.aggregateLikes,
 				readyInMinutes: e.readyInMinutes,

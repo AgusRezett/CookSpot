@@ -3,17 +3,22 @@ import '../styles/Recipes.css';
 import { HiHeart } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import { IoIosTimer } from 'react-icons/io';
+import { MdAttachMoney, MdMoneyOffCsred } from 'react-icons/md';
 
 let prevId = 1;
 
 export default function Recipe(recipes) {
-	const { id, image, title, dietTypes, aggregateLikes, readyInMinutes } = recipes;
+	const { id, image, title, dietTypes, aggregateLikes, readyInMinutes, cheap } = recipes;
 
 	return (
 		<div className="recipe-container">
 			<div className="recipe-link">
 				<Link className="recipe-image-container" to={`home/${id}`}>
 					<img className="recipeImg" src={image} alt="Not found" />
+
+					<div className={`money-bubble ${cheap && 'cheap-recipe'}`}>
+						{cheap ? <MdAttachMoney size={19} color="#fff" /> : <MdMoneyOffCsred size={19} color="#fff" />}
+					</div>
 				</Link>
 
 				<Link className="recipe-title-container" to={`home/${id}`}>

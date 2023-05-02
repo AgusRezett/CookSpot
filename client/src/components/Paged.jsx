@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Pagination.css';
 
-export default function Paged({ recipesPage, allRecipes, paged, currentPage = 1 }) {
+export default function Paged({ recipesPage, allRecipes, paged, currentPage = 1, style }) {
 	const pages = [];
 
 	for (let i = 1; i <= Math.ceil(allRecipes / recipesPage); i++) {
@@ -13,7 +13,7 @@ export default function Paged({ recipesPage, allRecipes, paged, currentPage = 1 
 	return (
 		<>
 			{pages.length > 1 && (
-				<nav className="pagination-container">
+				<nav className="pagination-container" style={style}>
 					<ul className="pages">
 						{pages?.map((p) => (
 							<li className="page" key={p}>

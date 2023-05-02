@@ -10,31 +10,78 @@
 
 	.recipes-container {
 		@include displayFlex(row, flex-start, flex-start);
+		width: 100%;
 		flex-wrap: wrap;
 		padding-bottom: 50px;
 
 		.recipe-container {
 			@include displayFlex(row, flex-start, stretch);
 
+			@media screen and (max-width: 746px) {
+				width: 100%;
+			}
+
 			.recipe-link {
 				@include displayFlex(column, flex-start, flex-start);
 				width: 275px;
 				//height: 520px;
-				margin-right: 40px;
-				margin-top: 30px;
+				margin: 30px 20px 0px 20px;
 				padding-bottom: 15px;
 				border-bottom: 1px solid #0000003c;
 				text-decoration: none;
 
+				@media screen and (max-width: 746px) {
+					width: 100%;
+					margin-right: 0px;
+				}
+
 				.recipe-image-container {
 					@include displayFlex(column, center, center);
+					position: relative;
 					width: 100%;
 					aspect-ratio: 1/1;
 					overflow: hidden;
+					border-radius: 10px;
+
+					&:hover > img {
+						filter: brightness(0.9);
+					}
+
+					@media screen and (max-width: 746px) {
+						aspect-ratio: auto;
+						height: fit-content;
+						max-height: 400px;
+					}
 
 					img {
 						width: auto;
 						height: 100%;
+						transition: all 150ms ease-in-out;
+
+						@media screen and (max-width: 746px) {
+							width: 100%;
+							height: auto;
+						}
+					}
+
+					.money-bubble {
+						@include displayFlex(column, center, center);
+						position: absolute;
+						width: 25px;
+						height: 25px;
+						top: 15px;
+						left: 15px;
+						background-color: #c95c35;
+						border-radius: 100%;
+
+						svg {
+							width: fit-content;
+							height: fit-content;
+						}
+					}
+
+					.cheap-recipe {
+						background-color: #35c935;
 					}
 				}
 

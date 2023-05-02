@@ -24,6 +24,7 @@ export default function Recipes() {
 			diets: ['gluten free', 'dairy free', 'lacto ovo vegetarian', 'vegan'],
 			aggregateLikes: 309,
 			readyInMinutes: 45,
+			cheap: true,
 		},
 		{
 			id: 716426,
@@ -519,13 +520,20 @@ export default function Recipes() {
 							score={e.spoonacularScore}
 							aggregateLikes={e.aggregateLikes}
 							readyInMinutes={e.readyInMinutes}
+							cheap={e.cheap}
 							key={prevId++}
 						/>
 					);
 				})}
 			</div>
 
-			<Paged recipesPage={recipesPage} allRecipes={allRecipes.length} paged={paged} />
+			<Paged
+				recipesPage={recipesPage}
+				allRecipes={allRecipes.length}
+				paged={paged}
+				currentPage={page}
+				style={{ paddingBottom: 150 }}
+			/>
 		</div>
 	);
 }

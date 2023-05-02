@@ -51,6 +51,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
   flex-wrap: wrap;
   padding-bottom: 50px;
 }
@@ -60,30 +61,79 @@
   justify-content: flex-start;
   align-items: stretch;
 }
+@media screen and (max-width: 746px) {
+  .all-recipes-container .recipes-container .recipe-container {
+    width: 100%;
+  }
+}
 .all-recipes-container .recipes-container .recipe-container .recipe-link {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: 275px;
-  margin-right: 40px;
-  margin-top: 30px;
+  margin: 30px 20px 0px 20px;
   padding-bottom: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2352941176);
   text-decoration: none;
+}
+@media screen and (max-width: 746px) {
+  .all-recipes-container .recipes-container .recipe-container .recipe-link {
+    width: 100%;
+    margin-right: 0px;
+  }
 }
 .all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-image-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 100%;
   aspect-ratio: 1/1;
   overflow: hidden;
+  border-radius: 10px;
+}
+.all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-image-container:hover > img {
+  filter: brightness(0.9);
+}
+@media screen and (max-width: 746px) {
+  .all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-image-container {
+    aspect-ratio: auto;
+    height: fit-content;
+    max-height: 400px;
+  }
 }
 .all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-image-container img {
   width: auto;
   height: 100%;
+  transition: all 150ms ease-in-out;
+}
+@media screen and (max-width: 746px) {
+  .all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-image-container img {
+    width: 100%;
+    height: auto;
+  }
+}
+.all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-image-container .money-bubble {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 15px;
+  left: 15px;
+  background-color: #c95c35;
+  border-radius: 100%;
+}
+.all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-image-container .money-bubble svg {
+  width: fit-content;
+  height: fit-content;
+}
+.all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-image-container .cheap-recipe {
+  background-color: #35c935;
 }
 .all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-title-container {
   margin: 0.8rem 0px 0.5rem;
