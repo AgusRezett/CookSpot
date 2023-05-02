@@ -261,7 +261,7 @@ router.get('/:id', async (req, res, next) => {
 						};
 					}),
 				}; */
-				console.log(apiRecipesById);
+				console.log(apiRecipesById.analyzedInstructions);
 				return res.status(200).send(apiRecipesById.data);
 			}
 		}

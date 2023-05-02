@@ -1,11 +1,21 @@
+/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import { useEffect } from 'react';
 
 // Components
 import { Link } from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser';
 
 // Styles
 import '../styles/RecipeDetails.css';
+
+// Iamges & Icons
+import { IoIosCalendar, IoIosLeaf, IoIosPie } from 'react-icons/io';
+import { IoEgg, IoFish } from 'react-icons/io5';
+import { GiMilkCarton, GiCarrot, GiHealthNormal } from 'react-icons/gi';
+import { MdSportsScore } from 'react-icons/md';
+import GlutenFree from '../assets/svgs/gluten-free.svg';
 
 //Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,12 +24,12 @@ import { getRecipeDetails } from '../actions';
 export default function RecipeDetails(props) {
 	const dispatch = useDispatch();
 	const id = props.match.params.id;
+	//const recipeDetails = useSelector((state) => state.recipeDetails);
 
 	useEffect(() => {
 		//dispatch(getRecipeDetails(id));
 	}, [dispatch, id]);
 
-	//const recipeDetails = useSelector((state) => state.recipeDetails);
 	const recipeDetails = {
 		vegetarian: true,
 		vegan: true,
@@ -259,7 +269,289 @@ export default function RecipeDetails(props) {
 		instructions: `<ol><li><span></span>Remove the cauliflower's tough stem and reserve for another use. Using a food processor, pulse cauliflower florets until they resemble rice or couscous. You should end up with around four cups of "cauliflower rice."</li><li>Heat 1T butter and 1T oil in a large skillet over medium heat. Add garlic and the white and light green 
 	  pieces of scallion. Sauté about a minute.</li><li>Add the cauliflower to the pan. Stir to coat with oil, then spread out in pan and let sit; you want it cook a bit and to caramelize (get a bit brown), which will bring out the sweetness. After a couple of minutes, stir and spread out again.</li><li>Add cold rice (it separates easily, so it won't clump up during cooking), plus the additional grapeseed and coconut oil or butter. Raise heat to medium-high. Toss everything together and, again, spread the mixture out over the whole pan and press a bit into the bottom. Let it sit for about two minutes—so the rice can get toasted and a little crispy. Add the peas and broccoli and stir again. Drizzle soy sauce and toasted sesame oil over rice.</li><li>Cook for another minute or so and turn off heat. Add chopped scallion tops and toss.</li><li>I like to toast some sesame seeds in a dry pan; I sprinkle these and some more raw, chopped scallion over the top of the rice for 
 	  added flavor and crunch.</li><li>Season to taste with salt and, if you'd like, more soy sauce. Keep in mind that if you're serving this with something salty and saucy (ie. teriyaki chicken) you may want to hold off on adding too much salt to the fried rice.</li></ol>`,
-		analyzedInstructions: [{ name: '', steps: [Array] }],
+		analyzedInstructions: [
+			{
+				name: '',
+				steps: [
+					{
+						number: 1,
+						step: 'Remove the cauliflower\'s tough stem and reserve for another use. Using a food processor, pulse cauliflower florets until they resemble rice or couscous. You should end up with around four cups of "cauliflower rice."',
+						ingredients: [
+							{
+								id: 10011135,
+								name: 'cauliflower florets',
+								localizedName: 'cauliflower florets',
+								image: 'cauliflower.jpg',
+							},
+							{
+								id: 10111135,
+								name: 'cauliflower rice',
+								localizedName: 'cauliflower rice',
+								image: 'cauliflower.jpg',
+							},
+							{
+								id: 11135,
+								name: 'cauliflower',
+								localizedName: 'cauliflower',
+								image: 'cauliflower.jpg',
+							},
+							{
+								id: 20028,
+								name: 'couscous',
+								localizedName: 'couscous',
+								image: 'couscous-cooked.jpg',
+							},
+							{
+								id: 20444,
+								name: 'rice',
+								localizedName: 'rice',
+								image: 'uncooked-white-rice.png',
+							},
+						],
+						equipment: [
+							{
+								id: 404771,
+								name: 'food processor',
+								localizedName: 'food processor',
+								image: 'food-processor.png',
+							},
+						],
+					},
+					{
+						number: 2,
+						step: 'Heat 1T butter and 1T oil in a large skillet over medium heat.',
+						ingredients: [
+							{
+								id: 1001,
+								name: 'butter',
+								localizedName: 'butter',
+								image: 'butter-sliced.jpg',
+							},
+							{
+								id: 4582,
+								name: 'cooking oil',
+								localizedName: 'cooking oil',
+								image: 'vegetable-oil.jpg',
+							},
+						],
+						equipment: [
+							{
+								id: 404645,
+								name: 'frying pan',
+								localizedName: 'frying pan',
+								image: 'pan.png',
+							},
+						],
+					},
+					{
+						number: 3,
+						step: 'Add garlic and the white and light green pieces of scallion. Sauté about a minute.',
+						ingredients: [
+							{
+								id: 11291,
+								name: 'green onions',
+								localizedName: 'green onions',
+								image: 'spring-onions.jpg',
+							},
+							{
+								id: 11215,
+								name: 'garlic',
+								localizedName: 'garlic',
+								image: 'garlic.png',
+							},
+						],
+						equipment: [],
+					},
+					{
+						number: 4,
+						step: 'Add the cauliflower to the pan. Stir to coat with oil, then spread out in pan and let sit; you want it cook a bit and to caramelize (get a bit brown), which will bring out the sweetness. After a couple of minutes, stir and spread out again.',
+						ingredients: [
+							{
+								id: 11135,
+								name: 'cauliflower',
+								localizedName: 'cauliflower',
+								image: 'cauliflower.jpg',
+							},
+							{
+								id: 0,
+								name: 'spread',
+								localizedName: 'spread',
+								image: '',
+							},
+							{
+								id: 4582,
+								name: 'cooking oil',
+								localizedName: 'cooking oil',
+								image: 'vegetable-oil.jpg',
+							},
+						],
+						equipment: [
+							{
+								id: 404645,
+								name: 'frying pan',
+								localizedName: 'frying pan',
+								image: 'pan.png',
+							},
+						],
+					},
+					{
+						number: 5,
+						step: "Add cold rice (it separates easily, so it won't clump up during cooking), plus the additional grapeseed and coconut oil or butter. Raise heat to medium-high. Toss everything together and, again, spread the mixture out over the whole pan and press a bit into the bottom.",
+						ingredients: [
+							{
+								id: 4047,
+								name: 'coconut oil',
+								localizedName: 'coconut oil',
+								image: 'oil-coconut.jpg',
+							},
+							{
+								id: 1001,
+								name: 'butter',
+								localizedName: 'butter',
+								image: 'butter-sliced.jpg',
+							},
+							{
+								id: 0,
+								name: 'spread',
+								localizedName: 'spread',
+								image: '',
+							},
+							{
+								id: 20444,
+								name: 'rice',
+								localizedName: 'rice',
+								image: 'uncooked-white-rice.png',
+							},
+						],
+						equipment: [
+							{
+								id: 404645,
+								name: 'frying pan',
+								localizedName: 'frying pan',
+								image: 'pan.png',
+							},
+						],
+					},
+					{
+						number: 6,
+						step: 'Let it sit for about two minutes—so the rice can get toasted and a little crispy.',
+						ingredients: [
+							{
+								id: 20444,
+								name: 'rice',
+								localizedName: 'rice',
+								image: 'uncooked-white-rice.png',
+							},
+						],
+						equipment: [],
+						length: {
+							number: 2,
+							unit: 'minutes',
+						},
+					},
+					{
+						number: 7,
+						step: 'Add the peas and broccoli and stir again.',
+						ingredients: [
+							{
+								id: 11090,
+								name: 'broccoli',
+								localizedName: 'broccoli',
+								image: 'broccoli.jpg',
+							},
+							{
+								id: 11304,
+								name: 'peas',
+								localizedName: 'peas',
+								image: 'peas.jpg',
+							},
+						],
+						equipment: [],
+					},
+					{
+						number: 8,
+						step: 'Drizzle soy sauce and toasted sesame oil over rice.Cook for another minute or so and turn off heat.',
+						ingredients: [
+							{
+								id: 4058,
+								name: 'sesame oil',
+								localizedName: 'sesame oil',
+								image: 'sesame-oil.png',
+							},
+							{
+								id: 16124,
+								name: 'soy sauce',
+								localizedName: 'soy sauce',
+								image: 'soy-sauce.jpg',
+							},
+							{
+								id: 20444,
+								name: 'rice',
+								localizedName: 'rice',
+								image: 'uncooked-white-rice.png',
+							},
+						],
+						equipment: [],
+					},
+					{
+						number: 9,
+						step: "Add chopped scallion tops and toss.I like to toast some sesame seeds in a dry pan; I sprinkle these and some more raw, chopped scallion over the top of the rice for added flavor and crunch.Season to taste with salt and, if you'd like, more soy sauce. Keep in mind that if you're serving this with something salty and saucy (ie. teriyaki chicken) you may want to hold off on adding too much salt to the fried rice.",
+						ingredients: [
+							{
+								id: 12023,
+								name: 'sesame seeds',
+								localizedName: 'sesame seeds',
+								image: 'sesame-seeds.png',
+							},
+							{
+								id: 16124,
+								name: 'soy sauce',
+								localizedName: 'soy sauce',
+								image: 'soy-sauce.jpg',
+							},
+							{
+								id: 11291,
+								name: 'green onions',
+								localizedName: 'green onions',
+								image: 'spring-onions.jpg',
+							},
+							{
+								id: 5006,
+								name: 'whole chicken',
+								localizedName: 'whole chicken',
+								image: 'whole-chicken.jpg',
+							},
+							{
+								id: 0,
+								name: 'sandwich bread',
+								localizedName: 'sandwich bread',
+								image: 'white-bread.jpg',
+							},
+							{
+								id: 20444,
+								name: 'rice',
+								localizedName: 'rice',
+								image: 'uncooked-white-rice.png',
+							},
+							{
+								id: 2047,
+								name: 'salt',
+								localizedName: 'salt',
+								image: 'salt.jpg',
+							},
+						],
+						equipment: [
+							{
+								id: 404645,
+								name: 'frying pan',
+								localizedName: 'frying pan',
+								image: 'pan.png',
+							},
+						],
+					},
+				],
+			},
+		],
 		originalId: null,
 		spoonacularSourceUrl: 'https://spoonacular.com/cauliflower-brown-rice-and-vegetable-fried-rice-716426',
 	};
@@ -288,66 +580,115 @@ export default function RecipeDetails(props) {
 				<h3 className="middle-article-title">Recipe</h3>
 				<h1 className="middle-recipe-title">{recipeDetails.title}</h1>
 
-				{recipeDetails.dishTypes ? (
-					<div className="ddsh">
-						<h2 className="texts">Dish Type: </h2>
+				<div className="score-recipes-container">
+					<div className="score-recipe-container">
+						<div className="score-recipe-bubble health">
+							<GiHealthNormal size={20} color="#fff" />
+						</div>
+						<p>{recipeDetails.healthScore ? recipeDetails.healthScore : '--'}%</p>
+					</div>
+					<div className="score-recipe-container">
+						<div className="score-recipe-bubble score">
+							<IoIosPie size={20} color="#fff" />
+						</div>
+						<p>{recipeDetails.spoonacularScore ? recipeDetails.spoonacularScore : '--'}%</p>
+					</div>
+				</div>
+
+				{recipeDetails.dishTypes && (
+					<div className="recipe-dish-types-container">
 						{recipeDetails.dishTypes?.map((e) => {
 							return (
-								<h2 className="dishesanddiets" key={e}>
-									{e}
-								</h2>
+								<div className="dish-container">
+									<h6 className="dishesanddiets" key={e}>
+										{e}
+									</h6>
+								</div>
 							);
 						})}
 					</div>
-				) : (
-					<br />
 				)}
 
-				<div className="ddsh">
-					<h2 className="texts">Diet Type: </h2>
-					{recipeDetails.diets
-						? recipeDetails.diets.map((e) => {
-								return (
-									<h2 className="dishesanddiets" key={e}>
-										{e}
-									</h2>
-								);
-						  })
-						: recipeDetails.diets?.map((e) => {
-								return (
-									<h2 className="dishesanddiets" key={e.title}>
-										{e.title}
-									</h2>
-								);
-						  })}
+				<div className="diets-bubble-container">
+					{recipeDetails.diets?.map((e) => {
+						let selectedIcon;
+						switch (e) {
+							case 'ketogenic':
+								selectedIcon = '';
+								break;
+							case 'vegetarian':
+								selectedIcon = <GiCarrot />;
+								break;
+							case 'dairy free':
+								selectedIcon = <IoIosCalendar />;
+								break;
+							case 'lacto-vegetarian':
+								selectedIcon = '';
+								break;
+							case 'ovo-vegetarian':
+								selectedIcon = <IoEgg />;
+								break;
+							case 'lacto ovo vegetarian':
+								selectedIcon = <GiMilkCarton />;
+								break;
+							case 'pescetarian':
+								selectedIcon = <IoFish />;
+								break;
+							case 'paleo':
+								selectedIcon = '';
+								break;
+							case 'primal':
+								selectedIcon = '';
+								break;
+							case 'gluten free':
+								selectedIcon = <img src={GlutenFree} alt="gluten-icon" />;
+								break;
+							case 'vegan':
+								selectedIcon = <IoIosLeaf />;
+								break;
+
+							default:
+								break;
+						}
+
+						return (
+							<>
+								{selectedIcon && (
+									<div className="diet-icon-container" key={e} title={e.toLocaleUpperCase()}>
+										{selectedIcon}
+									</div>
+								)}
+							</>
+						);
+					})}
 				</div>
 
-				<div className="ddsh">
-					<h3 className="texts">Summary: </h3>
-					<p className="summary">{recipeDetails.summary?.replace(/<[^>]*>/g, '')}</p>
+				<div className="summary-container">
+					<div className="readytime-container">
+						<h4>TOTAL TIME </h4>
+						<p>{recipeDetails.readyInMinutes} minutes</p>
+					</div>
+					<div className="summary-content"> {ReactHtmlParser(recipeDetails.summary)} </div>
 				</div>
 
-				<div className="ddsh">
-					<h3 className="scores">Score: {recipeDetails.score}</h3>
-					<h3 className="scores">Healthiness points: {recipeDetails.healthScore}</h3>
+				<div className="recipe-steps-container">
+					<h2 className="title-container">Preparation</h2>
+					{recipeDetails.analyzedInstructions[0].steps.map((step) => {
+						return (
+							<div className="intruction-step-container">
+								<h4>Step {step.number}</h4>
+								<div className="instrucion-content">{step.step}</div>
+								{step.number < recipeDetails.analyzedInstructions[0].steps.length && (
+									<div className="line-guide"></div>
+								)}
+							</div>
+						);
+					})}
 				</div>
 
-				<div className="ddsh">
-					<h3 className="texts">Steps: </h3>
-					<ul className="steps">
-						{Array.isArray(recipeDetails.steps) ? (
-							recipeDetails.steps.map((e) => {
-								return <li key={e.number}>{e.step}</li>;
-							})
-						) : (
-							<li>{recipeDetails.steps}</li>
-						)}
-					</ul>
-				</div>
-
-				<Link to="/home">
+				{/* <Link to="/home">
 					<button className="backButton">Go back to recipes</button>
-				</Link>
+				</Link> */}
 			</div>
 		</div>
 	);
