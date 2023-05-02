@@ -90,11 +90,11 @@ export default function Landing() {
 							ease: 'easeInOut',
 						}}
 					>
-						<Link to="/home" id="click">
+						<a href="/home" id="click">
 							<div className={'nextViewButton'}>
 								<IoIosArrowForward />
 							</div>
-						</Link>
+						</a>
 					</motion.div>
 				</motion.div>
 			</motion.div>

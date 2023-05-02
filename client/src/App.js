@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Switch, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
 import Home from './pages/Home';
@@ -8,16 +8,26 @@ import AddRecipe from './components/AddRecipe';
 import RecipeDetails from './pages/RecipeDetails';
 
 function App() {
+	const location = new useLocation();
 	const [mainContainerPaddingTop, setMainContainerPaddingTop] = useState('');
+	const [showNavbar, setShowNavbar] = useState(true);
 
 	const paddingMainContainerStyles = {
 		padding: 20,
-		paddingTop: mainContainerPaddingTop === 40 ? mainContainerPaddingTop + 50 : mainContainerPaddingTop + 25,
+		paddingTop: showNavbar
+			? mainContainerPaddingTop === 40
+				? mainContainerPaddingTop + 50
+				: mainContainerPaddingTop + 25
+			: 20,
 	};
+
+	useEffect(() => {
+		setShowNavbar(location.pathname !== '/');
+	}, [location.pathname]);
 
 	return (
 		<BrowserRouter>
-			<Navbar applyHeight={setMainContainerPaddingTop} />
+			{showNavbar && <Navbar applyHeight={setMainContainerPaddingTop} />}
 			<div className="main-container" style={paddingMainContainerStyles}>
 				<Switch>
 					<Route exact path="/" component={Landing} />
