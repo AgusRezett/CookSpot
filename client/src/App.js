@@ -13,7 +13,7 @@ function App() {
 	const [showNavbar, setShowNavbar] = useState(true);
 
 	const paddingMainContainerStyles = {
-		padding: 20,
+		padding: 50,
 		paddingTop: showNavbar
 			? mainContainerPaddingTop === 40
 				? mainContainerPaddingTop + 50

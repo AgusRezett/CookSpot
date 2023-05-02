@@ -52,7 +52,7 @@ const PrincipalRecipe = ({ data, index }) => {
 			</div>
 			<div className="random-pick-stats">
 				<IoIosTimer size={20} color="#6b7280"></IoIosTimer>
-				{data.readyInMinutes}"
+				{data.readyInMinutes}'
 			</div>
 			<div className="random-pick-title" title={data.title}>
 				{data.title}

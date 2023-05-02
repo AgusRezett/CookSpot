@@ -14,8 +14,8 @@ const navigation = [
 	{ name: 'Home', href: '/home' },
 	{ name: 'Add Recipe', href: '/recipe' },
 	{ name: 'All Recipes', href: '/recipes' },
-	{ name: 'Saved', href: '/saved' },
-	{ name: 'Liked', href: '/likes' },
+	//{ name: 'Saved', href: '/saved' },
+	//{ name: 'Liked', href: '/likes' },
 ];
 
 const Navbar = ({ applyHeight }) => {

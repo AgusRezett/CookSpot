@@ -3,11 +3,88 @@
 
 .all-recipes-container {
 	@include displayFlex(column, flex-start, flex-start);
+	width: 100%;
 	max-width: 1280px;
 	justify-self: center;
 
 	.recipes-container {
 		@include displayFlex(row, flex-start, flex-start);
 		flex-wrap: wrap;
+		padding-bottom: 150px;
+
+		.recipe-container {
+			@include displayFlex(row, flex-start, stretch);
+
+			.recipe-link {
+				@include displayFlex(column, flex-start, flex-start);
+				width: 275px;
+				//height: 520px;
+				margin-right: 40px;
+				margin-top: 30px;
+				padding-bottom: 15px;
+				border-bottom: 1px solid #0000003c;
+				text-decoration: none;
+
+				.recipe-image-container {
+					@include displayFlex(column, center, center);
+					width: 100%;
+					aspect-ratio: 1/1;
+					overflow: hidden;
+
+					img {
+						width: auto;
+						height: 100%;
+					}
+				}
+
+				.recipe-title-container {
+					margin: 0.8rem 0px 0.5rem;
+					letter-spacing: 0.02em;
+					font-weight: 600;
+					overflow-wrap: normal;
+					font-size: 1.5em;
+					color: rgb(0, 0, 0);
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+
+				.bubbles-container {
+					@include displayFlex(row, space-between, center);
+					width: 100%;
+					margin-top: 15px;
+
+					.recipe-likes-container {
+						@include displayFlex(row, flex-start, center);
+						color: #000;
+
+						.likes-bubble-container {
+							@include displayFlex(null, center, center);
+							width: 22px;
+							height: 22px;
+							border-radius: 100%;
+							background-color: red;
+							margin-right: 5px;
+						}
+					}
+
+					.recipe-minutes-container {
+						@include displayFlex(row-reverse, flex-start, center);
+						color: #000;
+
+						.minutes-bubble-container {
+							@include displayFlex(null, center, center);
+							width: 22px;
+							height: 22px;
+							border-radius: 100%;
+							background-color: #6b7280;
+							margin-left: 5px;
+						}
+					}
+				}
+			}
+		}
 	}
 }

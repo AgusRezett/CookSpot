@@ -7,31 +7,25 @@ const { API_KEY } = process.env;
 const getApiInfo = async () => {
 	try {
 		const apiUrl = await axios.get(
-			`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=10`
+			`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=50`
 		);
 
 		console.log(apiUrl.data.results);
 
-		/* const apiInfo = await apiUrl.data.results.map((e) => {
+		const apiInfo = await apiUrl.data.results.map((e) => {
 			return {
 				id: e.id,
 				image: e.image,
 				title: e.title,
 				diets: e.diets,
-				summary: e.summary,
-				score: e.spoonacularScore,
-				healthScore: e.healthScore,
-				dishTypes: e.dishTypes,
-				steps: e.analyzedInstructions[0]?.steps.map((e) => {
-					return {
-						number: e.number,
-						step: e.step,
-					};
-				}),
+				aggregateLikes: e.aggregateLikes,
+				readyInMinutes: e.readyInMinutes,
 			};
-		}); */
+		});
 
-		return apiUrl.data.results;
+		console.log(apiInfo);
+
+		return apiInfo;
 	} catch (error) {
 		console.log(error.response.data.message);
 		return [];

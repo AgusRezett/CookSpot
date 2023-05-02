@@ -962,7 +962,7 @@ export default function Home() {
 						<div className="carousel-item-image" style={{ backgroundImage: `url(${item.image})` }}></div>
 						<div className={`random-pick-stats ${timeReadyClass}`}>
 							{timeReadyIcon}
-							{item.readyInMinutes}"
+							{item.readyInMinutes}'
 						</div>
 					</div>
 				</div>
