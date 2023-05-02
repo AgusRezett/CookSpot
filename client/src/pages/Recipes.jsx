@@ -8,8 +8,8 @@ import Recipe from '../components/Recipe';
 import { Link } from 'react-router-dom';
 import Paged from '../components/Paged';
 import SearchBar from '../components/SearchBar';
-import Data from '../data/featured_recipes.json';
-//import './home.css';
+
+import '../styles/Recipes.css';
 
 let prevId = 1;
 
@@ -19,7 +19,7 @@ export default function Recipes() {
 	const [order, setOrder] = useState('');
 
 	const [page, setPage] = useState(1);
-	const [recipesPage, setRecipesPage] = useState(9);
+	const [recipesPage, setRecipesPage] = useState(24);
 
 	const quantityRecipesPage = page * recipesPage;
 	const firstRecipePage = quantityRecipesPage - recipesPage;
@@ -60,7 +60,7 @@ export default function Recipes() {
 	}
 
 	return (
-		<div className="home">
+		<div className="all-recipes-container">
 			<h1 className="initialMsg">Let's do it!</h1>
 			<div>
 				<button className="refreshButton" onClick={handleClick}>
@@ -105,7 +105,7 @@ export default function Recipes() {
 
 			<SearchBar />
 
-			<div className="allrecipes">
+			<div className="recipes-container">
 				{showRecipesPage?.map((e) => {
 					return (
 						<div className="eachRecipe" key={prevId++}>
