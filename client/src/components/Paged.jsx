@@ -1,23 +1,26 @@
 import React from 'react';
-import './paged.css';
+import '../styles/Pagination.css';
 
-export default function Paged({ recipesPage, allRecipes, paged }) {
+export default function Paged({ recipesPage, allRecipes, paged, currentPage = 1 }) {
 	const pages = [];
 
 	for (let i = 1; i <= Math.ceil(allRecipes / recipesPage); i++) {
 		pages.push(i);
 	}
 
+	console.log(currentPage);
+
 	return (
-		<div>
-			{pages.length <= 1 ? (
-				<></>
-			) : (
-				<nav className="pagination">
+		<>
+			{pages.length > 1 && (
+				<nav className="pagination-container">
 					<ul className="pages">
 						{pages?.map((p) => (
 							<li className="page" key={p}>
-								<button className="pageBtn" onClick={() => paged(p)} style={{ width: '30px' }}>
+								<button
+									className={`pageBtn ${currentPage === p && 'button-page--active'}`}
+									onClick={() => paged(p)}
+								>
 									{p}
 								</button>
 							</li>
@@ -25,6 +28,6 @@ export default function Paged({ recipesPage, allRecipes, paged }) {
 					</ul>
 				</nav>
 			)}
-		</div>
+		</>
 	);
 }

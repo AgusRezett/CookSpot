@@ -502,11 +502,8 @@ export default function Recipes() {
 					<option value="dairy free">Dairy Free</option>
 				</select>
 			</div>
-
-			<Paged recipesPage={recipesPage} allRecipes={allRecipes.length} paged={paged} />
-
 			<SearchBar />
-
+			<Paged recipesPage={recipesPage} allRecipes={allRecipes.length} paged={paged} currentPage={page} />
 			<div className="recipes-container">
 				{showRecipesPage?.map((e) => {
 					return (

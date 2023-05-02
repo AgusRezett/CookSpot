@@ -2,15 +2,16 @@
 @import 'fonts';
 
 .all-recipes-container {
-	@include displayFlex(column, flex-start, flex-start);
+	@include displayFlex(column, flex-start, center);
 	width: 100%;
 	max-width: 1280px;
 	justify-self: center;
+	margin: 0px 30px;
 
 	.recipes-container {
 		@include displayFlex(row, flex-start, flex-start);
 		flex-wrap: wrap;
-		padding-bottom: 150px;
+		padding-bottom: 50px;
 
 		.recipe-container {
 			@include displayFlex(row, flex-start, stretch);
