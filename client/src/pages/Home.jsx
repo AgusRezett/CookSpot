@@ -11,7 +11,7 @@ import '../styles/Home.css';
 import { Link } from 'react-router-dom';
 import Recipe from '../components/Recipe';
 import PrincipalRecipe from '../components/PrincipalRecipe';
-import { Carousel } from 'primereact/carousel';
+//import { Carousel } from 'primereact/carousel';
 import { TiFlash } from 'react-icons/ti';
 import { FaRunning, FaStickerMule } from 'react-icons/fa';
 import { TbHourglassLow } from 'react-icons/tb';
@@ -986,7 +986,7 @@ export default function Home() {
 			<div className="carousel-component-container">
 				<div className="background"></div>
 				<h3>Nutritious vegan recipes</h3>
-				<Carousel
+				{/* <Carousel
 					value={veganRecipes}
 					numScroll={1}
 					numVisible={5}
@@ -1024,7 +1024,7 @@ export default function Home() {
 					numVisible={5}
 					responsiveOptions={responsiveOptions}
 					itemTemplate={carouselItem}
-				/>
+				/> */}
 			</div>
 			{/* <div>
 				<button className="refreshButton" onClick={handleClick}>

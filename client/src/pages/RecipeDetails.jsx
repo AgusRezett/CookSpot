@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 // Components
 import { Link } from 'react-router-dom';
-import ReactHtmlParser from 'react-html-parser';
+//import ReactHtmlParser from 'react-html-parser';
 
 // Styles
 import '../styles/RecipeDetails.css';
@@ -587,12 +587,6 @@ export default function RecipeDetails(props) {
 						</div>
 						<p>{recipeDetails.healthScore ? recipeDetails.healthScore : '--'}%</p>
 					</div>
-					<div className="score-recipe-container">
-						<div className="score-recipe-bubble score">
-							<IoIosPie size={20} color="#fff" />
-						</div>
-						<p>{recipeDetails.spoonacularScore ? recipeDetails.spoonacularScore : '--'}%</p>
-					</div>
 				</div>
 
 				{recipeDetails.dishTypes && (
@@ -668,7 +662,7 @@ export default function RecipeDetails(props) {
 						<h4>TOTAL TIME </h4>
 						<p>{recipeDetails.readyInMinutes} minutes</p>
 					</div>
-					<div className="summary-content"> {ReactHtmlParser(recipeDetails.summary)} </div>
+					{/* <div className="summary-content"> {ReactHtmlParser(recipeDetails.summary)} </div> */}
 				</div>
 
 				<div className="recipe-steps-container">
