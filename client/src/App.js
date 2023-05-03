@@ -1,34 +1,25 @@
-import { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Landing from './pages/Landing';
-import Home from './pages/Home';
-import Recipes from './pages/Recipes';
-import AddRecipe from './components/AddRecipe';
-import RecipeDetails from './pages/RecipeDetails';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-	const [mainContainerPaddingTop, setMainContainerPaddingTop] = useState('');
-
-	const paddingMainContainerStyles = {
-		padding: 20,
-		paddingTop: mainContainerPaddingTop === 40 ? mainContainerPaddingTop + 50 : mainContainerPaddingTop + 25,
-	};
-
-	return (
-		<BrowserRouter>
-			<Navbar applyHeight={setMainContainerPaddingTop} />
-			<div className="main-container" style={paddingMainContainerStyles}>
-				<Switch>
-					<Route exact path="/" component={Landing} />
-					<Route path="/home" exact component={Home} />
-					<Route path="/recipe" exact component={AddRecipe} />
-					<Route path="/recipes" exact component={Recipes} />
-					<Route path="/home/:id" component={RecipeDetails} />
-				</Switch>
-			</div>
-		</BrowserRouter>
-	);
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
