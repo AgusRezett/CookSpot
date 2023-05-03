@@ -8,6 +8,78 @@
 	justify-self: center;
 	margin: 0px 30px;
 
+	.filter-selects-container {
+		@include displayFlex(row, space-between, center);
+		width: 100%;
+		padding-top: 35px;
+		margin-top: 25px;
+		border-top: 1px solid #2f2a21;
+
+		.filter-container {
+			width: 32%;
+
+			.filter-content {
+				position: relative;
+				width: 100%;
+
+				.filter-label {
+					@include displayFlex(row, space-between, center);
+					width: 100%;
+					position: absolute;
+					transition: all 100ms ease-in-out;
+					top: 11px;
+					left: 10px;
+					opacity: 0.6;
+					user-select: none;
+					pointer-events: none;
+				}
+
+				.label-active {
+					top: -23px;
+					left: 0px;
+					font-size: 0.8rem;
+					font-weight: 600;
+					pointer-events: all;
+				}
+
+				.unselect-filter-button {
+					position: absolute;
+					top: -20.5px;
+					right: 0px;
+					fill: #8b8b8b;
+					transition: all 150ms ease-in-out;
+					opacity: 0;
+
+					cursor: pointer;
+
+					&:hover {
+						fill: #341c0c;
+					}
+				}
+
+				.unselect-filter-button--active {
+					opacity: 1;
+				}
+
+				.filter-select {
+					width: 100%;
+					height: 40px;
+					padding-left: 5px;
+					padding-right: 25px;
+					font-family: 'HarmoniaSans';
+					font-size: 1rem;
+
+					border: 1px solid #000;
+					border-radius: 0px;
+
+					&:focus {
+						outline: none;
+					}
+				}
+			}
+		}
+	}
+
 	.recipes-container {
 		@include displayFlex(row, flex-start, flex-start);
 		width: 100%;

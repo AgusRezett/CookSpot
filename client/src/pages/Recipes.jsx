@@ -1,15 +1,20 @@
 /* eslint-disable no-unused-vars */
 
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+
+// Components
+import Recipe from '../components/Recipe';
+import SearchBar from '../components/SearchBar';
+import Paged from '../components/Paged';
+import { Link } from 'react-router-dom';
+import { SelectComponent } from '../components/SelectComponent';
+
+// Styles
+import '../styles/Recipes.css';
+
+// Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { getRecipes, getRandomPicks, dietTypeFilter, aplhabeticalSort, scoreSort } from '../actions';
-import Recipe from '../components/Recipe';
-import { Link } from 'react-router-dom';
-import Paged from '../components/Paged';
-import SearchBar from '../components/SearchBar';
-
-import '../styles/Recipes.css';
 
 let prevId = 1;
 
@@ -422,7 +427,97 @@ export default function Recipes() {
 	const [order, setOrder] = useState('');
 
 	const [page, setPage] = useState(1);
-	const [recipesPage, setRecipesPage] = useState(24);
+	const [recipesPage, setRecipesPage] = useState(9);
+
+	const alphabeticalOptions = [
+		{
+			name: '',
+			code: '',
+			defult: true,
+		},
+		{
+			name: 'Ascendant',
+			code: 'ztoa',
+		},
+		{
+			name: 'Descendant',
+			code: 'atoz',
+		},
+	];
+	const scoreOptions = [
+		{
+			name: '',
+			code: '',
+			defult: true,
+		},
+		{
+			name: 'From Min to Max',
+			code: 'asc',
+		},
+		{
+			name: 'From Max to Min',
+			code: 'desc',
+		},
+	];
+	const dietsOptions = [
+		{
+			name: '',
+			code: '',
+			defult: true,
+		},
+		{
+			name: 'Gluten Free',
+			code: 'gluten free',
+		},
+		{
+			name: 'Keto',
+			code: 'ketogenic',
+		},
+		{
+			name: 'Vegetarian',
+			code: 'vegetarian',
+		},
+		{
+			name: 'Lacto-Vegetarian',
+			code: 'lacto vegetarian',
+		},
+		{
+			name: 'Ovo-Vegetarian',
+			code: 'ovo vegetarian',
+		},
+		{
+			name: 'Lacto-Ovo-Vegetarian',
+			code: 'lacto ovo vegetarian',
+		},
+		{
+			name: 'Vegan',
+			code: 'vegan',
+		},
+		{
+			name: 'Pescetarian',
+			code: 'pescetarian',
+		},
+		{
+			name: 'Paleo',
+			code: 'paleolithic',
+		},
+		{
+			name: 'Primal',
+			code: 'primal',
+		},
+		{
+			name: 'Low FODMAP',
+			code: 'low fodmap',
+		},
+		{
+			name: 'Whole30',
+			code: 'whole 30',
+		},
+		{
+			name: 'Dairy Free',
+			code: 'dairy free',
+		},
+	];
 
 	const quantityRecipesPage = page * recipesPage;
 	const firstRecipePage = quantityRecipesPage - recipesPage;
@@ -464,46 +559,72 @@ export default function Recipes() {
 
 	return (
 		<div className="all-recipes-container">
-			<h1 className="initialMsg">Let's do it!</h1>
-			<div>
+			<h1 className="initialMsg">Recipes</h1>
+			{/* <div>
 				<button className="refreshButton" onClick={handleClick}>
 					Refresh recipes
 				</button>
 				<Link to="/recipe">
 					<button className="addButton">Add new recipe</button>
 				</Link>
-			</div>
-			<div className="select">
-				<label className="filters">Sort:</label>
-				<select className="select" name="alphabetical" onChange={(e) => handleAlphabeticalSort(e)}>
-					<option disabled>Alphabetical</option>
-					<option value="atoz">A to Z</option>
-					<option value="ztoa">Z to A</option>
-				</select>
-				<select className="select" name="numerical" onChange={(e) => handleScoreSort(e)}>
-					<option disabled>Score</option>
-					<option value="asc">From Min to Max</option>
-					<option value="desc">From Max to Min</option>
-				</select>
-				<label className="filters">Diet Types:</label>
-				<select className="select" name="diets" onChange={(e) => handleDietTypeFilter(e)}>
-					<option disabled>Select...</option>
-					<option value="gluten free">Gluten Free</option>
-					<option value="ketogenic">Keto</option>
-					<option value="vegetarian">Vegetarian</option>
-					<option value="lacto vegetarian">Lacto-Vegetarian</option>
-					<option value="ovo vegetarian">Ovo-Vegetarian</option>
-					<option value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
-					<option value="vegan">Vegan</option>
-					<option value="pescetarian">Pescetarian</option>
-					<option value="paleolithic">Paleo</option>
-					<option value="primal">Primal</option>
-					<option value="low fodmap">Low FODMAP</option>
-					<option value="whole 30">Whole30</option>
-					<option value="dairy free">Dairy Free</option>
-				</select>
+			</div> */}
+			<div className="filter-selects-container">
+				<SelectComponent
+					label={'Alphabetical'}
+					options={alphabeticalOptions}
+					onChange={handleAlphabeticalSort}
+					filter="alphabetical"
+					key={'select-filter-alphabetical'}
+				/>
+				<SelectComponent
+					label={'Score'}
+					options={scoreOptions}
+					onChange={handleScoreSort}
+					filter="numerical"
+					key={'select-filter-score'}
+				/>
+				<SelectComponent
+					label={'Diet'}
+					options={dietsOptions}
+					onChange={handleDietTypeFilter}
+					filter="diets"
+					key={'select-filter-diets'}
+				/>
+
+				{/* <div className="filter-container">
+					<div className="filter-content">
+						<label className="filter-label">Score</label>
+						<select className="filter-select" name="numerical" onChange={(e) => handleScoreSort(e)}>
+							<option disabled>Score</option>
+							<option value="asc">From Min to Max</option>
+							<option value="desc">From Max to Min</option>
+						</select>
+					</div>
+				</div>
+				<div className="filter-container">
+					<div className="filter-content">
+						<label className="filter-label">Diet Types</label>
+						<select className="filter-select" name="diets" onChange={(e) => handleDietTypeFilter(e)}>
+							<option disabled>Select...</option>
+							<option value="gluten free">Gluten Free</option>
+							<option value="ketogenic">Keto</option>
+							<option value="vegetarian">Vegetarian</option>
+							<option value="lacto vegetarian">Lacto-Vegetarian</option>
+							<option value="ovo vegetarian">Ovo-Vegetarian</option>
+							<option value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
+							<option value="vegan">Vegan</option>
+							<option value="pescetarian">Pescetarian</option>
+							<option value="paleolithic">Paleo</option>
+							<option value="primal">Primal</option>
+							<option value="low fodmap">Low FODMAP</option>
+							<option value="whole 30">Whole30</option>
+							<option value="dairy free">Dairy Free</option>
+						</select>
+					</div>
+				</div> */}
 			</div>
 			<SearchBar />
+			<div></div>
 			<Paged recipesPage={recipesPage} allRecipes={allRecipes.length} paged={paged} currentPage={page} />
 			<div className="recipes-container">
 				{showRecipesPage?.map((e) => {

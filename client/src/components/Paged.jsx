@@ -8,8 +8,6 @@ export default function Paged({ recipesPage, allRecipes, paged, currentPage = 1,
 		pages.push(i);
 	}
 
-	console.log(currentPage);
-
 	return (
 		<>
 			{pages.length > 1 && (
