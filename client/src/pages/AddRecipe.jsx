@@ -55,7 +55,7 @@ export default function AddRecipe() {
 	useEffect(() => {
 		//dispatch(getDietTypes());
 		validate(input);
-	}, [dispatch]);
+	}, [dispatch, input]);
 
 	function handleChange(e, vaciar = false) {
 		!vaciar && e.preventDefault();

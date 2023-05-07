@@ -667,7 +667,8 @@ export default function RecipeDetails() {
 
 				<div className="recipe-steps-container">
 					<h2 className="title-container">Preparation</h2>
-					{recipeDetails.analyzedInstructions[0].steps.map((step) => {
+					{recipeDetails.instructions.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, ' ')}
+					{/* {recipeDetails.analyzedInstructions[0].steps.map((step) => {
 						return (
 							<div className="intruction-step-container" key={step.number}>
 								<h4>Step {step.number}</h4>
@@ -677,7 +678,7 @@ export default function RecipeDetails() {
 								)}
 							</div>
 						);
-					})}
+					})} */}
 				</div>
 
 				{/* <Link to="/home">
