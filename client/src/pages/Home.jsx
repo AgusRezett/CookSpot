@@ -6,13 +6,8 @@ import React from 'react';
 import '../styles/Home.css';
 
 // Components
-import { Link } from 'react-router-dom';
 import PrincipalRecipe from '../components/PrincipalRecipe';
-import { Carousel } from 'primereact/carousel';
-import { TiFlash } from 'react-icons/ti';
-import { FaRunning, FaStickerMule } from 'react-icons/fa';
-import { TbHourglassLow } from 'react-icons/tb';
-import { IoIosTimer } from 'react-icons/io';
+import { Carousel } from '../components/Carousel';
 
 // Redux
 import { useState, useEffect } from 'react';
@@ -931,42 +926,6 @@ export default function Home() {
 		},
 	];
 
-	const carouselItem = (item) => {
-		let timeReadyIcon;
-		let timeReadyClass;
-
-		if (item.readyInMinutes > 0 && item.readyInMinutes <= 20) {
-			timeReadyIcon = <TiFlash size={20} color="#fff" />;
-			timeReadyClass = 'time-flash';
-		} else if (item.readyInMinutes > 20 && item.readyInMinutes <= 30) {
-			timeReadyIcon = <FaRunning size={20} color="#fff" />;
-			timeReadyClass = 'time-fast';
-		} else if (item.readyInMinutes > 30 && item.readyInMinutes <= 45) {
-			timeReadyIcon = <TbHourglassLow size={20} color="#fff" />;
-			timeReadyClass = 'time-slow';
-		} else if (item.readyInMinutes > 45 && item.readyInMinutes <= 70) {
-			timeReadyIcon = <FaStickerMule size={20} color="#fff" />;
-			timeReadyClass = 'time-mule';
-		} else if (item.readyInMinutes > 70) {
-			timeReadyIcon = <IoIosTimer size={20} color="#6b7280" />;
-			timeReadyClass = '';
-		}
-
-		return (
-			<Link to={`/recipes/${item.id}`}>
-				<div className="carousel-item-container">
-					<div className="carousel-item-content">
-						<div className="carousel-item-image" style={{ backgroundImage: `url(${item.image})` }}></div>
-						<div className={`random-pick-stats ${timeReadyClass}`}>
-							{timeReadyIcon}
-							{item.readyInMinutes}'
-						</div>
-					</div>
-				</div>
-			</Link>
-		);
-	};
-
 	return (
 		<div className="home">
 			<div className="home-todays-picks-title-container">
@@ -983,45 +942,15 @@ export default function Home() {
 			<div className="carousel-component-container">
 				<div className="background"></div>
 				<h3>Nutritious vegan recipes</h3>
-				<Carousel
-					value={veganRecipes}
-					numScroll={1}
-					numVisible={5}
-					responsiveOptions={responsiveOptions}
-					itemTemplate={carouselItem}
-				/>
+				<Carousel value={veganRecipes} />
 				<h3>Caribbean surprises</h3>
-				<Carousel
-					value={caribbeanRecipes}
-					numScroll={1}
-					numVisible={5}
-					responsiveOptions={responsiveOptions}
-					itemTemplate={carouselItem}
-				/>
+				<Carousel value={caribbeanRecipes} />
 				<h3>Popular American recipes</h3>
-				<Carousel
-					value={americanRecipes}
-					numScroll={1}
-					numVisible={5}
-					responsiveOptions={responsiveOptions}
-					itemTemplate={carouselItem}
-				/>
+				<Carousel value={americanRecipes} />
 				<h3>Italy food</h3>
-				<Carousel
-					value={italianRecipes}
-					numScroll={1}
-					numVisible={5}
-					responsiveOptions={responsiveOptions}
-					itemTemplate={carouselItem}
-				/>
+				<Carousel value={italianRecipes} />
 				<h3>Japanese tradition</h3>
-				<Carousel
-					value={japaneseRecipes}
-					numScroll={1}
-					numVisible={5}
-					responsiveOptions={responsiveOptions}
-					itemTemplate={carouselItem}
-				/>
+				<Carousel value={japaneseRecipes} />
 			</div>
 			{/* <div>
 				<button className="refreshButton" onClick={handleClick}>
