@@ -593,7 +593,7 @@ export default function RecipeDetails() {
 					<div className="recipe-dish-types-container">
 						{recipeDetails.dishTypes?.map((e) => {
 							return (
-								<div className="dish-container">
+								<div className="dish-container" key={e}>
 									<h6 className="dishesanddiets" key={e}>
 										{e}
 									</h6>
@@ -646,13 +646,13 @@ export default function RecipeDetails() {
 						}
 
 						return (
-							<>
+							<div key={e}>
 								{selectedIcon && (
 									<div className="diet-icon-container" key={e} title={e.toLocaleUpperCase()}>
 										{selectedIcon}
 									</div>
 								)}
-							</>
+							</div>
 						);
 					})}
 				</div>
@@ -669,7 +669,7 @@ export default function RecipeDetails() {
 					<h2 className="title-container">Preparation</h2>
 					{recipeDetails.analyzedInstructions[0].steps.map((step) => {
 						return (
-							<div className="intruction-step-container">
+							<div className="intruction-step-container" key={step.number}>
 								<h4>Step {step.number}</h4>
 								<div className="instrucion-content">{step.step}</div>
 								{step.number < recipeDetails.analyzedInstructions[0].steps.length && (

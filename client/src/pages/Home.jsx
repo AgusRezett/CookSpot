@@ -953,7 +953,7 @@ export default function Home() {
 		}
 
 		return (
-			<Link to={`/home/${item.id}`}>
+			<Link to={`/recipes/${item.id}`}>
 				<div className="carousel-item-container">
 					<div className="carousel-item-content">
 						<div className="carousel-item-image" style={{ backgroundImage: `url(${item.image})` }}></div>

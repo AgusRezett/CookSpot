@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
 export const SelectComponent = ({ label, options, filter, onChange }) => {
-	//const [componentActive, setComponentActive] = useState(false);
 	const [selectedOption, setSelectedOption] = useState('');
 
 	const unselectOption = () => {
 		const select = document.getElementById(`filter-select-${filter}`);
 		setSelectedOption();
 		select.value = '';
-		//onChange(select);
 	};
 
 	return (
@@ -32,7 +30,6 @@ export const SelectComponent = ({ label, options, filter, onChange }) => {
 						setSelectedOption(e.target.value);
 						onChange(e);
 					}}
-					//onClick={() => setComponentActive(!componentActive)}
 				>
 					{options.map((option) => {
 						return (

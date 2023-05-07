@@ -29,15 +29,14 @@ const PrincipalRecipe = ({ data, index }) => {
 					}
 				}
 			} else {
-				console.log('hola2');
-				navigate(`/home/${data.id}`);
+				navigate(`/recipes/${data.id}`);
 			}
 		} catch (error) {}
 	};
 
 	return (
 		<Link
-			to={`home/${data.id}`}
+			to={`recipes/${data.id}`}
 			className={`random-pick-container recipe-${index}`}
 			onClick={(e) => handleClick(e)}
 		>

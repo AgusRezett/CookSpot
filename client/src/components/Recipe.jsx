@@ -13,7 +13,7 @@ export default function Recipe(recipes) {
 	return (
 		<div className="recipe-container">
 			<div className="recipe-link">
-				<Link className="recipe-image-container" to={`/home/${id}`}>
+				<Link className="recipe-image-container" to={`/recipes/${id}`}>
 					<img className="recipeImg" src={image} alt="Not found" />
 
 					<div className={`money-bubble ${cheap && 'cheap-recipe'}`}>
@@ -21,7 +21,7 @@ export default function Recipe(recipes) {
 					</div>
 				</Link>
 
-				<Link className="recipe-title-container" to={`/home/${id}`}>
+				<Link className="recipe-title-container" to={`/${id}`}>
 					{title}
 				</Link>
 

@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Recipes from './pages/Recipes';
-//import AddRecipe from './components/AddRecipe';
+import AddRecipe from './pages/AddRecipe';
 import RecipeDetails from './pages/RecipeDetails';
 
 function App() {
@@ -24,7 +24,8 @@ function App() {
 	};
 
 	useEffect(() => {
-		setShowNavbar(location.pathname !== '/');
+		setShowNavbar(location.pathname !== '/' || location.pathname !== '/');
+		//console.log('Cambié');
 	}, [location]);
 
 	return (
@@ -34,9 +35,9 @@ function App() {
 				<Routes>
 					<Route path="/" exact element={<Landing />} />
 					<Route path="/home" exact element={<Home />} />
-					{/* <Route path="/recipe" exact component={AddRecipe} /> */}
+					<Route path="/new-recipe" exact element={<AddRecipe />} />
 					<Route path="/recipes" exact element={<Recipes />} />
-					<Route path="/home/:id" exact element={<RecipeDetails />} />
+					<Route path="/recipes/:id" exact element={<RecipeDetails />} />
 				</Routes>
 			</div>
 		</>
