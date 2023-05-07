@@ -667,7 +667,9 @@ export default function RecipeDetails() {
 
 				<div className="recipe-steps-container">
 					<h2 className="title-container">Preparation</h2>
-					{recipeDetails.instructions.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, ' ')}
+					<p style={{ maxWidth: '900px', fontWeight: '400', marginTop: '15px', lineHeight: '27px' }}>
+						{recipeDetails.instructions.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, ' ')}
+					</p>
 					{/* {recipeDetails.analyzedInstructions[0].steps.map((step) => {
 						return (
 							<div className="intruction-step-container" key={step.number}>
