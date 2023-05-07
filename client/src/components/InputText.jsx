@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
-export const InputText = ({ label, name, value, setValue }) => {
+export const InputText = ({ label, name, value, setValue, type = 'text' }) => {
 	const [selectedOption, setSelectedOption] = useState('');
 
 	const deleteContent = () => {
@@ -27,11 +27,11 @@ export const InputText = ({ label, name, value, setValue }) => {
 					id={`input-element-${name}`}
 					className="input-element"
 					name={name}
-					type="text"
+					type={type}
 					value={value}
 					onChange={(e) => {
 						setSelectedOption(e.target.value.length > 0);
-						setValue(e);
+						type !== 'number' ? setValue(e) : e.target.value >= 0 && e.target.value <= 100 && setValue(e);
 					}}
 				/>
 			</div>

@@ -58,58 +58,102 @@
   z-index: 2;
 }
 .new-recipe-view-container .form-view-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   z-index: 3;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 875px) {
+  .new-recipe-view-container .form-view-container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
 .new-recipe-view-container .form-view-container form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
   height: auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  /* grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 15px;
-  grid-row-gap: 15px;
+  grid-row-gap: 15px; */
 }
-.new-recipe-view-container .form-view-container form .inputs-container, .new-recipe-view-container .form-view-container form .form-diets-container, .new-recipe-view-container .form-view-container form .form-summary-container, .new-recipe-view-container .form-view-container form .form-general-container {
+@media screen and (max-width: 875px) {
+  .new-recipe-view-container .form-view-container form {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.new-recipe-view-container .form-view-container form .inputs-container, .new-recipe-view-container .form-view-container form .form-steps-container, .new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container, .new-recipe-view-container .form-view-container form .common-inputs-container .form-summary-container, .new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.2509803922);
   max-width: 600px;
+  width: 100%;
+  margin-top: 15px;
 }
-.new-recipe-view-container .form-view-container form .inputs-content, .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content, .new-recipe-view-container .form-view-container form .form-diets-container .form-diets-content, .new-recipe-view-container .form-view-container form .form-summary-container .form-summary-content, .new-recipe-view-container .form-view-container form .form-general-container .form-general-content {
+.new-recipe-view-container .form-view-container form .inputs-container:first-child, .new-recipe-view-container .form-view-container form .form-steps-container:first-child, .new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container:first-child, .new-recipe-view-container .form-view-container form .common-inputs-container .form-summary-container:first-child, .new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container:first-child {
+  margin-top: 0;
+}
+.new-recipe-view-container .form-view-container form .inputs-content, .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content, .new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container .form-diets-content, .new-recipe-view-container .form-view-container form .common-inputs-container .form-summary-container .form-summary-content, .new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content {
   padding: 20px;
 }
-.new-recipe-view-container .form-view-container form .inputs-content .input-container, .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content .input-container, .new-recipe-view-container .form-view-container form .form-diets-container .form-diets-content .input-container, .new-recipe-view-container .form-view-container form .form-summary-container .form-summary-content .input-container, .new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container {
+.new-recipe-view-container .form-view-container form .inputs-content .input-container, .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content .input-container, .new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container .form-diets-content .input-container, .new-recipe-view-container .form-view-container form .common-inputs-container .form-summary-container .form-summary-content .input-container, .new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container {
   margin-bottom: 10px;
 }
-.new-recipe-view-container .form-view-container form .inputs-content .errors, .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content .errors, .new-recipe-view-container .form-view-container form .form-diets-container .form-diets-content .errors, .new-recipe-view-container .form-view-container form .form-summary-container .form-summary-content .errors, .new-recipe-view-container .form-view-container form .form-general-container .form-general-content .errors {
-  margin-top: 10px;
-  padding: 4px 8px;
-  border-radius: 10px;
-  background-color: #0d319c;
+.new-recipe-view-container .form-view-container form .inputs-content .errors, .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content .errors, .new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container .form-diets-content .errors, .new-recipe-view-container .form-view-container form .common-inputs-container .form-summary-container .form-summary-content .errors, .new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .errors {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 6px;
+  border-radius: 50px;
+  background-color: #e01f1f;
   font-size: 0.9rem;
   color: #fff;
 }
-.new-recipe-view-container .form-view-container form .form-general-container {
+.new-recipe-view-container .form-view-container form .inputs-content .errors p, .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content .errors p, .new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container .form-diets-content .errors p, .new-recipe-view-container .form-view-container form .common-inputs-container .form-summary-container .form-summary-content .errors p, .new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .errors p {
+  line-height: 14px;
+  margin-left: 5px;
+}
+.new-recipe-view-container .form-view-container form .inputs-content .complete, .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content .complete, .new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container .form-diets-content .complete, .new-recipe-view-container .form-view-container form .common-inputs-container .form-summary-container .form-summary-content .complete, .new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .complete {
+  background-color: #0d9c2c;
+}
+.new-recipe-view-container .form-view-container form .common-inputs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 600px;
+}
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container {
   grid-area: 1/1/2/2;
 }
-.new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container {
   width: 100%;
   margin-top: 35px;
 }
-.new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container:first-child {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container:first-child {
   margin-top: 20px;
 }
 @media screen and (max-width: 570px) {
-  .new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container {
+  .new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container {
     width: 100%;
-    margin-bottom: 35px;
   }
 }
-.new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container .input-content {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container .input-content {
   position: relative;
   width: 100%;
 }
-.new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container .input-content .input-label {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container .input-content .input-label {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -123,14 +167,14 @@
   user-select: none;
   pointer-events: none;
 }
-.new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container .input-content .label-active {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container .input-content .label-active {
   top: -23px;
   left: 0px;
   font-size: 0.8rem;
   font-weight: 600;
   pointer-events: all;
 }
-.new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container .input-content .unselect-input-button {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container .input-content .unselect-input-button {
   position: absolute;
   top: -20.5px;
   right: 0px;
@@ -139,13 +183,13 @@
   opacity: 0;
   cursor: pointer;
 }
-.new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container .input-content .unselect-input-button:hover {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container .input-content .unselect-input-button:hover {
   fill: #341c0c;
 }
-.new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container .input-content .unselect-input-button--active {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container .input-content .unselect-input-button--active {
   opacity: 1;
 }
-.new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container .input-content .input-element {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container .input-content .input-element {
   width: 100%;
   height: 40px;
   padding-left: 8px;
@@ -155,33 +199,30 @@
   border: 1px solid #000;
   border-radius: 0px;
 }
-.new-recipe-view-container .form-view-container form .form-general-container .form-general-content .input-container .input-content .input-element:focus {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-general-container .form-general-content .input-container .input-content .input-element:focus {
   outline: none;
 }
-.new-recipe-view-container .form-view-container form .form-summary-container {
-  grid-area: 2/1/3/2;
-}
-.new-recipe-view-container .form-view-container form .form-summary-container .form-summary-content h4 {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-summary-container .form-summary-content h4 {
   margin-bottom: 10px;
 }
-.new-recipe-view-container .form-view-container form .form-summary-container .form-summary-content textarea {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-summary-container .form-summary-content textarea {
   width: 100%;
   height: 100%;
   resize: none;
   min-height: 120px;
   margin-bottom: 10px;
 }
-.new-recipe-view-container .form-view-container form .form-diets-container {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container {
   grid-area: 3/1/4/2;
 }
-.new-recipe-view-container .form-view-container form .form-diets-container .form-diets-content .diets-container {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container .form-diets-content .diets-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
 }
-.new-recipe-view-container .form-view-container form .form-diets-container .form-diets-content .diets-container .diet-check-container {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container .form-diets-content .diets-container .diet-check-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -198,23 +239,54 @@
   font-family: "Aftika";
   font-size: 0.8rem;
 }
-.new-recipe-view-container .form-view-container form .form-diets-container .form-diets-content .diets-container .diet-check-container--active {
+.new-recipe-view-container .form-view-container form .common-inputs-container .form-diets-container .form-diets-content .diets-container .diet-check-container--active {
   background: #027b53;
   color: #fff;
 }
 .new-recipe-view-container .form-view-container form .form-steps-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: stretch;
-  grid-area: 1/2/4/3;
-  max-width: 600px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: 0;
+  margin-left: 15px;
+}
+@media screen and (max-width: 875px) {
+  .new-recipe-view-container .form-view-container form .form-steps-container {
+    margin-top: 15px;
+    margin-left: 0px;
+    height: 100%;
+    padding-bottom: 100px;
+  }
 }
 .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content {
+  width: 100%;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.2509803922);
-  height: 100%;
+  height: 615px;
+}
+.new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content .steps-input {
+  width: 100%;
+  height: 95.5%;
+  resize: none;
+  padding: 4px 8px;
+}
+.new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content .errors {
+  display: flex;
+  height: 4.5%;
+  margin-top: 6px;
+}
+@media screen and (max-width: 875px) {
+  .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content {
+    height: auto;
+  }
+  .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content .steps-input {
+    resize: vertical;
+    height: 400px;
+  }
+  .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content .errors {
+    height: auto;
+  }
 }
 .new-recipe-view-container .form-view-container form .form-steps-container .navigation-btns {
   display: flex;

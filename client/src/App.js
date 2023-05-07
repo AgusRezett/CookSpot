@@ -14,6 +14,7 @@ function App() {
 
 	const paddingMainContainerStyles = {
 		padding: 20,
+		paddingLeft: location.pathname === '/new-recipe' && window.innerWidth < 640 ? 40 : 20,
 		paddingTop: showNavbar
 			? mainContainerPaddingTop === 40
 				? mainContainerPaddingTop + 50
