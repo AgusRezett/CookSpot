@@ -36,6 +36,7 @@ router.get('/', async (req, res, next) => {
 					id: e.id,
 					image: e.image,
 					title: e.title,
+					name: e.name,
 					diets: e.diets ? e.diets : e.diets.map((e) => e.name),
 					healthScore: e.healthScore,
 					aggregateLikes: e.aggregateLikes,

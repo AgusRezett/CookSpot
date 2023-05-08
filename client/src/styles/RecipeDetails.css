@@ -70,6 +70,7 @@
 .recipe-details-container .recipe-details-content .recipe-details-header-container .recipe-image-container img {
   width: 100%;
   height: auto;
+  aspect-ratio: inherit;
 }
 .recipe-details-container .recipe-details-content .recipe-details-header-container h4 {
   margin-top: 5px;

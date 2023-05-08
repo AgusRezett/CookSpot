@@ -561,14 +561,6 @@ export default function Recipes() {
 			<h1 className="initialMsg">Recipes</h1>
 			<p style={{ fontWeight: 400, marginTop: 10 }}>Look through your favorites plates.</p>
 			<SearchBar />
-			{/* <div>
-				<button className="refreshButton" onClick={handleClick}>
-					Refresh recipes
-				</button>
-				<Link to="/recipe">
-					<button className="addButton">Add new recipe</button>
-				</Link>
-			</div> */}
 			<div className="filter-selects-container">
 				<SelectComponent
 					label={'Alphabetical'}
@@ -591,44 +583,13 @@ export default function Recipes() {
 					filter="diets"
 					key={'select-filter-diets'}
 				/>
-
-				{/* <div className="filter-container">
-					<div className="filter-content">
-						<label className="filter-label">Score</label>
-						<select className="filter-select" name="numerical" onChange={(e) => handleScoreSort(e)}>
-							<option disabled>Score</option>
-							<option value="asc">From Min to Max</option>
-							<option value="desc">From Max to Min</option>
-						</select>
-					</div>
-				</div>
-				<div className="filter-container">
-					<div className="filter-content">
-						<label className="filter-label">Diet Types</label>
-						<select className="filter-select" name="diets" onChange={(e) => handleDietTypeFilter(e)}>
-							<option disabled>Select...</option>
-							<option value="gluten free">Gluten Free</option>
-							<option value="ketogenic">Keto</option>
-							<option value="vegetarian">Vegetarian</option>
-							<option value="lacto vegetarian">Lacto-Vegetarian</option>
-							<option value="ovo vegetarian">Ovo-Vegetarian</option>
-							<option value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
-							<option value="vegan">Vegan</option>
-							<option value="pescetarian">Pescetarian</option>
-							<option value="paleolithic">Paleo</option>
-							<option value="primal">Primal</option>
-							<option value="low fodmap">Low FODMAP</option>
-							<option value="whole 30">Whole30</option>
-							<option value="dairy free">Dairy Free</option>
-						</select>
-					</div>
-				</div> */}
 			</div>
 
 			<div></div>
 			<Pagination recipesPage={recipesPage} allRecipes={allRecipes.length} paged={paged} currentPage={page} />
 			<div className="recipes-container">
 				{showRecipesPage?.map((e) => {
+					console.log(e);
 					return (
 						<Recipe
 							id={e.id}
@@ -638,8 +599,8 @@ export default function Recipes() {
 									: 'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'
 							}
 							title={e.title}
+							name={e.name}
 							dietTypes={e.diets}
-							score={e.spoonacularScore}
 							aggregateLikes={e.aggregateLikes}
 							readyInMinutes={e.readyInMinutes}
 							cheap={e.cheap}

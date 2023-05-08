@@ -558,7 +558,7 @@ export default function RecipeDetails() {
 
 	return (
 		<div className="recipe-details-container" key={id}>
-			{recipeDetails.image && (
+			{recipeDetails.healthScore && (
 				<div className="recipe-details-content" key={id}>
 					<div className="recipe-details-header-container">
 						<div className="recipe-image-container">
@@ -573,12 +573,16 @@ export default function RecipeDetails() {
 							/>
 						</div>
 						<h4>
-							Photo by {recipeDetails.creditsText}, {recipeDetails.sourceName}; {recipeDetails.license}
+							{recipeDetails.creditsText
+								? `Photo by ${recipeDetails.creditsText}, ${recipeDetails.sourceName}; ${recipeDetails.license}`
+								: 'Demo photo'}
 						</h4>
 					</div>
 
 					<h3 className="middle-article-title">Recipe</h3>
-					<h1 className="middle-recipe-title">{recipeDetails.title}</h1>
+					<h1 className="middle-recipe-title">
+						{recipeDetails.title ? recipeDetails.title : recipeDetails.name}
+					</h1>
 
 					<div className="score-recipes-container">
 						<div className="score-recipe-container">
@@ -606,9 +610,11 @@ export default function RecipeDetails() {
 					<div className="diets-bubble-container">
 						{recipeDetails.diets?.map((e) => {
 							let selectedIcon;
-							switch (e) {
+							let value = recipeDetails.title ? e : e.name;
+							value.replaceAll('-', ' ');
+							switch (value) {
 								case 'ketogenic':
-									selectedIcon = '';
+									selectedIcon = <GiCarrot />;
 									break;
 								case 'vegetarian':
 									selectedIcon = <GiCarrot />;
@@ -616,10 +622,10 @@ export default function RecipeDetails() {
 								case 'dairy free':
 									selectedIcon = <IoIosCalendar />;
 									break;
-								case 'lacto-vegetarian':
-									selectedIcon = '';
+								case 'lacto vegetarian':
+									selectedIcon = <GiMilkCarton />;
 									break;
-								case 'ovo-vegetarian':
+								case 'ovo vegetarian':
 									selectedIcon = <IoEgg />;
 									break;
 								case 'lacto ovo vegetarian':
@@ -646,9 +652,13 @@ export default function RecipeDetails() {
 							}
 
 							return (
-								<div key={e}>
+								<div key={value}>
 									{selectedIcon && (
-										<div className="diet-icon-container" key={e} title={e.toLocaleUpperCase()}>
+										<div
+											className="diet-icon-container"
+											key={value}
+											title={value.toLocaleUpperCase()}
+										>
 											{selectedIcon}
 										</div>
 									)}
@@ -668,7 +678,8 @@ export default function RecipeDetails() {
 					<div className="recipe-steps-container">
 						<h2 className="title-container">Preparation</h2>
 						<p style={{ maxWidth: '900px', fontWeight: '400', marginTop: '15px', lineHeight: '27px' }}>
-							{recipeDetails.instructions.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, ' ')}
+							{recipeDetails.instructions?.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, ' ')}
+							{recipeDetails.steps?.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, ' ')}
 						</p>
 						{/* {recipeDetails.analyzedInstructions[0].steps.map((step) => {
 						return (
