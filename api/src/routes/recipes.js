@@ -21,7 +21,9 @@ router.get('/', async (req, res, next) => {
 
 		if (title) {
 			let recipesByName = allRecipes.filter((e) =>
-				e.title.toLowerCase().includes(title.toString().toLowerCase())
+				e.title
+					? e.title.toLowerCase().includes(title.toString().toLowerCase())
+					: e.name.toLowerCase().includes(title.toString().toLowerCase())
 			);
 			console.log(recipesByName);
 			console.log('recipesByName');
