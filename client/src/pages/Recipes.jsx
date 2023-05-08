@@ -528,6 +528,8 @@ export default function Recipes() {
 
 	useEffect(() => {
 		dispatch(getRecipes());
+
+		return () => {};
 	}, [dispatch]);
 
 	function handleClick(e) {

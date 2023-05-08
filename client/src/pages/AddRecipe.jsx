@@ -27,22 +27,8 @@ function validate(input) {
 export default function AddRecipe() {
 	const dispatch = useDispatch();
 	let navigate = useNavigate();
-	//const dietTypes = useSelector((state) => state.dietTypes);
-	const dietTypes = [
-		'ketogenic',
-		'vegetarian',
-		'vegan',
-		'primal',
-		'whole 30',
-		'gluten free',
-		'pescetarian',
-		'dairy free',
-		'ovo vegetarian',
-		'paleolithic',
-		'lacto vegetarian',
-		'lacto ovo vegetarian',
-		'low fodmap',
-	];
+	const dietTypes = useSelector((state) => state.dietTypes);
+
 	const [errors, setErrors] = useState({});
 
 	const [input, setInput] = useState({
@@ -106,19 +92,19 @@ export default function AddRecipe() {
 		} else {
 			dispatch(addRecipe(input));
 			alert('New recipe added successfully!');
-			/* setInput({
+			setInput({
 				name: '',
 				summary: '',
 				healthScore: '',
 				steps: [],
 				dietTypes: [],
 			});
-			navigate(`/home`); */
+			navigate(`/recipes`);
 		}
 	}
 
 	useEffect(() => {
-		//dispatch(getDietTypes());
+		dispatch(getDietTypes());
 		setErrors(validate(input));
 	}, [dispatch, input]);
 

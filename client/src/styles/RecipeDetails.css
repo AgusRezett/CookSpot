@@ -101,6 +101,7 @@
   width: 100%;
   height: auto;
   margin-top: 15px;
+  margin-bottom: 30px;
 }
 .recipe-details-container .recipe-details-content .score-recipes-container .score-recipe-container {
   display: flex;

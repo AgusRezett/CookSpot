@@ -25,8 +25,6 @@ router.get('/', async (req, res, next) => {
 					? e.title.toLowerCase().includes(title.toString().toLowerCase())
 					: e.name.toLowerCase().includes(title.toString().toLowerCase())
 			);
-			console.log(recipesByName);
-			console.log('recipesByName');
 			if (recipesByName.length) {
 				finalRecipes = recipesByName;
 			} else {

@@ -96,7 +96,6 @@ const getDbById = async (id) => {
 const getAllRecipes = async () => {
 	const apiInfo = await getApiInfo();
 	const dbInfo = await getDbInfo();
-	console.log(dbInfo);
 	const totalInfo = apiInfo.concat(dbInfo);
 
 	return totalInfo;

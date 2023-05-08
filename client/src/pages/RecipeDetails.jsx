@@ -13,13 +13,14 @@ import '../styles/RecipeDetails.css';
 // Iamges & Icons
 import { IoIosCalendar, IoIosLeaf, IoIosPie } from 'react-icons/io';
 import { IoEgg, IoFish } from 'react-icons/io5';
-import { GiMilkCarton, GiCarrot, GiHealthNormal } from 'react-icons/gi';
+import { GiMilkCarton, GiCarrot, GiHealthNormal, GiMeat, GiCaveman, GiCow, GiJellyBeans } from 'react-icons/gi';
 import { MdSportsScore } from 'react-icons/md';
 import GlutenFree from '../assets/svgs/gluten-free.svg';
 
 //Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { getRecipeDetails } from '../actions';
+import { FaSeedling, FaTape } from 'react-icons/fa';
 
 export default function RecipeDetails() {
 	const dispatch = useDispatch();
@@ -614,7 +615,7 @@ export default function RecipeDetails() {
 							value.replaceAll('-', ' ');
 							switch (value) {
 								case 'ketogenic':
-									selectedIcon = <GiCarrot />;
+									selectedIcon = <GiMeat />;
 									break;
 								case 'vegetarian':
 									selectedIcon = <GiCarrot />;
@@ -629,16 +630,16 @@ export default function RecipeDetails() {
 									selectedIcon = <IoEgg />;
 									break;
 								case 'lacto ovo vegetarian':
-									selectedIcon = <GiMilkCarton />;
+									selectedIcon = <GiCow />;
 									break;
 								case 'pescetarian':
 									selectedIcon = <IoFish />;
 									break;
-								case 'paleo':
-									selectedIcon = '';
+								case 'paleolithic':
+									selectedIcon = <FaSeedling />;
 									break;
 								case 'primal':
-									selectedIcon = '';
+									selectedIcon = <GiCaveman />;
 									break;
 								case 'gluten free':
 									selectedIcon = <img src={GlutenFree} alt="gluten-icon" />;
@@ -646,7 +647,12 @@ export default function RecipeDetails() {
 								case 'vegan':
 									selectedIcon = <IoIosLeaf />;
 									break;
-
+								case 'low fodmap':
+									selectedIcon = <GiJellyBeans />;
+									break;
+								case 'whole 30':
+									selectedIcon = <FaTape />;
+									break;
 								default:
 									break;
 							}
