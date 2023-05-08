@@ -6,12 +6,12 @@ const { Recipe, Diet, conn } = require('../../src/db.js');
 
 const agent = session(app);
 const recipe = {
-	name: 'Chicken Soup',
+	title: 'Chicken Soup',
 	summary: 'Delicious soup, an special recipe from my grandma',
 };
 
 const diet = {
-	name: 'Vegan',
+	title: 'Vegan',
 };
 
 describe('Api routes test', () => {
@@ -39,22 +39,22 @@ describe('Api routes test', () => {
 	});
 
 	describe('POST /api/recipe', () => {
-		it('should reply the POST method /api/recipe whith code 500 if name and summary is not sent', async () => {
+		it('should reply the POST method /api/recipe whith code 500 if title and summary is not sent', async () => {
 			const res = await agent.post('/api/recipe').send({});
 			expect(res.statusCode).to.equal(500);
-			const res1 = await agent.post('/api/recipe').send({ name: 'Ice Cream' });
+			const res1 = await agent.post('/api/recipe').send({ title: 'Ice Cream' });
 			expect(res1.statusCode).to.equal(500);
 		});
-		it('should reply the POST method /api/recipe with status code 200 if name, summary and dietTypes is sent', async () => {
+		it('should reply the POST method /api/recipe with status code 200 if title, summary and dietTypes is sent', async () => {
 			const res2 = await agent
 				.post('/api/recipe')
-				.send({ name: 'Ice Cream', summary: 'Refreshing option', dietTypes: 'vegan' });
+				.send({ title: 'Ice Cream', summary: 'Refreshing option', dietTypes: 'vegan' });
 			expect(res2.statusCode).to.equal(200);
 		});
 	});
 });
 
-//{name: 'Mango Ice Cream', summary: 'Ice Cream', score: 50, healthScore: 50, steps: 'Buy it!'}
+//{title: 'Mango Ice Cream', summary: 'Ice Cream', healthScore: 50, steps: 'Buy it!'}
 
 // it('should reply the POST method /bodyData with status code 200 if data is send', async () => {
 //   const res = await request(app).post('/bodyData').send({arg1: 3, arg2: 7});

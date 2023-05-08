@@ -92,9 +92,7 @@ export default function AddRecipe() {
 		setErrors(validations);
 	}
 
-	function handleSubmit(e) {
-		e.preventDefault();
-
+	function handleSubmit() {
 		if (Object.values(errors).length > 0) {
 			alert('Please complete the information required');
 		} else if (
@@ -108,14 +106,14 @@ export default function AddRecipe() {
 		} else {
 			dispatch(addRecipe(input));
 			alert('New recipe added successfully!');
-			setInput({
+			/* setInput({
 				name: '',
 				summary: '',
 				healthScore: '',
 				steps: [],
 				dietTypes: [],
 			});
-			navigate(`/home`);
+			navigate(`/home`); */
 		}
 	}
 
@@ -218,7 +216,9 @@ export default function AddRecipe() {
 							<Link to="/home" className="navigate-back-btn">
 								Go back
 							</Link>
-							<div className="submit-form-btn">Submit Recipe</div>
+							<div onClick={handleSubmit} className="submit-form-btn">
+								Submit Recipe
+							</div>
 						</div>
 					</div>
 				</form>

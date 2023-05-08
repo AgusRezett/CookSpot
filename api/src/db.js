@@ -12,7 +12,7 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-// Lectura de modelos y conexión a Sequelize
+// Lectura de modelos y conección a Sequelize
 fs.readdirSync(path.join(__dirname, '/models'))
 	.filter((file) => file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js')
 	.forEach((file) => {

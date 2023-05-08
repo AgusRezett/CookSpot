@@ -10,8 +10,6 @@ const getApiInfo = async () => {
 			`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=50`
 		);
 
-		console.log(apiUrl.data.results);
-
 		const apiInfo = await apiUrl.data.results.map((e) => {
 			return {
 				id: e.id,
@@ -21,10 +19,9 @@ const getApiInfo = async () => {
 				diets: e.diets,
 				aggregateLikes: e.aggregateLikes,
 				readyInMinutes: e.readyInMinutes,
+				healthScore: e.healthScore,
 			};
 		});
-
-		console.log(apiInfo);
 
 		return apiInfo;
 	} catch (error) {
@@ -35,7 +32,7 @@ const getApiInfo = async () => {
 };
 
 const getDbInfo = async () => {
-	const databaseInfo = await Recipe.findAll({
+	return await Recipe.findAll({
 		include: {
 			model: Diet,
 			attributes: ['name'],
@@ -44,8 +41,6 @@ const getDbInfo = async () => {
 			},
 		},
 	});
-
-	return databaseInfo;
 };
 
 const getApiById = async (id) => {
@@ -101,6 +96,7 @@ const getDbById = async (id) => {
 const getAllRecipes = async () => {
 	const apiInfo = await getApiInfo();
 	const dbInfo = await getDbInfo();
+	console.log(dbInfo);
 	const totalInfo = apiInfo.concat(dbInfo);
 
 	return totalInfo;

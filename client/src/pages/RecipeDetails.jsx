@@ -24,13 +24,13 @@ import { getRecipeDetails } from '../actions';
 export default function RecipeDetails() {
 	const dispatch = useDispatch();
 	let { id } = useParams();
-	//const recipeDetails = useSelector((state) => state.recipeDetails);
+	const recipeDetails = useSelector((state) => state.recipeDetails);
 
 	useEffect(() => {
-		//dispatch(getRecipeDetails(id));
+		dispatch(getRecipeDetails(id));
 	}, [dispatch, id]);
 
-	const recipeDetails = {
+	/* const recipeDetails = {
 		vegetarian: true,
 		vegan: true,
 		glutenFree: true,
@@ -554,123 +554,123 @@ export default function RecipeDetails() {
 		],
 		originalId: null,
 		spoonacularSourceUrl: 'https://spoonacular.com/cauliflower-brown-rice-and-vegetable-fried-rice-716426',
-	};
-	//console.log(recipeDetails);
+	}; */
 
 	return (
 		<div className="recipe-details-container" key={id}>
-			<div className="recipe-details-content" key={id}>
-				<div className="recipe-details-header-container">
-					<div className="recipe-image-container">
-						<img
-							className="detailImg"
-							src={
-								recipeDetails.image
-									? recipeDetails.image
-									: 'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'
-							}
-							alt="Pic not found"
-						/>
-					</div>
-					<h4>
-						Photo by {recipeDetails.creditsText}, {recipeDetails.sourceName}; {recipeDetails.license}
-					</h4>
-				</div>
-
-				<h3 className="middle-article-title">Recipe</h3>
-				<h1 className="middle-recipe-title">{recipeDetails.title}</h1>
-
-				<div className="score-recipes-container">
-					<div className="score-recipe-container">
-						<div className="score-recipe-bubble health">
-							<GiHealthNormal size={20} color="#fff" />
+			{recipeDetails.image && (
+				<div className="recipe-details-content" key={id}>
+					<div className="recipe-details-header-container">
+						<div className="recipe-image-container">
+							<img
+								className="detailImg"
+								src={
+									recipeDetails.image
+										? recipeDetails.image
+										: 'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'
+								}
+								alt="Pic not found"
+							/>
 						</div>
-						<p>{recipeDetails.healthScore ? recipeDetails.healthScore : '--'}%</p>
+						<h4>
+							Photo by {recipeDetails.creditsText}, {recipeDetails.sourceName}; {recipeDetails.license}
+						</h4>
 					</div>
-				</div>
 
-				{recipeDetails.dishTypes && (
-					<div className="recipe-dish-types-container">
-						{recipeDetails.dishTypes?.map((e) => {
+					<h3 className="middle-article-title">Recipe</h3>
+					<h1 className="middle-recipe-title">{recipeDetails.title}</h1>
+
+					<div className="score-recipes-container">
+						<div className="score-recipe-container">
+							<div className="score-recipe-bubble health">
+								<GiHealthNormal size={20} color="#fff" />
+							</div>
+							<p>{recipeDetails.healthScore ? recipeDetails.healthScore : '--'}%</p>
+						</div>
+					</div>
+
+					{recipeDetails.dishTypes && (
+						<div className="recipe-dish-types-container">
+							{recipeDetails.dishTypes?.map((e) => {
+								return (
+									<div className="dish-container" key={e}>
+										<h6 className="dishesanddiets" key={e}>
+											{e}
+										</h6>
+									</div>
+								);
+							})}
+						</div>
+					)}
+
+					<div className="diets-bubble-container">
+						{recipeDetails.diets?.map((e) => {
+							let selectedIcon;
+							switch (e) {
+								case 'ketogenic':
+									selectedIcon = '';
+									break;
+								case 'vegetarian':
+									selectedIcon = <GiCarrot />;
+									break;
+								case 'dairy free':
+									selectedIcon = <IoIosCalendar />;
+									break;
+								case 'lacto-vegetarian':
+									selectedIcon = '';
+									break;
+								case 'ovo-vegetarian':
+									selectedIcon = <IoEgg />;
+									break;
+								case 'lacto ovo vegetarian':
+									selectedIcon = <GiMilkCarton />;
+									break;
+								case 'pescetarian':
+									selectedIcon = <IoFish />;
+									break;
+								case 'paleo':
+									selectedIcon = '';
+									break;
+								case 'primal':
+									selectedIcon = '';
+									break;
+								case 'gluten free':
+									selectedIcon = <img src={GlutenFree} alt="gluten-icon" />;
+									break;
+								case 'vegan':
+									selectedIcon = <IoIosLeaf />;
+									break;
+
+								default:
+									break;
+							}
+
 							return (
-								<div className="dish-container" key={e}>
-									<h6 className="dishesanddiets" key={e}>
-										{e}
-									</h6>
+								<div key={e}>
+									{selectedIcon && (
+										<div className="diet-icon-container" key={e} title={e.toLocaleUpperCase()}>
+											{selectedIcon}
+										</div>
+									)}
 								</div>
 							);
 						})}
 					</div>
-				)}
 
-				<div className="diets-bubble-container">
-					{recipeDetails.diets?.map((e) => {
-						let selectedIcon;
-						switch (e) {
-							case 'ketogenic':
-								selectedIcon = '';
-								break;
-							case 'vegetarian':
-								selectedIcon = <GiCarrot />;
-								break;
-							case 'dairy free':
-								selectedIcon = <IoIosCalendar />;
-								break;
-							case 'lacto-vegetarian':
-								selectedIcon = '';
-								break;
-							case 'ovo-vegetarian':
-								selectedIcon = <IoEgg />;
-								break;
-							case 'lacto ovo vegetarian':
-								selectedIcon = <GiMilkCarton />;
-								break;
-							case 'pescetarian':
-								selectedIcon = <IoFish />;
-								break;
-							case 'paleo':
-								selectedIcon = '';
-								break;
-							case 'primal':
-								selectedIcon = '';
-								break;
-							case 'gluten free':
-								selectedIcon = <img src={GlutenFree} alt="gluten-icon" />;
-								break;
-							case 'vegan':
-								selectedIcon = <IoIosLeaf />;
-								break;
-
-							default:
-								break;
-						}
-
-						return (
-							<div key={e}>
-								{selectedIcon && (
-									<div className="diet-icon-container" key={e} title={e.toLocaleUpperCase()}>
-										{selectedIcon}
-									</div>
-								)}
-							</div>
-						);
-					})}
-				</div>
-
-				<div className="summary-container">
-					<div className="readytime-container">
-						<h4>TOTAL TIME </h4>
-						<p>{recipeDetails.readyInMinutes} minutes</p>
+					<div className="summary-container">
+						<div className="readytime-container">
+							<h4>TOTAL TIME </h4>
+							<p>{recipeDetails.readyInMinutes} minutes</p>
+						</div>
+						<div className="summary-content"> {parse(recipeDetails.summary)} </div>
 					</div>
-					<div className="summary-content"> {parse(recipeDetails.summary)} </div>
-				</div>
 
-				<div className="recipe-steps-container">
-					<h2 className="title-container">Preparation</h2>
-					<p style={{ maxWidth: '900px', fontWeight: '400', marginTop: '15px', lineHeight: '27px' }}>
-						{recipeDetails.instructions.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, ' ')}
-					</p>
-					{/* {recipeDetails.analyzedInstructions[0].steps.map((step) => {
+					<div className="recipe-steps-container">
+						<h2 className="title-container">Preparation</h2>
+						<p style={{ maxWidth: '900px', fontWeight: '400', marginTop: '15px', lineHeight: '27px' }}>
+							{recipeDetails.instructions.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, ' ')}
+						</p>
+						{/* {recipeDetails.analyzedInstructions[0].steps.map((step) => {
 						return (
 							<div className="intruction-step-container" key={step.number}>
 								<h4>Step {step.number}</h4>
@@ -681,12 +681,13 @@ export default function RecipeDetails() {
 							</div>
 						);
 					})} */}
-				</div>
+					</div>
 
-				{/* <Link to="/home">
+					{/* <Link to="/home">
 					<button className="backButton">Go back to recipes</button>
 				</Link> */}
-			</div>
+				</div>
+			)}
 		</div>
 	);
 }

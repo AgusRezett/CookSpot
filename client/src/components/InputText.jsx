@@ -6,7 +6,6 @@ export const InputText = ({ label, name, value, setValue, type = 'text' }) => {
 
 	const deleteContent = () => {
 		const input = document.getElementById(`input-element-${name}`);
-		console.log(input);
 		setValue(input, true);
 		setSelectedOption(false);
 	};

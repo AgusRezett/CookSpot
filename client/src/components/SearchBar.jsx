@@ -16,6 +16,7 @@ export default function SearchBar() {
 
 	function handleSubmit(e) {
 		try {
+			console.log('busque');
 			dispatch(getRecipesByName(searchValue));
 		} catch (error) {
 			return error;

@@ -21,8 +21,8 @@ export function getRecipes() {
 		axios
 			.get(`${LOCAL_HOST}/api/recipes`)
 			.then((response) => {
-				//return dispatch({ type: GET_RECIPES, payload: response.data });
 				return dispatch({ type: GET_RECIPES, payload: response.data });
+				//return dispatch({ type: GET_RECIPES, payload: response.data });
 			})
 			.catch((error) => {
 				console.log(error);
@@ -72,7 +72,7 @@ export function getAmericanRecipes(payload) {
 export function getCaribbeanRecipes(payload) {
 	return function (dispatch) {
 		axios
-			.get(`${LOCAL_HOST}/api/recipes/american/${payload}`)
+			.get(`${LOCAL_HOST}/api/recipes/caribbean/${payload}`)
 			.then((response) => {
 				return dispatch({ type: GET_CARIBBEAN_RECIPES, payload: response.data });
 			})
@@ -85,7 +85,7 @@ export function getCaribbeanRecipes(payload) {
 export function getItalianRecipes(payload) {
 	return function (dispatch) {
 		axios
-			.get(`${LOCAL_HOST}/api/recipes/american/${payload}`)
+			.get(`${LOCAL_HOST}/api/recipes/italian/${payload}`)
 			.then((response) => {
 				return dispatch({ type: GET_ITALIAN_RECIPES, payload: response.data });
 			})
@@ -98,7 +98,7 @@ export function getItalianRecipes(payload) {
 export function getJapaneseRecipes(payload) {
 	return function (dispatch) {
 		axios
-			.get(`${LOCAL_HOST}/api/recipes/american/${payload}`)
+			.get(`${LOCAL_HOST}/api/recipes/japanese/${payload}`)
 			.then((response) => {
 				return dispatch({ type: GET_JAPANESE_RECIPES, payload: response.data });
 			})
@@ -111,7 +111,7 @@ export function getJapaneseRecipes(payload) {
 export function getRecipesByName(payload) {
 	return async function (dispatch) {
 		try {
-			var response = await axios.get(`${LOCAL_HOST}/api/recipes?name=${payload}`);
+			var response = await axios.get(`${LOCAL_HOST}/api/recipes?title=${payload}`);
 			return dispatch({ type: SEARCH_RECIPE, payload: response.data });
 		} catch {
 			return alert('Recipe Not Found');

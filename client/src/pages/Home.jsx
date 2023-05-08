@@ -13,29 +13,24 @@ import { Carousel } from '../components/Carousel';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-	getRecipes,
 	getRandomPicks,
 	getVeganRecipes,
 	getAmericanRecipes,
 	getCaribbeanRecipes,
 	getItalianRecipes,
 	getJapaneseRecipes,
-	dietTypeFilter,
-	aplhabeticalSort,
-	scoreSort,
 } from '../actions';
 
 export default function Home() {
 	const dispatch = useDispatch();
-	const allRecipes = useSelector((state) => state.recipes);
-	//const randomPicks = useSelector((state) => state.randomPicks);
-	//const veganRecipes = useSelector((state) => state.homeCarouselRecipes.veganRecipes);
-	//const americanRecipes = useSelector((state) => state.homeCarouselRecipes.americanRecipes);
-	//const caribbeanganRecipes = useSelector((state) => state.homeCarouselRecipes.caribbeanRecipes);
-	//const italianRecipes = useSelector((state) => state.homeCarouselRecipes.italianRecipes);
-	//const japaneseRecipes = useSelector((state) => state.homeCarouselRecipes.japaneseRecipes);
+	const randomPicks = useSelector((state) => state.randomPicks);
+	const veganRecipes = useSelector((state) => state.homeCarouselRecipes?.veganRecipes);
+	const americanRecipes = useSelector((state) => state.homeCarouselRecipes?.americanRecipes);
+	const caribbeanRecipes = useSelector((state) => state.homeCarouselRecipes?.caribbeanRecipes);
+	const italianRecipes = useSelector((state) => state.homeCarouselRecipes?.italianRecipes);
+	const japaneseRecipes = useSelector((state) => state.homeCarouselRecipes?.japaneseRecipes);
 
-	const randomPicks = [
+	/* const randomPicks = [
 		{
 			type: 'breakfast',
 			vegetarian: false,
@@ -271,9 +266,9 @@ export default function Home() {
 			originalId: null,
 			spoonacularSourceUrl: 'https://spoonacular.com/hawaiian-cookie-tarts-646361',
 		},
-	];
+	]; */
 
-	const veganRecipes = [
+	/* const veganRecipes = [
 		{
 			id: 662968,
 			title: 'Tempered Spicy Potatoes',
@@ -886,45 +881,25 @@ export default function Home() {
 			readyInMinutes: 45,
 			aggregateLikes: 2,
 		},
-	];
+	];  */
 
 	useEffect(() => {
-		//dispatch(getRecipes(), getRandomPicks());
-		//dispatch(getRecipes());
-		//dispatch(getRandomPicks());
-		//dispatch(getVeganRecipes(10));
-		//dispatch(getAmericanRecipes(10));
-		//dispatch(getCaribbeanRecipes(10));
-		//dispatch(getItalianRecipes(10));
-		//dispatch(getJapaneseRecipes(10));
-	}, [dispatch]);
+		if (randomPicks.length === 0) {
+			dispatch(getRandomPicks());
+			dispatch(getVeganRecipes(10));
+			dispatch(getAmericanRecipes(10));
+			dispatch(getCaribbeanRecipes(10));
+			dispatch(getItalianRecipes(10));
+			dispatch(getJapaneseRecipes(10));
+		} else {
+			console.log(randomPicks);
+		}
+		return () => {};
+	}, [dispatch, randomPicks]);
 
 	const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	const d = new Date();
 	let day = weekday[d.getDay()];
-
-	const responsiveOptions = [
-		{
-			breakpoint: '1199px',
-			numVisible: 5,
-			numScroll: 1,
-		},
-		{
-			breakpoint: '874px',
-			numVisible: 4,
-			numScroll: 1,
-		},
-		{
-			breakpoint: '567px',
-			numVisible: 3,
-			numScroll: 1,
-		},
-		{
-			breakpoint: '446px',
-			numVisible: 2,
-			numScroll: 1,
-		},
-	];
 
 	return (
 		<div className="home">
@@ -952,34 +927,6 @@ export default function Home() {
 				<h3>Japanese tradition</h3>
 				<Carousel value={japaneseRecipes} />
 			</div>
-			{/* <div>
-				<button className="refreshButton" onClick={handleClick}>
-					Refresh recipes
-				</button>
-				<Link to="/recipe">
-					<button className="addButton">Add new recipe</button>
-				</Link>
-			</div> */}
-
-			{/* <div className="allrecipes">
-				{allRecipes?.map((e) => {
-					return (
-						<div className="eachRecipe" key={prevId++}>
-							<Link className="linkRecetas" to={`home/${e.id}`}>
-								<Recipe
-									image={
-										e.image
-											? e.image
-											: 'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'
-									}
-									name={e.name}
-									dietTypes={e.dietTypes}
-								/>
-							</Link>
-						</div>
-					);
-				})}
-			</div> */}
 		</div>
 	);
 }

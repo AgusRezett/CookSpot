@@ -13,14 +13,14 @@ import '../styles/Recipes.css';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes, getRandomPicks, dietTypeFilter, aplhabeticalSort, scoreSort } from '../actions';
+import { getRecipes, dietTypeFilter, aplhabeticalSort, scoreSort } from '../actions';
 
 let prevId = 1;
 
 export default function Recipes() {
 	const dispatch = useDispatch();
-	//const allRecipes = useSelector((state) => state.recipes);
-	const allRecipes = [
+	const allRecipes = useSelector((state) => state.recipes);
+	/* const allRecipes = [
 		{
 			id: 782585,
 			image: 'https://spoonacular.com/recipeImages/782585-312x231.jpg',
@@ -422,7 +422,7 @@ export default function Recipes() {
 			aggregateLikes: 10,
 			readyInMinutes: 45,
 		},
-	];
+	]; */
 	const [order, setOrder] = useState('');
 
 	const [page, setPage] = useState(1);
@@ -527,7 +527,7 @@ export default function Recipes() {
 	};
 
 	useEffect(() => {
-		//dispatch(getRecipes());
+		dispatch(getRecipes());
 	}, [dispatch]);
 
 	function handleClick(e) {

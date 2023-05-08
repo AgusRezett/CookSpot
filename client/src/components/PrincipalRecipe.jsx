@@ -11,15 +11,10 @@ const PrincipalRecipe = ({ data, index }) => {
 
 	const handleClick = (event) => {
 		event.preventDefault();
-		console.log();
 
 		try {
 			if (!event.target.className?.includes('random-pick')) {
 				switch (event.detail) {
-					case 1: {
-						console.log('hola');
-						break;
-					}
 					case 2: {
 						setRecipeLiked(!recipeLiked);
 						break;

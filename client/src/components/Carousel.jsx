@@ -55,8 +55,8 @@ export const Carousel = ({ value }) => {
 				<div className="p-carousel-container">
 					<div className="p-carousel-items-content" style={{ height: 'auto' }}>
 						<div className="p-carousel-items-container">
-							{value.map((recipe) => {
-								return <CarouselItem item={recipe} />;
+							{value?.map((recipe) => {
+								return <CarouselItem item={recipe} key={recipe.id} />;
 							})}
 						</div>
 					</div>

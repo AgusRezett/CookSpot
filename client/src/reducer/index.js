@@ -21,7 +21,7 @@ const initialState = {
 	allRecipes: [],
 	dietTypes: [],
 	recipeDetails: [],
-	homeCarrouselRecipes: [],
+	homeCarouselRecipes: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -42,31 +42,31 @@ export default function rootReducer(state = initialState, action) {
 		case GET_VEGAN_RECIPES:
 			return {
 				...state,
-				homeCarrouselRecipes: { ...state.homeCarrouselRecipes, veganRecipes: action.payload },
+				homeCarouselRecipes: { ...state.homeCarouselRecipes, veganRecipes: action.payload },
 			};
 
 		case GET_AMERICAN_RECIPES:
 			return {
 				...state,
-				homeCarrouselRecipes: { ...state.homeCarrouselRecipes, americanRecipes: action.payload },
+				homeCarouselRecipes: { ...state.homeCarouselRecipes, americanRecipes: action.payload },
 			};
 
 		case GET_CARIBBEAN_RECIPES:
 			return {
 				...state,
-				homeCarrouselRecipes: { ...state.homeCarrouselRecipes, caribbeanRecipes: action.payload },
+				homeCarouselRecipes: { ...state.homeCarouselRecipes, caribbeanRecipes: action.payload },
 			};
 
 		case GET_ITALIAN_RECIPES:
 			return {
 				...state,
-				homeCarrouselRecipes: { ...state.homeCarrouselRecipes, italianRecipes: action.payload },
+				homeCarouselRecipes: { ...state.homeCarouselRecipes, italianRecipes: action.payload },
 			};
 
 		case GET_JAPANESE_RECIPES:
 			return {
 				...state,
-				homeCarrouselRecipes: { ...state.homeCarrouselRecipes, japaneseRecipes: action.payload },
+				homeCarouselRecipes: { ...state.homeCarouselRecipes, japaneseRecipes: action.payload },
 			};
 
 		case DIET_TYPE_FILTER:
@@ -84,6 +84,7 @@ export default function rootReducer(state = initialState, action) {
 			sortedRecipes =
 				action.payload === 'atoz'
 					? state.recipes.sort(function (a, b) {
+							console.log(a);
 							if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
 							if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
 							return 0;

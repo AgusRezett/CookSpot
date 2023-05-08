@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const axios = require('axios');
 const {
 	getApiById,
 	getAllRecipes,
@@ -11,22 +10,16 @@ const {
 	getCaribbeanRecipes,
 	getJapaneseRecipes,
 } = require('../controllers/recipes');
-const { Recipe, Diet } = require('../db');
-const { API_KEY, API_KEY1 } = process.env;
 
 const router = Router();
 
-const Data = require('../../../client/src/data/featured_recipes.json');
-
 router.get('/', async (req, res, next) => {
-	/* const allRecipes = Data.featuredRecipes;
-	console.log(fina); */
 	try {
-		const { name } = req.query;
+		const { title } = req.query;
 		let allRecipes = await getAllRecipes();
 		let finalRecipes = allRecipes;
 
-		if (name) {
+		if (title) {
 			let recipesByName = allRecipes.filter((e) =>
 				e.title.toLowerCase().includes(title.toString().toLowerCase())
 			);
@@ -34,26 +27,19 @@ router.get('/', async (req, res, next) => {
 			console.log('recipesByName');
 			if (recipesByName.length) {
 				finalRecipes = recipesByName;
-				/* let recipes = recipesByName.map((e) => {
-					return {
-						image: e.image,
-						title: e.title,
-						diets: e.diets ? e.diets : e.diets.map((e) => e.title),
-						healthScore: e.healthScore,
-						id: e.id,
-					};
-				}); */
-				//return res.status(200).send(recipes);
+			} else {
+				return res.status(404).send('Sorry, recipe not found');
 			}
-			return res.status(404).send('Sorry, recipe not found');
 		} else {
-			let recipes = allRecipes.map((e) => {
+			finalRecipes = allRecipes.map((e) => {
 				return {
+					id: e.id,
 					image: e.image,
 					title: e.title,
-					diets: e.diets ? e.diets : e.diets.map((e) => e.title),
+					diets: e.diets ? e.diets : e.diets.map((e) => e.name),
 					healthScore: e.healthScore,
-					id: e.id,
+					aggregateLikes: e.aggregateLikes,
+					cheap: e.cheap,
 				};
 			});
 		}
@@ -81,7 +67,6 @@ router.get('/random-picks', async (req, res, next) => {
 
 		let recipes = todaysMeals.map((e) => {
 			const recipe = e.recipes[0];
-			console.log(recipe);
 			return {
 				id: recipe.id,
 				title: recipe.title,
@@ -237,31 +222,11 @@ router.get('/:id', async (req, res, next) => {
 	try {
 		if (/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)) {
 			let dbRecipesById = await getDbById(id);
+			console.log(dbRecipesById);
 			return res.status(200).json(dbRecipesById);
 		} else {
-			console.log('buscando');
 			apiRecipesById = await getApiById(id);
-			console.log('encontre');
 			if (apiRecipesById.data.id) {
-				//console.log(apiRecipesById.data);
-				/* let recipeDetails = {
-					id: apiRecipesById.data.id,
-					image: apiRecipesById.data.image,
-					title: apiRecipesById.data.title,
-					dishTypes: apiRecipesById.data.dishTypes,
-					dietTypes: apiRecipesById.data.diets,
-					summary: apiRecipesById.data.summary,
-					score: apiRecipesById.data.spoonacularScore,
-					algo: null,
-					healthScore: apiRecipesById.data.healthScore,
-					steps: apiRecipesById.data.analyzedInstructions[0]?.steps.map((e) => {
-						return {
-							number: e.number,
-							step: e.step,
-						};
-					}),
-				}; */
-				console.log(apiRecipesById.analyzedInstructions);
 				return res.status(200).send(apiRecipesById.data);
 			}
 		}

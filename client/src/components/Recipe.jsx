@@ -29,7 +29,7 @@ export default function Recipe(recipes) {
 					{dietTypes?.map((e) => {
 						return (
 							<h5 className="diets" key={prevId++}>
-								{e}
+								{JSON.stringify(e)}
 							</h5>
 						);
 					})}
