@@ -15,8 +15,8 @@ export default function SearchBar() {
 	}
 
 	function handleSubmit(e) {
+		e.preventDefault();
 		try {
-			console.log('busque');
 			dispatch(getRecipesByName(searchValue));
 		} catch (error) {
 			return error;
@@ -26,7 +26,7 @@ export default function SearchBar() {
 	}
 
 	return (
-		<div className="search-recipe-container">
+		<form className="search-recipe-container">
 			<input
 				type="text"
 				className="search-input"
@@ -37,6 +37,6 @@ export default function SearchBar() {
 			<button className="search-button" type="submit" onClick={(e) => handleSubmit(e)}>
 				<IoSearch size={18} color="#6b7280" />
 			</button>
-		</div>
+		</form>
 	);
 }
