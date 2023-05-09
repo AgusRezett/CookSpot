@@ -1,5 +1,6 @@
 import {
 	GET_RECIPES,
+	RESET_RECIPES,
 	ADD_RECIPE,
 	DIET_TYPE_FILTER,
 	ALPHABETICAL_SORT,
@@ -31,6 +32,13 @@ export default function rootReducer(state = initialState, action) {
 				...state,
 				recipes: action.payload,
 				allRecipes: action.payload,
+			};
+
+		case RESET_RECIPES:
+			console.log(state.allRecipes);
+			return {
+				...state,
+				recipes: state.allRecipes,
 			};
 
 		case GET_RANDOM_PICKS:
@@ -72,7 +80,10 @@ export default function rootReducer(state = initialState, action) {
 		case DIET_TYPE_FILTER:
 			const allRecipes = state.allRecipes;
 			const filteredByDietType = allRecipes.filter((r) =>
-				r.diets?.some((d) => d.toLowerCase() === action.payload.toLowerCase())
+				r.diets?.some((d) => {
+					const value = !d.name ? d : d.name;
+					return value.toLowerCase() === action.payload.toLowerCase();
+				})
 			);
 			return {
 				...state,
@@ -84,14 +95,17 @@ export default function rootReducer(state = initialState, action) {
 			sortedRecipes =
 				action.payload === 'atoz'
 					? state.recipes.sort(function (a, b) {
-							console.log(a);
-							if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
-							if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
+							const valueA = a.title ? a.title : a.name;
+							const valueB = b.title ? b.title : b.name;
+							if (valueA.toLowerCase() > valueB.toLowerCase()) return 1;
+							if (valueA.toLowerCase() < valueB.toLowerCase()) return -1;
 							return 0;
 					  })
 					: state.recipes.sort(function (a, b) {
-							if (a.title.toLowerCase() < b.title.toLowerCase()) return 1;
-							if (a.title.toLowerCase() > b.title.toLowerCase()) return -1;
+							const valueA = a.title ? a.title : a.name;
+							const valueB = b.title ? b.title : b.name;
+							if (valueA.toLowerCase() < valueB.toLowerCase()) return 1;
+							if (valueA.toLowerCase() > valueB.toLowerCase()) return -1;
 							return 0;
 					  });
 			return {

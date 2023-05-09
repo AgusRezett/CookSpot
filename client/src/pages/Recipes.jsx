@@ -13,13 +13,14 @@ import '../styles/Recipes.css';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes, dietTypeFilter, aplhabeticalSort, scoreSort } from '../actions';
+import { getRecipes, resetRecipes, dietTypeFilter, aplhabeticalSort, scoreSort } from '../actions';
 
 let prevId = 1;
 
 export default function Recipes() {
 	const dispatch = useDispatch();
-	const allRecipes = useSelector((state) => state.recipes);
+	const allRecipes = useSelector((state) => state.allRecipes);
+	const recipes = useSelector((state) => state.recipes);
 	/* const allRecipes = [
 		{
 			id: 782585,
@@ -520,7 +521,7 @@ export default function Recipes() {
 
 	const quantityRecipesPage = page * recipesPage;
 	const firstRecipePage = quantityRecipesPage - recipesPage;
-	const showRecipesPage = allRecipes.slice(firstRecipePage, quantityRecipesPage);
+	const showRecipesPage = recipes.slice(firstRecipePage, quantityRecipesPage);
 
 	const paged = function (pageNumber) {
 		setPage(pageNumber);
@@ -532,9 +533,10 @@ export default function Recipes() {
 		return () => {};
 	}, [dispatch]);
 
-	function handleClick(e) {
-		e.preventDefault();
-		dispatch(getRecipes());
+	function handleUnselect() {
+		//e.preventDefault();
+		//dispatch(resetRecipes());
+		setOrder('');
 		setPage(1);
 	}
 
@@ -547,21 +549,22 @@ export default function Recipes() {
 	function handleAlphabeticalSort(e) {
 		e.preventDefault();
 		dispatch(aplhabeticalSort(e.target.value));
+		setOrder(e.target.value);
 		setPage(1);
-		setOrder(`Order ${e.target.value}`);
 	}
 
 	function handleScoreSort(e) {
 		e.preventDefault();
 		dispatch(scoreSort(e.target.value));
+		setOrder(e.target.value);
 		setPage(1);
-		setOrder(`Order ${e.target.value}`);
 	}
 
 	return (
 		<div className="all-recipes-container">
 			<h1 className="initialMsg">Recipes</h1>
 			<p style={{ fontWeight: 400, marginTop: 10 }}>Look through your favorites plates.</p>
+			{order}
 			<SearchBar />
 			<div className="filter-selects-container">
 				<SelectComponent
@@ -570,6 +573,8 @@ export default function Recipes() {
 					onChange={handleAlphabeticalSort}
 					filter="alphabetical"
 					key={'select-filter-alphabetical'}
+					unselectFunction={handleUnselect}
+					currentOrder={order}
 				/>
 				<SelectComponent
 					label={'Score'}
@@ -577,6 +582,8 @@ export default function Recipes() {
 					onChange={handleScoreSort}
 					filter="numerical"
 					key={'select-filter-score'}
+					unselectFunction={handleUnselect}
+					currentOrder={order}
 				/>
 				<SelectComponent
 					label={'Diet'}
@@ -584,14 +591,13 @@ export default function Recipes() {
 					onChange={handleDietTypeFilter}
 					filter="diets"
 					key={'select-filter-diets'}
+					unselectFunction={handleUnselect}
 				/>
 			</div>
 
-			<div></div>
 			<Pagination recipesPage={recipesPage} allRecipes={allRecipes.length} paged={paged} currentPage={page} />
 			<div className="recipes-container">
 				{showRecipesPage?.map((e) => {
-					console.log(e);
 					return (
 						<Recipe
 							id={e.id}

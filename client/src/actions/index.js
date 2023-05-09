@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
 	GET_RECIPES,
+	RESET_RECIPES,
 	GET_RANDOM_PICKS,
 	GET_VEGAN_RECIPES,
 	GET_AMERICAN_RECIPES,
@@ -26,6 +27,12 @@ export function getRecipes() {
 			.catch((error) => {
 				console.log(error);
 			});
+	};
+}
+
+export function resetRecipes() {
+	return function (dispatch) {
+		return dispatch({ type: RESET_RECIPES, payload: '' });
 	};
 }
 

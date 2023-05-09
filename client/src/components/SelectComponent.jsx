@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
-export const SelectComponent = ({ label, options, filter, onChange }) => {
+export const SelectComponent = ({ label, options, filter, onChange, unselectFunction, currentOrder }) => {
 	const [selectedOption, setSelectedOption] = useState('');
 
 	const unselectOption = () => {
 		const select = document.getElementById(`filter-select-${filter}`);
+		unselectFunction();
 		setSelectedOption();
 		select.value = '';
 	};
@@ -30,6 +31,24 @@ export const SelectComponent = ({ label, options, filter, onChange }) => {
 						setSelectedOption(e.target.value);
 						onChange(e);
 					}}
+					disabled={
+						currentOrder !== ''
+							? filter === 'alphabetical'
+								? currentOrder !== 'atoz' && currentOrder !== 'ztoa'
+								: filter === 'numerical'
+								? currentOrder !== 'asc' && currentOrder !== 'desc'
+								: false
+							: false
+					}
+					/* filter === 'alphabetical'
+						? currentOrder !== 'atoz' || currentOrder !== 'ztoa'
+							? true
+							: filter === 'numerical'
+							? currentOrder !== 'asc' || currentOrder !== 'desc'
+								? true
+								: false
+							: false
+						: false */
 				>
 					{options.map((option) => {
 						return (
