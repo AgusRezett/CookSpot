@@ -40,6 +40,7 @@ router.get('/', async (req, res, next) => {
 					diets: e.diets ? e.diets : e.diets.map((e) => e.name),
 					healthScore: e.healthScore,
 					aggregateLikes: e.aggregateLikes,
+					readyInMinutes: e.readyInMinutes,
 					cheap: e.cheap,
 				};
 			});

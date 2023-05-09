@@ -261,5 +261,22 @@
 				}
 			}
 		}
+
+		.no-content-container {
+			@include displayFlex(column, center, center);
+			width: 100%;
+			height: auto;
+
+			img {
+				width: 120px;
+				height: auto;
+				margin-bottom: 30px;
+				filter: brightness(2.5);
+			}
+
+			h2 {
+				color: #341c0c;
+			}
+		}
 	}
 }

@@ -313,5 +313,22 @@
   background-color: #6b7280;
   margin-left: 5px;
 }
+.all-recipes-container .recipes-container .no-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.all-recipes-container .recipes-container .no-content-container img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 30px;
+  filter: brightness(2.5);
+}
+.all-recipes-container .recipes-container .no-content-container h2 {
+  color: #341c0c;
+}
 
 /*# sourceMappingURL=Recipes.css.map */

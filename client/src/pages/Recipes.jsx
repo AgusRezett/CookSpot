@@ -7,6 +7,7 @@ import Recipe from '../components/Recipe';
 import SearchBar from '../components/SearchBar';
 import Pagination from '../components/Pagination';
 import { SelectComponent } from '../components/SelectComponent';
+import NoFood from '../assets/svgs/no-food.svg';
 
 // Styles
 import '../styles/Recipes.css';
@@ -535,7 +536,7 @@ export default function Recipes() {
 
 	function handleUnselect() {
 		//e.preventDefault();
-		//dispatch(resetRecipes());
+		dispatch(getRecipes());
 		setOrder('');
 		setPage(1);
 	}
@@ -597,25 +598,32 @@ export default function Recipes() {
 
 			<Pagination recipesPage={recipesPage} allRecipes={allRecipes.length} paged={paged} currentPage={page} />
 			<div className="recipes-container">
-				{showRecipesPage?.map((e) => {
-					return (
-						<Recipe
-							id={e.id}
-							image={
-								e.image
-									? e.image
-									: 'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'
-							}
-							title={e.title}
-							name={e.name}
-							dietTypes={e.diets}
-							aggregateLikes={e.aggregateLikes}
-							readyInMinutes={e.readyInMinutes}
-							cheap={e.cheap}
-							key={prevId++}
-						/>
-					);
-				})}
+				{showRecipesPage.length > 0 ? (
+					showRecipesPage.map((e) => {
+						return (
+							<Recipe
+								id={e.id}
+								image={
+									e.image
+										? e.image
+										: 'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'
+								}
+								title={e.title}
+								name={e.name}
+								dietTypes={e.diets}
+								aggregateLikes={e.aggregateLikes}
+								readyInMinutes={e.readyInMinutes}
+								cheap={e.cheap}
+								key={prevId++}
+							/>
+						);
+					})
+				) : (
+					<div className="no-content-container">
+						<img src={NoFood} alt="no-food-icon" />
+						<h2>No hay recetas que mostrar</h2>
+					</div>
+				)}
 			</div>
 
 			<Pagination

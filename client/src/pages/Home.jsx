@@ -30,7 +30,7 @@ export default function Home() {
 	const italianRecipes = useSelector((state) => state.homeCarouselRecipes?.italianRecipes);
 	const japaneseRecipes = useSelector((state) => state.homeCarouselRecipes?.japaneseRecipes);
 
-	/* const randomPicks = [
+	const randomPicksDefault = [
 		{
 			type: 'breakfast',
 			vegetarian: false,
@@ -216,59 +216,16 @@ export default function Home() {
 		},
 		{
 			type: 'dinner',
-			vegetarian: true,
-			vegan: false,
-			glutenFree: false,
-			dairyFree: false,
-			veryHealthy: false,
-			cheap: false,
-			veryPopular: false,
-			sustainable: false,
-			lowFodmap: false,
-			weightWatcherSmartPoints: 17,
-			gaps: 'no',
-			preparationMinutes: -1,
-			cookingMinutes: -1,
-			aggregateLikes: 2,
 			healthScore: 0,
-			creditsText: 'Foodista.com – The Cooking Encyclopedia Everyone Can Edit',
-			license: 'CC BY 3.0',
-			sourceName: 'Foodista',
-			pricePerServing: 64.17,
-			extendedIngredients: [
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-			],
 			id: 646361,
 			title: 'Hawaiian Cookie Tarts',
 			readyInMinutes: 75,
-			servings: 12,
 			sourceUrl: 'http://www.foodista.com/recipe/3PMSLV76/hawaiian-cookie-tarts',
 			image: 'https://spoonacular.com/recipeImages/646361-556x370.jpg',
-			imageType: 'jpg',
-			summary:
-				'Hawaiian Cookie Tarts is a <b>lacto ovo vegetarian</b> dessert. One serving contains <b>362 calories</b>, <b>3g of protein</b>, and <b>10g of fat</b>. This recipe serves 12. For <b>64 cents per serving</b>, this recipe <b>covers 4%</b> of your daily requirements of vitamins and minerals. 2 people have tried and liked this recipe. It is brought to you by Foodista. A mixture of ap flour, pineapple preserves, granulated sugar, and a handful of other ingredients are all it takes to make this recipe so delicious. From preparation to the plate, this recipe takes roughly <b>1 hour and 15 minutes</b>. Overall, this recipe earns a <b>not so awesome spoonacular score of 15%</b>. Try <a href="https://spoonacular.com/recipes/hawaiian-cookie-balls-545954">Hawaiian Cookie Balls</a>, <a href="https://spoonacular.com/recipes/fruity-cookie-tarts-408700">Fruity Cookie Tarts</a>, and <a href="https://spoonacular.com/recipes/linzer-cookie-tarts-177953">Linzer Cookie Tarts</a> for similar recipes.',
-			cuisines: [],
-			dishTypes: ['dessert'],
-			diets: ['lacto ovo vegetarian'],
-			occasions: [],
-			instructions:
-				'<ol><li>Pre heat oven to 350 degrees F. In a large bowl combine flour, powdered sugar, and cornstarch. Using a spoon, mix in apple sauce and vanilla extract until a soft dough forms.</li><li>Shape dough into 1-inch balls and place in prepared muffin pans. Press dough in bottom and up the side of each muffin cup. Bake the dough-lined cup for about 8-10 minutes. Remove the muffin pan from the oven and let rest for a few minutes. Spoon 1 teaspoon of preserves into each muffin cup.</li><li>In a small bowl mix together sugar, egg and coconut with a fork until well blended. Spoon a teaspoon of coconut mixture over preserves in each cup.</li><li>Bake 23 -33 minutes or until cookie crusts are lightly golden brown. Cool in pans on a cooling rack for 30 minutes.</li><li>Gently remove each cookie tart, sprinkle with confectioners sugar and serve!</li></ol>',
-			analyzedInstructions: [[Object]],
-			originalId: null,
-			spoonacularSourceUrl: 'https://spoonacular.com/hawaiian-cookie-tarts-646361',
 		},
-	]; */
+	];
 
-	/* const veganRecipes = [
+	const veganRecipesDefault = [
 		{
 			id: 662968,
 			title: 'Tempered Spicy Potatoes',
@@ -407,7 +364,7 @@ export default function Home() {
 			aggregateLikes: 15,
 		},
 	];
-	const americanRecipes = [
+	const americanRecipesDefault = [
 		{
 			id: 664110,
 			name: 'Turmeric Ginger Beer',
@@ -519,7 +476,7 @@ export default function Home() {
 			aggregateLikes: 3,
 		},
 	];
-	const caribbeanRecipes = [
+	const caribbeanRecipesDefault = [
 		{
 			id: 649944,
 			title: 'Lentil Mango Salad',
@@ -650,7 +607,7 @@ export default function Home() {
 			aggregateLikes: 5,
 		},
 	];
-	const italianRecipes = [
+	const italianRecipesDefault = [
 		{
 			id: 636212,
 			title: 'Broccoli Rabe with Tomatoes, Anchovies & Spaghetti',
@@ -771,7 +728,7 @@ export default function Home() {
 			aggregateLikes: 2,
 		},
 	];
-	const japaneseRecipes = [
+	const japaneseRecipesDefault = [
 		{
 			id: 643129,
 			title: 'Flawless Chocolate Fudge',
@@ -797,6 +754,7 @@ export default function Home() {
 		{
 			id: 661291,
 			title: 'Spinach Cheese Tortellini',
+			image: 'https://spoonacular.com/recipeImages/661291-556x370.jpg',
 			summary:
 				'The recipe Spinach Cheese Tortellini can be made <b>in around 45 minutes</b>. This recipe makes 8 servings with <b>199 calories</b>, <b>4g of protein</b>, and <b>16g of fat</b> each. For <b>65 cents per serving</b>, this recipe <b>covers 11%</b> of your daily requirements of vitamins and minerals. 2 people have made this recipe and would make it again. This recipe from Foodista requires olive oil, onion, pepper flakes, and spinach. It works well as a very reasonably priced hor d\'oeuvre. With a spoonacular <b>score of 39%</b>, this dish is not so excellent. If you like this recipe, take a look at these similar recipes: <a href="https://spoonacular.com/recipes/spinach-cheese-tortellini-1363967">Spinach Cheese Tortellini</a>, <a href="https://spoonacular.com/recipes/three-cheese-spinach-tortellini-532949">Three Cheese Spinach Tortellini</a>, and <a href="https://spoonacular.com/recipes/spinach-and-cheese-tortellini-primavera-497197">Spinach and Cheese Tortellini Primavera</a>.',
 			cuisins: [],
@@ -881,7 +839,13 @@ export default function Home() {
 			readyInMinutes: 45,
 			aggregateLikes: 2,
 		},
-	];  */
+	];
+
+	const finalVeganRecipes = veganRecipes?.length > 0 ? veganRecipes : veganRecipesDefault;
+	const finalAmericanRecipes = americanRecipes?.length > 0 ? americanRecipes : americanRecipesDefault;
+	const finalCaribbeanRecipes = caribbeanRecipes?.length > 0 ? caribbeanRecipes : caribbeanRecipesDefault;
+	const finalItalianRecipes = italianRecipes?.length > 0 ? italianRecipes : italianRecipesDefault;
+	const finalJapaneseRecipes = japaneseRecipes?.length > 0 ? japaneseRecipes : japaneseRecipesDefault;
 
 	useEffect(() => {
 		if (randomPicks.length === 0) {
@@ -909,23 +873,27 @@ export default function Home() {
 				<p>our {day.toLocaleLowerCase()} balanced picks...</p>
 			</div>
 			<div className="todays-recipes-container">
-				{randomPicks?.map((recipe, index) => {
-					return <PrincipalRecipe key={recipe.id} data={recipe} index={index + 1} />;
-				})}
+				{randomPicks.length > 0
+					? randomPicks.map((recipe, index) => {
+							return <PrincipalRecipe key={recipe.id} data={recipe} index={index + 1} />;
+					  })
+					: randomPicksDefault.map((recipe, index) => {
+							return <PrincipalRecipe key={recipe.id} data={recipe} index={index + 1} />;
+					  })}
 			</div>
 
 			<div className="carousel-component-container">
 				<div className="background"></div>
 				<h3>Nutritious vegan recipes</h3>
-				<Carousel value={veganRecipes} />
+				<Carousel value={finalVeganRecipes} />
 				<h3>Caribbean surprises</h3>
-				<Carousel value={caribbeanRecipes} />
+				<Carousel value={finalCaribbeanRecipes} />
 				<h3>Popular American recipes</h3>
-				<Carousel value={americanRecipes} />
+				<Carousel value={finalAmericanRecipes} />
 				<h3>Italy food</h3>
-				<Carousel value={italianRecipes} />
+				<Carousel value={finalItalianRecipes} />
 				<h3>Japanese tradition</h3>
-				<Carousel value={japaneseRecipes} />
+				<Carousel value={finalJapaneseRecipes} />
 			</div>
 		</div>
 	);
