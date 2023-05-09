@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
 	GET_RECIPES,
 	RESET_RECIPES,
+	DELETE_RECIPES,
 	GET_RANDOM_PICKS,
 	GET_VEGAN_RECIPES,
 	GET_AMERICAN_RECIPES,
@@ -137,7 +138,7 @@ export function getDietTypes() {
 }
 
 export function addRecipe(payload) {
-	return async function (dispatch) {
+	return async function () {
 		try {
 			var response = await axios.post(`${LOCAL_HOST}/api/recipe`, payload);
 			return response;
@@ -146,6 +147,22 @@ export function addRecipe(payload) {
 		}
 	};
 }
+
+export function deleteRecipe(payload) {
+	return async function (dispatch) {
+		try {
+			var response = await axios.delete(`${LOCAL_HOST}/api/recipe/${payload}`);
+			if (response.status === 200) {
+				return dispatch({ type: DELETE_RECIPES, payload: payload });
+			} else {
+				return response;
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+}
+
 export function getRecipeDetails(payload) {
 	return async function (dispatch) {
 		try {

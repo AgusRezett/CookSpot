@@ -6,7 +6,6 @@ const router = Router();
 router.post('/', async (req, res, next) => {
 	try {
 		const { name, summary, healthScore, steps, dietTypes } = req.body;
-		console.log(req.body);
 
 		const newRecipe = await Recipe.create({
 			name,
@@ -23,6 +22,20 @@ router.post('/', async (req, res, next) => {
 		res.status(200).send(newRecipe);
 	} catch (error) {
 		next(error);
+	}
+});
+
+router.delete('/:id', async (req, res, next) => {
+	try {
+		const { id } = req.params;
+		const result = await Recipe.destroy({ where: { id: id } });
+		if (result) {
+			return res.status(200).send('Recipe deleted successfully!');
+		} else {
+			return res.status(404).send("Couldn't delete, recipe not found.");
+		}
+	} catch (error) {
+		res.status(500).send('An error has occurred.');
 	}
 });
 

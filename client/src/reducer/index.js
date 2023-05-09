@@ -2,6 +2,7 @@ import {
 	GET_RECIPES,
 	RESET_RECIPES,
 	ADD_RECIPE,
+	DELETE_RECIPES,
 	DIET_TYPE_FILTER,
 	ALPHABETICAL_SORT,
 	SCORE_SORT,
@@ -146,6 +147,16 @@ export default function rootReducer(state = initialState, action) {
 		case ADD_RECIPE:
 			return {
 				...state,
+			};
+
+		case DELETE_RECIPES:
+			console.log('adssda');
+			const existingRecipes = state.recipes.filter((recipe) => {
+				return recipe.id !== action.payload;
+			});
+			return {
+				...state,
+				recipes: existingRecipes,
 			};
 
 		case GET_DIET_TYPES:

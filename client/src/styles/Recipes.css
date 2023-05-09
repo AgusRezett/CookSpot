@@ -259,6 +259,24 @@
 .all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-image-container .cheap-recipe {
   background-color: #35c935;
 }
+.all-recipes-container .recipes-container .recipe-container .recipe-link .delete-recipe-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(24, 24, 24, 0.5294117647);
+  border-radius: 100%;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4784313725);
+  transition: all 100ms ease-in-out;
+}
+.all-recipes-container .recipes-container .recipe-container .recipe-link .delete-recipe-button:hover {
+  background-color: rgba(47, 47, 47, 0.6862745098);
+}
 .all-recipes-container .recipes-container .recipe-container .recipe-link .recipe-title-container {
   margin: 0.8rem 0px 0.5rem;
   letter-spacing: 0.02em;
