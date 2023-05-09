@@ -23,7 +23,14 @@ server.use((req, res, next) => {
 
 server.use('/api', routes);
 
-// Error catching endware.
+/* This is an error handling middleware function that is used to handle any errors that occur during
+the request-response cycle. It takes four parameters: `err`, `req`, `res`, and `next`. If an error
+occurs in any of the middleware functions that are called before this one, the error will be passed
+to this function as the first parameter (`err`). The function then sets the status code of the
+response to either the status code of the error (`err.status`) or 500 (Internal Server Error) if no
+status code is provided. It also sets the message of the response to either the error message
+(`err.message`) or the error object itself if no message is provided. Finally, it logs the error to
+the console and sends the response back to the client. */
 server.use((err, req, res, next) => {
 	const status = err.status || 500;
 	const message = err.message || err;
