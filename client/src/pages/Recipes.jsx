@@ -621,7 +621,7 @@ export default function Recipes() {
 				) : (
 					<div className="no-content-container">
 						<img src={NoFood} alt="no-food-icon" />
-						<h2>No hay recetas que mostrar</h2>
+						<h2>No recipes selected...</h2>
 					</div>
 				)}
 			</div>

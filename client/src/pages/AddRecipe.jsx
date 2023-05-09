@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import DisconnectedIcon from '../assets/svgs/disconnected.svg';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -130,6 +131,15 @@ export default function AddRecipe() {
 	return (
 		<div className="new-recipe-view-container">
 			<div className="image-container"></div>
+			{dietTypes.length === 0 && (
+				<div className="dark-layout">
+					<div className="modal-status-container">
+						<img src={DisconnectedIcon} alt="disconnected-icon" />
+						<h4>Could't retrieve the diets tags. Try later.</h4>
+					</div>
+				</div>
+			)}
+
 			<div className="form-view-container">
 				<form onSubmit={(e) => handleSubmit(e)}>
 					<div className="common-inputs-container">
