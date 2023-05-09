@@ -26,7 +26,6 @@ function App() {
 
 	useEffect(() => {
 		setShowNavbar(location.pathname !== '/' || location.pathname !== '/');
-		//console.log('Cambié');
 	}, [location]);
 
 	return (

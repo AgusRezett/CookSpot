@@ -35,7 +35,6 @@ export default function rootReducer(state = initialState, action) {
 			};
 
 		case RESET_RECIPES:
-			console.log(state.allRecipes);
 			return {
 				...state,
 				recipes: state.allRecipes,
