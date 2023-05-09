@@ -841,6 +841,10 @@ export default function Home() {
 		},
 	];
 
+	/* The code is creating variables for final vegan, American, Caribbean, Italian, and Japanese recipes.
+	It checks if the corresponding recipe arrays have a length greater than 0, and if so, assigns them
+	to the final recipe variables. If the recipe arrays have a length of 0 or are undefined, it assigns
+	the default recipe arrays to the final recipe variables. Used to render offline recipes as default.*/
 	const finalVeganRecipes = veganRecipes?.length > 0 ? veganRecipes : veganRecipesDefault;
 	const finalAmericanRecipes = americanRecipes?.length > 0 ? americanRecipes : americanRecipesDefault;
 	const finalCaribbeanRecipes = caribbeanRecipes?.length > 0 ? caribbeanRecipes : caribbeanRecipesDefault;

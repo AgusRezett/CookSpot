@@ -534,6 +534,9 @@ export default function Recipes() {
 		return () => {};
 	}, [dispatch]);
 
+	/**
+	 * This function resets certain state variables when an item is unselected.
+	 */
 	function handleUnselect() {
 		//e.preventDefault();
 		dispatch(getRecipes());
@@ -541,12 +544,18 @@ export default function Recipes() {
 		setPage(1);
 	}
 
+	/**
+	 * This function handles a diet type filter by dispatching an action and setting the page to 1.
+	 */
 	function handleDietTypeFilter(e) {
 		e.preventDefault();
 		dispatch(dietTypeFilter(e.target.value));
 		setPage(1);
 	}
 
+	/**
+	 * This function handles alphabetical sorting by dispatching an action, setting the order and page.
+	 */
 	function handleAlphabeticalSort(e) {
 		e.preventDefault();
 		dispatch(aplhabeticalSort(e.target.value));
@@ -554,6 +563,9 @@ export default function Recipes() {
 		setPage(1);
 	}
 
+	/**
+	 * This function handles sorting of scores in a React application.
+	 */
 	function handleScoreSort(e) {
 		e.preventDefault();
 		dispatch(scoreSort(e.target.value));

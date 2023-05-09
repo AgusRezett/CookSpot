@@ -77,6 +77,12 @@ export default function rootReducer(state = initialState, action) {
 				homeCarouselRecipes: { ...state.homeCarouselRecipes, japaneseRecipes: action.payload },
 			};
 
+		/* This case is handling the action of filtering recipes by diet type. It creates a copy of the
+		current state's `allRecipes` array, and then filters it based on the value of the `action.payload`
+		parameter. It checks if any of the recipe's `diets` array contains a diet type that matches the
+		`action.payload` value (ignoring case sensitivity), and returns a new array with only the recipes
+		that match the filter. The filtered array is then returned as part of the updated state, replacing
+		the previous `recipes` array. */
 		case DIET_TYPE_FILTER:
 			const allRecipes = state.allRecipes;
 			const filteredByDietType = allRecipes.filter((r) =>
@@ -90,6 +96,11 @@ export default function rootReducer(state = initialState, action) {
 				recipes: filteredByDietType,
 			};
 
+		/* This case is handling the action of sorting recipes alphabetically. It creates a copy of the
+		current state's recipes array, and then sorts it based on the value of the `action.payload`
+		parameter. If `action.payload` is equal to `'atoz'`, the array is sorted in ascending order by
+		recipe title/name. If `action.payload` is not equal to `'atoz'`, the array is sorted in descending
+		order by recipe title/name. The sorted array is then returned as part of the updated state. */
 		case ALPHABETICAL_SORT:
 			let sortedRecipes = [...state.recipes];
 			sortedRecipes =
@@ -113,6 +124,11 @@ export default function rootReducer(state = initialState, action) {
 				recipes: sortedRecipes,
 			};
 
+		/* This case is handling the action of sorting recipes by health score. It creates a copy of the
+		current state's recipes array, and then sorts it based on the value of the `action.payload`
+		parameter. If `action.payload` is equal to `'asc'`, the array is sorted in ascending order by
+		health score. If `action.payload` is not equal to `'asc'`, the array is sorted in descending order
+		by health score. The sorted array is then returned as part of the updated state. */
 		case SCORE_SORT:
 			let sortedRecipesByScore = [...state.recipes];
 			sortedRecipesByScore =
@@ -149,6 +165,12 @@ export default function rootReducer(state = initialState, action) {
 				...state,
 			};
 
+		/* This case is handling the action of deleting a recipe from the state's `recipes` array. It creates
+		a new array called `existingRecipes` by filtering the current state's `recipes` array, and
+		removing the recipe with the `id` that matches the `action.payload` parameter. The filtered array
+		is then returned as part of the updated state, replacing the previous `recipes` array.
+		Additionally, the `console.log` statement is not related to the functionality of the case and can
+		be removed. */
 		case DELETE_RECIPES:
 			console.log('adssda');
 			const existingRecipes = state.recipes.filter((recipe) => {

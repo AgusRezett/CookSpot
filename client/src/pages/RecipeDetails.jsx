@@ -609,6 +609,10 @@ export default function RecipeDetails() {
 					)}
 
 					<div className="diets-bubble-container">
+						{/* The above code is a JavaScript React code that maps through an array of diet types in a recipe
+						and assigns an icon to each diet type based on its name. The code uses a switch statement to
+						match the diet type name with the corresponding icon and returns the icon component. The icons
+						are then rendered in the UI to display the diet types of the recipe. */}
 						{recipeDetails.diets?.map((e) => {
 							let selectedIcon;
 							let value = recipeDetails.title ? e : e.name;
@@ -684,6 +688,8 @@ export default function RecipeDetails() {
 					<div className="recipe-steps-container">
 						<h2 className="title-container">Preparation</h2>
 						<p style={{ maxWidth: '900px', fontWeight: '400', marginTop: '15px', lineHeight: '27px' }}>
+							{/* Use the `replaceAll()` method with a regular expression to remove any HTML tags from
+							the `steps` string and replace them with a space.*/}
 							{recipeDetails.instructions?.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, ' ')}
 							{recipeDetails.steps?.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, ' ')}
 						</p>
@@ -699,10 +705,6 @@ export default function RecipeDetails() {
 						);
 					})} */}
 					</div>
-
-					{/* <Link to="/home">
-					<button className="backButton">Go back to recipes</button>
-				</Link> */}
 				</div>
 			)}
 		</div>

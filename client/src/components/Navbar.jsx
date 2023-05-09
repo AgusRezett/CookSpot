@@ -19,7 +19,8 @@ const navigation = [
 ];
 
 const Navbar = ({ applyHeight }) => {
-	// Apply the current navbar height used for padding the main
+	/* React hook `useEffect` used to apply the current navbar height to the main component by
+	getting the height of the navbar container and adding it as padding to the main component. */
 	useEffect(() => {
 		const navbarContainer = document.getElementById('navbars-container');
 		const onResizeGetPadding = () => {

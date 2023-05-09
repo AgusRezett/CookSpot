@@ -40,6 +40,10 @@ export default function AddRecipe() {
 		dietTypes: [],
 	});
 
+	/**
+	 * This function handles changes in input fields and updates the state accordingly while also
+	 * validating the input and setting errors.
+	 */
 	function handleChange(e, vaciar = false) {
 		!vaciar && e.preventDefault();
 
@@ -61,6 +65,10 @@ export default function AddRecipe() {
 		});
 	}
 
+	/**
+	 * The function handles the selection and deselection of checkboxes for dietary types and updates the
+	 * input and errors state accordingly.
+	 */
 	function handleCheckBox(diet) {
 		let newArray = input.dietTypes;
 		let find = newArray.indexOf(diet);
@@ -79,6 +87,10 @@ export default function AddRecipe() {
 		setErrors(validations);
 	}
 
+	/**
+	 * This function handles the submission of a recipe form and displays an alert message if there are
+	 * errors or if the form is incomplete.
+	 */
 	function handleSubmit() {
 		if (Object.values(errors).length > 0) {
 			alert('Please complete the information required');

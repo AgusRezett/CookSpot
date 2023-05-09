@@ -9,6 +9,10 @@ const PrincipalRecipe = ({ data, index }) => {
 	const [recipeLiked, setRecipeLiked] = useState(false);
 	let navigate = useNavigate();
 
+	/**
+	 * The function handles a click event and performs different actions based on the event details and
+	 * target class name. It is used to distinguish between a like action and navigation intentions.
+	 */
 	const handleClick = (event) => {
 		event.preventDefault();
 

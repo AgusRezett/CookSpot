@@ -4,6 +4,9 @@ import { FaTimes } from 'react-icons/fa';
 export const InputText = ({ label, name, value, setValue, type = 'text' }) => {
 	const [selectedOption, setSelectedOption] = useState('');
 
+	/**
+	 * The function `deleteContent` empty the value of an input element and deselects the component.
+	 */
 	const deleteContent = () => {
 		const input = document.getElementById(`input-element-${name}`);
 		setValue(input, true);

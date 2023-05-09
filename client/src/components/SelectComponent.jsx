@@ -31,6 +31,8 @@ export const SelectComponent = ({ label, options, filter, onChange, unselectFunc
 						setSelectedOption(e.target.value);
 						onChange(e);
 					}}
+					/* This is a conditional statement that determines whether the select element should be disabled
+					or not based on the currentOrder and filter props passed to the SelectComponent. */
 					disabled={
 						currentOrder !== ''
 							? filter === 'alphabetical'
@@ -40,15 +42,6 @@ export const SelectComponent = ({ label, options, filter, onChange, unselectFunc
 								: false
 							: false
 					}
-					/* filter === 'alphabetical'
-						? currentOrder !== 'atoz' || currentOrder !== 'ztoa'
-							? true
-							: filter === 'numerical'
-							? currentOrder !== 'asc' || currentOrder !== 'desc'
-								? true
-								: false
-							: false
-						: false */
 				>
 					{options.map((option) => {
 						return (

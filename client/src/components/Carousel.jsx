@@ -11,6 +11,11 @@ import { IoIosTimer } from 'react-icons/io';
 import '../styles/Home.css';
 
 const CarouselItem = ({ item }) => {
+	/* The code block is determining which icon and class to use for the time it takes for a recipe to be
+	ready based on the value of `item.readyInMinutes`. It sets the `timeReadyIcon` variable to the
+	appropriate icon component based on the range of `item.readyInMinutes`, and sets the
+	`timeReadyClass` variable to the appropriate class name based on the same range. These variables
+	are then used in the JSX to display the icon and apply the class to the element. */
 	let timeReadyIcon;
 	let timeReadyClass;
 
