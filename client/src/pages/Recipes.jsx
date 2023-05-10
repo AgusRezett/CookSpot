@@ -577,7 +577,6 @@ export default function Recipes() {
 		<div className="all-recipes-container">
 			<h1 className="initialMsg">Recipes</h1>
 			<p style={{ fontWeight: 400, marginTop: 10 }}>Look through your favorites plates.</p>
-			{order}
 			<SearchBar />
 			<div className="filter-selects-container">
 				<SelectComponent
