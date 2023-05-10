@@ -40,6 +40,7 @@
 			right: 0;
 			width: 40px;
 			cursor: pointer;
+			transition: all 100ms ease-in-out;
 
 			svg > path {
 				color: #6b7280;
@@ -47,6 +48,10 @@
 			}
 			&:hover > svg > path {
 				color: #2e3137;
+			}
+
+			&:hover {
+				background: #0000000f;
 			}
 		}
 	}

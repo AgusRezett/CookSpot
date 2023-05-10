@@ -82,6 +82,7 @@
   right: 0;
   width: 40px;
   cursor: pointer;
+  transition: all 100ms ease-in-out;
 }
 .all-recipes-container .search-recipe-container .search-button svg > path {
   color: #6b7280;
@@ -89,6 +90,9 @@
 }
 .all-recipes-container .search-recipe-container .search-button:hover > svg > path {
   color: #2e3137;
+}
+.all-recipes-container .search-recipe-container .search-button:hover {
+  background: rgba(0, 0, 0, 0.0588235294);
 }
 .all-recipes-container .filter-selects-container {
   display: flex;
