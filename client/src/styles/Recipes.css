@@ -338,6 +338,7 @@
   align-items: center;
   width: 100%;
   height: auto;
+  margin-top: 50px;
 }
 .all-recipes-container .recipes-container .no-content-container img {
   width: 120px;

@@ -606,7 +606,7 @@ export default function Recipes() {
 					unselectFunction={handleUnselect}
 				/>
 			</div>
-			<Pagination recipesPage={recipesPage} allRecipes={allRecipes.length} paged={paged} currentPage={page} />
+			<Pagination recipesPage={recipesPage} allRecipes={recipes.length} paged={paged} currentPage={page} />
 			<div className="recipes-container">
 				{showRecipesPage.length > 0 ? (
 					showRecipesPage.map((e) => {
@@ -637,7 +637,7 @@ export default function Recipes() {
 			</div>
 			<Pagination
 				recipesPage={recipesPage}
-				allRecipes={allRecipes.length}
+				allRecipes={recipes.length}
 				paged={paged}
 				currentPage={page}
 				style={{ paddingBottom: 150 }}
