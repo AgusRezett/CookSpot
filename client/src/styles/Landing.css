@@ -46,6 +46,7 @@
 }
 .welcome .wordsColumnContainer {
   flex-direction: column;
+  animation: 3s ease-in-out 0s fadeInAndGrow;
 }
 .welcome .wordsRowContainer {
   flex-direction: row;
@@ -56,7 +57,6 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  opacity: 0;
 }
 .welcome .wordsColumnContainer .soyHenryText,
 .welcome .wordsRowContainer .soyHenryText {
@@ -83,6 +83,9 @@
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  opacity: 0;
+  animation: 2s ease-in-out 3s fadeIn;
+  animation-fill-mode: forwards;
 }
 .welcome .wordsColumnContainer .welcomeLogoDivisor,
 .welcome .wordsRowContainer .welcomeLogoDivisor {
@@ -98,8 +101,14 @@
   font-size: 1.5rem;
   margin-top: 20px;
 }
-.welcome .wordsColumnContainer .nextViewButton,
-.welcome .wordsRowContainer .nextViewButton {
+.welcome .wordsColumnContainer .nextViewContainer,
+.welcome .wordsRowContainer .nextViewContainer {
+  animation: 1s ease-in-out 3s fadeInAndUp;
+  animation-fill-mode: forwards;
+  margin-top: 85px;
+}
+.welcome .wordsColumnContainer .nextViewContainer .nextViewButton,
+.welcome .wordsRowContainer .nextViewContainer .nextViewButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,25 +120,44 @@
   transition: all 100ms ease-in-out;
   position: absolute;
 }
-.welcome .wordsColumnContainer .nextViewButton:hover,
-.welcome .wordsRowContainer .nextViewButton:hover {
+.welcome .wordsColumnContainer .nextViewContainer .nextViewButton:hover,
+.welcome .wordsRowContainer .nextViewContainer .nextViewButton:hover {
   background-color: #3e3a36;
 }
-.welcome .wordsColumnContainer .nextViewButton svg,
-.welcome .wordsRowContainer .nextViewButton svg {
+.welcome .wordsColumnContainer .nextViewContainer .nextViewButton svg,
+.welcome .wordsRowContainer .nextViewContainer .nextViewButton svg {
   width: 28px;
   height: 28px;
   color: #fff;
   margin-left: 2px;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInAndGrow {
   0% {
     opacity: 0;
+    scale: 0.5;
   }
   100% {
     scale: 1;
     opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInAndUp {
+  from {
+    opacity: 0;
+    margin-top: 85px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 40px;
   }
 }
 

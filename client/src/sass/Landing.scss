@@ -8,6 +8,7 @@
 
 	.wordsColumnContainer {
 		flex-direction: column;
+		animation: 3s ease-in-out 0s fadeInAndGrow;
 	}
 	.wordsRowContainer {
 		flex-direction: row;
@@ -16,7 +17,7 @@
 	.wordsRowContainer {
 		@include displayFlex(null, center, center);
 		position: absolute;
-		opacity: 0;
+		//opacity: 0;
 
 		.soyHenryText {
 			font-family: 'Aftika';
@@ -39,6 +40,9 @@
 		.welcomeDivisorContainer {
 			@include displayFlex(column, center, center);
 			margin-top: 30px;
+			opacity: 0;
+			animation: 2s ease-in-out 3s fadeIn;
+			animation-fill-mode: forwards;
 		}
 
 		.welcomeLogoDivisor {
@@ -54,38 +58,64 @@
 			font-size: 1.5rem;
 			margin-top: 20px;
 		}
+		.nextViewContainer {
+			animation: 1s ease-in-out 3s fadeInAndUp;
+			animation-fill-mode: forwards;
+			margin-top: 85px;
 
-		.nextViewButton {
-			@include displayFlex(null, center, center);
-			width: 50px;
-			height: 50px;
-			border-radius: 100%;
-			background-color: #2d2926;
-			cursor: pointer;
-			transition: all 100ms ease-in-out;
+			.nextViewButton {
+				@include displayFlex(null, center, center);
+				width: 50px;
+				height: 50px;
+				border-radius: 100%;
+				background-color: #2d2926;
+				cursor: pointer;
+				transition: all 100ms ease-in-out;
 
-			position: absolute;
+				position: absolute;
 
-			&:hover {
-				background-color: #3e3a36;
-			}
+				&:hover {
+					background-color: #3e3a36;
+				}
 
-			svg {
-				width: 28px;
-				height: 28px;
-				color: #fff;
-				margin-left: 2px;
+				svg {
+					width: 28px;
+					height: 28px;
+					color: #fff;
+					margin-left: 2px;
+				}
 			}
 		}
 	}
 }
 
-@keyframes fadeIn {
+@keyframes fadeInAndGrow {
 	0% {
 		opacity: 0;
+		scale: 0.5;
 	}
 	100% {
 		scale: 1;
 		opacity: 1;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInAndUp {
+	from {
+		opacity: 0;
+		margin-top: 85px;
+	}
+	to {
+		opacity: 1;
+		margin-top: 40px;
 	}
 }
