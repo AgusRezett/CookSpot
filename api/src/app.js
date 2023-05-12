@@ -23,6 +23,10 @@ server.use((req, res, next) => {
 
 server.use('/api', routes);
 
+server.get('/', async (req, res) => {
+	res.send('Bienvenido a Cookspot');
+});
+
 /* This is an error handling middleware function that is used to handle any errors that occur during
 the request-response cycle. It takes four parameters: `err`, `req`, `res`, and `next`. If an error
 occurs in any of the middleware functions that are called before this one, the error will be passed
