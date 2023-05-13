@@ -7,8 +7,8 @@ const { json } = require('express');
 require('./db.js');
 
 const cors = {
-	origin: ['https://cookspot.vercel.app/', 'https://localhost:3000'],
-	default: 'https://cookspot.vercel.app/',
+	origin: ['https://cookspot.vercel.app', 'https://localhost:3000'],
+	default: 'https://cookspot.vercel.app',
 };
 
 const server = express();
