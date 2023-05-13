@@ -5,7 +5,24 @@
 	@include displayFlex(row, center, center);
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
+	overflow: auto;
+
+	/* width */
+	&::-webkit-scrollbar {
+		width: 1px;
+	}
+
+	/* Track */
+	&::-webkit-scrollbar-track {
+		//box-shadow: inset 0 0 5px grey;
+		border-radius: 10px;
+	}
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: #c8b4a7;
+		border-radius: 10px;
+	}
 
 	.image-container {
 		position: absolute;
@@ -51,11 +68,12 @@
 	}
 
 	.form-view-container {
-		@include displayFlex(null, center, center);
+		@include displayFlex(null, flex-start, flex-start);
 		position: relative;
 		z-index: 3;
 		width: 100%;
 		height: 100%;
+		margin-top: 40px;
 
 		@media screen and (max-width: 875px) {
 			flex-direction: column;
@@ -66,6 +84,7 @@
 			@include displayFlex(row, center, flex-start);
 			height: auto;
 			width: 100%;
+			padding-bottom: 20px;
 
 			@media screen and (max-width: 875px) {
 				flex-direction: column;
@@ -271,7 +290,7 @@
 					margin-top: 15px;
 					margin-left: 0px;
 					height: 100%;
-					padding-bottom: 100px;
+					padding-bottom: 20px;
 				}
 
 				.form-steps-content {

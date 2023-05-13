@@ -1,6 +1,7 @@
-export const ADD_RECIPE = 'ADD_RECIPE';
+export const TOGGLE_LOADING = 'TOGGLE_LOADING';
 export const GET_RECIPES = 'GET_RECIPES';
 export const RESET_RECIPES = 'RESET_RECIPES';
+export const ADD_RECIPE = 'ADD_RECIPE';
 export const DELETE_RECIPES = 'DELETE_RECIPES';
 export const GET_RANDOM_PICKS = 'GET_RANDOM_PICKS';
 export const GET_VEGAN_RECIPES = 'GET_VEGAN_RECIPES';
@@ -14,4 +15,5 @@ export const ALPHABETICAL_SORT = 'ALPHABETICAL_SORT';
 export const SCORE_SORT = 'SCORE_SORT';
 export const SEARCH_RECIPE = 'SEARCH_RECIPE';
 export const GET_DIET_TYPES = 'GET_DIET_TYPES';
-export const LOCAL_HOST = 'https://cookspot-production.up.railway.app';
+//export const LOCAL_HOST = 'https://cookspot-production.up.railway.app';
+export const LOCAL_HOST = 'http://localhost:3001';

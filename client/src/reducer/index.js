@@ -1,4 +1,5 @@
 import {
+	TOGGLE_LOADING,
 	GET_RECIPES,
 	RESET_RECIPES,
 	ADD_RECIPE,
@@ -18,6 +19,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
+	loadingStatus: false,
 	recipes: [],
 	randomPicks: [],
 	allRecipes: [],
@@ -28,6 +30,12 @@ const initialState = {
 
 export default function rootReducer(state = initialState, action) {
 	switch (action.type) {
+		case TOGGLE_LOADING:
+			return {
+				...state,
+				loadingStatus: action.payload,
+			};
+
 		case GET_RECIPES:
 			return {
 				...state,

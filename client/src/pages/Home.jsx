@@ -12,14 +12,7 @@ import { Carousel } from '../components/Carousel';
 // Redux
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	getRandomPicks,
-	getVeganRecipes,
-	getAmericanRecipes,
-	getCaribbeanRecipes,
-	getItalianRecipes,
-	getJapaneseRecipes,
-} from '../actions';
+import { getRandomPicks, getVeganRecipes, getAmericanRecipes, getCaribbeanRecipes, getItalianRecipes, getJapaneseRecipes } from '../actions';
 
 export default function Home() {
 	const dispatch = useDispatch();
@@ -52,19 +45,7 @@ export default function Home() {
 			license: 'CC BY 3.0',
 			sourceName: 'Foodista',
 			pricePerServing: 72.63,
-			extendedIngredients: [
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-				[Object],
-			],
+			extendedIngredients: [[Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object]],
 			id: 664359,
 			title: 'Veal Piccatas',
 			readyInMinutes: 45,
@@ -244,16 +225,7 @@ export default function Home() {
 			summary:
 				'If you have about <b>45 minutes</b> to spend in the kitchen, Watercress Salad With Miso-Lime Dressing might be a tremendous <b>gluten free, dairy free, lacto ovo vegetarian, and vegan</b> recipe to try. One serving contains <b>111 calories</b>, <b>5g of protein</b>, and <b>7g of fat</b>. This recipe serves 4. For <b>$1.78 per serving</b>, this recipe <b>covers 18%</b> of your daily requirements of vitamins and minerals. 2 people were impressed by this recipe. Head to the store and pick up miso, mung bean sprouts, sesame oil, and a few other things to make it today. Only a few people really liked this hor d\'oeuvre. It is brought to you by Foodista. All things considered, we decided this recipe <b>deserves a spoonacular score of 91%</b>. This score is great. If you like this recipe, you might also like recipes such as <a href="https://spoonacular.com/recipes/watercress-salad-with-lime-dressing-343037">Watercress Salad with Lime Dressing</a>, <a href="https://spoonacular.com/recipes/salmon-avocado-salad-with-miso-lime-dressing-1256199">Salmon & Avocado Salad with Miso Lime Dressing</a>, and <a href="https://spoonacular.com/recipes/salmon-avocado-salad-with-miso-lime-dressing-1215153">Salmon & Avocado Salad with Miso Lime Dressing</a>.',
 			cuisins: [],
-			dishTypes: [
-				'side dish',
-				'antipasti',
-				'salad',
-				'starter',
-				'snack',
-				'appetizer',
-				'antipasto',
-				"hor d'oeuvre",
-			],
+			dishTypes: ['side dish', 'antipasti', 'salad', 'starter', 'snack', 'appetizer', 'antipasto', "hor d'oeuvre"],
 			readyInMinutes: 45,
 			aggregateLikes: 2,
 		},
@@ -275,16 +247,7 @@ export default function Home() {
 			summary:
 				'If you want to add more <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> recipes to your repertoire, Carrot and Cabbage Salad With Coriander+cumin Dry Rub might be a recipe you should try. This recipe serves 1. One portion of this dish contains about <b>6g of protein</b>, <b>10g of fat</b>, and a total of <b>222 calories</b>. For <b>$1.4 per serving</b>, this recipe <b>covers 27%</b> of your daily requirements of vitamins and minerals. 4 people have made this recipe and would make it again. Head to the store and pick up sunflower seeds, cumin seed powder, juice of lime, and a few other things to make it today. It works well as an affordable hor d\'oeuvre. From preparation to the plate, this recipe takes roughly <b>25 minutes</b>. It is brought to you by Foodista. Overall, this recipe earns a <b>super spoonacular score of 96%</b>. If you like this recipe, you might also like recipes such as <a href="https://spoonacular.com/recipes/carrot-and-cabbage-salad-with-coriandercumin-dry-rub-1230725">Carrot and Cabbage Salad With Coriander+cumin Dry Rub</a>, <a href="https://spoonacular.com/recipes/carrot-and-cabbage-salad-with-coriandercumin-dry-rub-1350633">Carrot and Cabbage Salad With Coriander+cumin Dry Rub</a>, and <a href="https://spoonacular.com/recipes/carrot-and-cabbage-salad-with-coriandercumin-dry-rub-1253443">Carrot and Cabbage Salad With Coriander+cumin Dry Rub</a>.',
 			cuisins: [],
-			dishTypes: [
-				'side dish',
-				'antipasti',
-				'salad',
-				'starter',
-				'snack',
-				'appetizer',
-				'antipasto',
-				"hor d'oeuvre",
-			],
+			dishTypes: ['side dish', 'antipasti', 'salad', 'starter', 'snack', 'appetizer', 'antipasto', "hor d'oeuvre"],
 			readyInMinutes: 25,
 			aggregateLikes: 4,
 		},
@@ -295,16 +258,7 @@ export default function Home() {
 			summary:
 				'Egyptain Cauliflower Side Salad could be just the <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> recipe you\'ve been looking for. This recipe makes 2 servings with <b>183 calories</b>, <b>4g of protein</b>, and <b>15g of fat</b> each. For <b>$1.51 per serving</b>, this recipe <b>covers 18%</b> of your daily requirements of vitamins and minerals. This recipe is liked by 3 foodies and cooks. It works well as a hor d\'oeuvre. A mixture of cauliflower, cumin, parsley, and a handful of other ingredients are all it takes to make this recipe so yummy. It is brought to you by Foodista. From preparation to the plate, this recipe takes approximately <b>25 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 93%</b>. This score is excellent. Similar recipes include <a href="https://spoonacular.com/recipes/roasted-broccoli-and-cauliflower-simple-for-the-side-581739">Roasted Broccoli and Cauliflower: Simple for the Side</a>, <a href="https://spoonacular.com/recipes/sauteed-beef-with-broccoli-and-shiitake-mushrooms-and-a-side-of-my-new-fave-cauliflower-rice-551311">Sauteed Beef with Broccoli and Shiitake Mushrooms (and a side of my new fave: cauliflower rice)</a>, and <a href="https://spoonacular.com/recipes/black-bean-and-corn-salad-spicy-mexican-salad-side-dish-95696">Black Bean and Corn Salad - Spicy Mexican Salad/Side Dish</a>.',
 			cuisins: [],
-			dishTypes: [
-				'side dish',
-				'antipasti',
-				'salad',
-				'starter',
-				'snack',
-				'appetizer',
-				'antipasto',
-				"hor d'oeuvre",
-			],
+			dishTypes: ['side dish', 'antipasti', 'salad', 'starter', 'snack', 'appetizer', 'antipasto', "hor d'oeuvre"],
 			readyInMinutes: 25,
 			aggregateLikes: 3,
 		},
@@ -495,16 +449,7 @@ export default function Home() {
 			summary:
 				'Amaranth and Roast Veggie Salad could be just the <b>gluten free, dairy free, lacto ovo vegetarian, and vegan</b> recipe you\'ve been looking for. This recipe serves 2 and costs $2.47 per serving. This hor d\'oeuvre has <b>361 calories</b>, <b>9g of protein</b>, and <b>18g of fat</b> per serving. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. This recipe from Foodista requires amaranth, punnet baby tomatoes, bell pepper, and pumpkin. 5 people have tried and liked this recipe. Overall, this recipe earns an <b>outstanding spoonacular score of 95%</b>. If you like this recipe, take a look at these similar recipes: <a href="https://spoonacular.com/recipes/mums-roast-veggie-salad-12573">Mum’s Roast Veggie Salad</a>, <a href="https://spoonacular.com/recipes/amaranth-yogurt-parfait-popped-amaranth-parfait-with-fruits-1235383">amaranth yogurt parfait – popped amaranth parfait with fruits</a>, and <a href="https://spoonacular.com/recipes/amaranth-yogurt-parfait-popped-amaranth-parfait-with-fruits-1238997">amaranth yogurt parfait – popped amaranth parfait with fruits</a>.',
 			cuisins: [],
-			dishTypes: [
-				'side dish',
-				'antipasti',
-				'salad',
-				'starter',
-				'snack',
-				'appetizer',
-				'antipasto',
-				"hor d'oeuvre",
-			],
+			dishTypes: ['side dish', 'antipasti', 'salad', 'starter', 'snack', 'appetizer', 'antipasto', "hor d'oeuvre"],
 			readyInMinutes: 45,
 			aggregateLikes: 5,
 		},
@@ -526,17 +471,7 @@ export default function Home() {
 			summary:
 				'If you want to add more <b>Mexican</b> recipes to your recipe box, Salsa Verde By Mommie Cooks might be a recipe you should try. For <b>$2.28 per serving</b>, this recipe <b>covers 17%</b> of your daily requirements of vitamins and minerals. This recipe makes 6 servings with <b>147 calories</b>, <b>4g of protein</b>, and <b>4g of fat</b> each. 2 people found this recipe to be tasty and satisfying. Head to the store and pick up coriander, garlic cloves, onion, and a few other things to make it today. It works best as a hor d\'oeuvre, and is done in around <b>45 minutes</b>. It is brought to you by Foodista. It is a good option if you\'re following a <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> diet. Overall, this recipe earns a <b>good spoonacular score of 80%</b>. Similar recipes include <a href="https://spoonacular.com/recipes/chicken-fajitas-by-mommie-cooks-638085">Chicken Fajitas By Mommie Cooks</a>, <a href="https://spoonacular.com/recipes/vegetarian-tamales-mommie-cooks-664720">Vegetarian Tamales - Mommie Cooks</a>, and <a href="https://spoonacular.com/recipes/turkey-goulash-by-mommie-cooks-664031">Turkey Goulash By Mommie Cooks</a>.',
 			cuisins: ['Mexican'],
-			dishTypes: [
-				'antipasti',
-				'condiment',
-				'starter',
-				'snack',
-				'appetizer',
-				'dip',
-				'antipasto',
-				"hor d'oeuvre",
-				'spread',
-			],
+			dishTypes: ['antipasti', 'condiment', 'starter', 'snack', 'appetizer', 'dip', 'antipasto', "hor d'oeuvre", 'spread'],
 			readyInMinutes: 45,
 			aggregateLikes: 2,
 		},
@@ -692,16 +627,7 @@ export default function Home() {
 			summary:
 				'Strawberry Pretzel Salad requires roughly <b>45 minutes</b> from start to finish. For <b>$2.29 per serving</b>, you get a hor d\'oeuvre that serves 4. Watching your figure? This dairy free recipe has <b>384 calories</b>, <b>7g of protein</b>, and <b>31g of fat</b> per serving. It can be enjoyed any time, but it is especially good for <b>Mother\'s Day</b>. 4 people were impressed by this recipe. It is brought to you by Foodista. Head to the store and pick up cucumber, avocado, spring greens, and a few other things to make it today. Overall, this recipe earns a <b>solid spoonacular score of 56%</b>. Similar recipes are <a href="https://spoonacular.com/recipes/strawberry-pretzel-salad-507583">Strawberry Pretzel Salad</a>, <a href="https://spoonacular.com/recipes/strawberry-pretzel-salad-206426">Strawberry Pretzel Salad</a>, and <a href="https://spoonacular.com/recipes/strawberry-pretzel-salad-808862">Strawberry Pretzel Salad</a>.',
 			cuisins: [],
-			dishTypes: [
-				'side dish',
-				'antipasti',
-				'salad',
-				'starter',
-				'snack',
-				'appetizer',
-				'antipasto',
-				"hor d'oeuvre",
-			],
+			dishTypes: ['side dish', 'antipasti', 'salad', 'starter', 'snack', 'appetizer', 'antipasto', "hor d'oeuvre"],
 			readyInMinutes: 45,
 			aggregateLikes: 4,
 		},
@@ -852,17 +778,18 @@ export default function Home() {
 	const finalJapaneseRecipes = japaneseRecipes?.length > 0 ? japaneseRecipes : japaneseRecipesDefault;
 
 	useEffect(() => {
-		if (randomPicks.length === 0) {
-			dispatch(getRandomPicks());
-			dispatch(getVeganRecipes(10));
-			dispatch(getAmericanRecipes(10));
-			dispatch(getCaribbeanRecipes(10));
-			dispatch(getItalianRecipes(10));
-			dispatch(getJapaneseRecipes(10));
-		} else {
-			console.log(randomPicks);
-		}
-		return () => {};
+		return () => {
+			if (randomPicks.length === 0) {
+				/* dispatch(getRandomPicks());
+				dispatch(getVeganRecipes(2));
+				dispatch(getAmericanRecipes(2));
+				dispatch(getCaribbeanRecipes(2));
+				dispatch(getItalianRecipes(2));
+				dispatch(getJapaneseRecipes(2)); */
+			} else {
+				console.log(randomPicks);
+			}
+		};
 	}, [dispatch, randomPicks]);
 
 	const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

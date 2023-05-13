@@ -27,17 +27,19 @@ const Navbar = ({ applyHeight }) => {
 			applyHeight(navbarContainer.offsetHeight);
 		};
 
-		onResizeGetPadding();
+		setTimeout(() => {
+			onResizeGetPadding();
+		}, 150);
 
 		window.addEventListener('resize', function () {
 			onResizeGetPadding();
 		});
 
-		return () => {
+		/* return () => {
 			window.removeEventListener('resize', function () {
 				onResizeGetPadding();
 			});
-		};
+		}; */
 	}, [applyHeight]);
 
 	return (

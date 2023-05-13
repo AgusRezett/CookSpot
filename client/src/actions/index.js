@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {
+	TOGGLE_LOADING,
 	GET_RECIPES,
 	RESET_RECIPES,
 	DELETE_RECIPES,
@@ -18,11 +19,19 @@ import {
 	LOCAL_HOST,
 } from './types';
 
+export function toggleLoading(payload) {
+	return function (dispatch) {
+		return dispatch({ type: TOGGLE_LOADING, payload: payload });
+	};
+}
+
 export function getRecipes() {
 	return function (dispatch) {
+		dispatch(toggleLoading(true));
 		axios
 			.get(`${LOCAL_HOST}/api/recipes`)
 			.then((response) => {
+				dispatch(toggleLoading(false));
 				return dispatch({ type: GET_RECIPES, payload: response.data });
 			})
 			.catch((error) => {
@@ -39,12 +48,15 @@ export function resetRecipes() {
 
 export function getRandomPicks() {
 	return function (dispatch) {
+		dispatch(toggleLoading(true));
 		axios
 			.get(`${LOCAL_HOST}/api/recipes/random-picks`)
 			.then((response) => {
+				dispatch(toggleLoading(false));
 				return dispatch({ type: GET_RANDOM_PICKS, payload: response.data });
 			})
 			.catch((error) => {
+				dispatch(toggleLoading(false));
 				console.log(error);
 			});
 	};
@@ -116,24 +128,32 @@ export function getJapaneseRecipes(payload) {
 }
 
 export function getRecipesByName(payload) {
-	return async function (dispatch) {
-		try {
-			var response = await axios.get(`${LOCAL_HOST}/api/recipes?title=${payload}`);
-			return dispatch({ type: SEARCH_RECIPE, payload: response.data });
-		} catch {
-			return alert('Recipe Not Found');
-		}
+	return function (dispatch) {
+		dispatch(toggleLoading(true));
+		axios
+			.get(`${LOCAL_HOST}/api/recipes?title=${payload}`)
+			.then((response) => {
+				dispatch(toggleLoading(false));
+				return dispatch({ type: SEARCH_RECIPE, payload: response.data });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 }
 
 export function getDietTypes() {
 	return async function (dispatch) {
-		try {
-			var response = await axios.get(`${LOCAL_HOST}/api/types`);
-			return dispatch({ type: GET_DIET_TYPES, payload: response.data.map((d) => d.name) });
-		} catch (error) {
-			console.log(error);
-		}
+		dispatch(toggleLoading(true));
+		axios
+			.get(`${LOCAL_HOST}/api/types`)
+			.then((response) => {
+				dispatch(toggleLoading(false));
+				return dispatch({ type: GET_DIET_TYPES, payload: response.data.map((d) => d.name) });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 }
 
@@ -165,12 +185,11 @@ export function deleteRecipe(payload) {
 
 export function getRecipeDetails(payload) {
 	return async function (dispatch) {
-		try {
-			var response = await axios.get(`${LOCAL_HOST}/api/recipes/${payload}`);
+		dispatch(toggleLoading(true));
+		axios.get(`${LOCAL_HOST}/api/recipes/${payload}`).then((response) => {
+			dispatch(toggleLoading(false));
 			return dispatch({ type: GET_RECIPE_DETAILS, payload: response.data });
-		} catch (error) {
-			console.log(error);
-		}
+		});
 	};
 }
 

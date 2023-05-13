@@ -7,8 +7,9 @@ const { json } = require('express');
 require('./db.js');
 
 const cors = {
-	origin: ['https://cookspot.vercel.app', 'https://localhost:3000'],
-	default: 'https://cookspot.vercel.app',
+	origin: ['https://cookspot.vercel.app', 'http://localhost:3000'],
+	default: 'http://localhost:3000',
+	//default: 'https://cookspot.vercel.app',
 };
 
 const server = express();
@@ -19,7 +20,6 @@ server.use(json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use((req, res, next) => {
-	console.log(req.header);
 	const origin = cors.origin.includes(req.header('origin').toLowerCase()) ? req.headers.origin : cors.default;
 	res.header('Access-Control-Allow-Origin', origin);
 

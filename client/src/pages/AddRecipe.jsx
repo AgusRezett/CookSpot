@@ -28,6 +28,7 @@ export default function AddRecipe() {
 	const dispatch = useDispatch();
 	let navigate = useNavigate();
 	const dietTypes = useSelector((state) => state.dietTypes);
+	const loadingStatus = useSelector((state) => state.loadingStatus);
 
 	const [errors, setErrors] = useState({});
 
@@ -138,7 +139,7 @@ export default function AddRecipe() {
 	return (
 		<div className="new-recipe-view-container">
 			<div className="image-container"></div>
-			{dietTypes.length === 0 && (
+			{dietTypes.length === 0 && !loadingStatus && (
 				<div className="dark-layout">
 					<div className="modal-status-container">
 						<img src={DisconnectedIcon} alt="disconnected-icon" />

@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Recipes from './pages/Recipes';
 import AddRecipe from './pages/AddRecipe';
 import RecipeDetails from './pages/RecipeDetails';
+import { LoadingScreen } from './components/LoadingScreen';
 
 function App() {
 	let location = useLocation();
@@ -14,14 +15,9 @@ function App() {
 
 	const paddingMainContainerStyles = {
 		padding: 20,
-		paddingLeft: location.pathname === '/new-recipe' && window.innerWidth < 640 ? 40 : 20,
-		paddingTop: showNavbar
-			? mainContainerPaddingTop === 40
-				? mainContainerPaddingTop + 50
-				: mainContainerPaddingTop === 82
-				? mainContainerPaddingTop + 65
-				: mainContainerPaddingTop + 25
-			: 20,
+		paddingLeft: location.pathname === '/new-recipe' && window.innerWidth < 640 ? 20 : 20,
+		paddingTop: showNavbar ? (location.pathname === '/new-recipe' ? mainContainerPaddingTop : mainContainerPaddingTop + 20) : 20,
+		paddingBottom: location.pathname === '/new-recipe' && 0,
 	};
 
 	useEffect(() => {
@@ -31,6 +27,7 @@ function App() {
 	return (
 		<>
 			{showNavbar && <Navbar applyHeight={setMainContainerPaddingTop} />}
+			<LoadingScreen styles={paddingMainContainerStyles} />
 			<div className="main-container" style={paddingMainContainerStyles}>
 				<Routes>
 					<Route path="/" exact element={<Landing />} />

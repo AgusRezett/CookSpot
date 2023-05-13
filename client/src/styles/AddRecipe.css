@@ -43,7 +43,20 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
+  /* width */
+  /* Track */
+  /* Handle */
+}
+.new-recipe-view-container::-webkit-scrollbar {
+  width: 1px;
+}
+.new-recipe-view-container::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+.new-recipe-view-container::-webkit-scrollbar-thumb {
+  background: #c8b4a7;
+  border-radius: 10px;
 }
 .new-recipe-view-container .image-container {
   position: absolute;
@@ -90,12 +103,13 @@
 }
 .new-recipe-view-container .form-view-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   position: relative;
   z-index: 3;
   width: 100%;
   height: 100%;
+  margin-top: 40px;
 }
 @media screen and (max-width: 875px) {
   .new-recipe-view-container .form-view-container {
@@ -110,6 +124,7 @@
   align-items: flex-start;
   height: auto;
   width: 100%;
+  padding-bottom: 20px;
   /* grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 15px;
@@ -286,7 +301,7 @@
     margin-top: 15px;
     margin-left: 0px;
     height: 100%;
-    padding-bottom: 100px;
+    padding-bottom: 20px;
   }
 }
 .new-recipe-view-container .form-view-container form .form-steps-container .form-steps-content {
