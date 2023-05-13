@@ -18,8 +18,7 @@ function validate(input) {
 	const errors = {};
 	if (!input.name) errors.name = 'Please complete with a recipe name';
 	if (!input.summary) errors.summary = 'Please add some comments about your recipe';
-	if (input.healthScore < 1 || input.healthScore > 100)
-		errors.healthScore = 'The score must be a number between 1 and 100';
+	if (input.healthScore < 1 || input.healthScore > 100) errors.healthScore = 'The score must be a number between 1 and 100';
 	if (!input.steps.length) errors.steps = 'Please detail the steps for your recipe';
 	if (!input.dietTypes.length) errors.dietTypes = 'You must select at least one diet type';
 	return errors;
@@ -94,13 +93,7 @@ export default function AddRecipe() {
 	function handleSubmit() {
 		if (Object.values(errors).length > 0) {
 			alert('Please complete the information required');
-		} else if (
-			input.name === '' &&
-			input.summary === '' &&
-			input.healthScore === '' &&
-			input.steps === '' &&
-			!input.dietTypes.length
-		) {
+		} else if (input.name === '' && input.summary === '' && input.healthScore === '' && input.steps === '' && !input.dietTypes.length) {
 			alert('Please complete the form');
 		} else {
 			dispatch(addRecipe(input));
@@ -117,8 +110,10 @@ export default function AddRecipe() {
 	}
 
 	useEffect(() => {
-		dispatch(getDietTypes());
 		setErrors(validate(input));
+		return () => {
+			dispatch(getDietTypes());
+		};
 	}, [dispatch, input]);
 
 	const InputStatusMessage = ({ error }) => {
@@ -162,13 +157,7 @@ export default function AddRecipe() {
 									<InputStatusMessage error={errors.name} />
 								</>
 								<>
-									<InputText
-										name="healthScore"
-										label="Health Score"
-										value={input.healthScore}
-										setValue={handleChange}
-										type="number"
-									/>
+									<InputText name="healthScore" label="Health Score" value={input.healthScore} setValue={handleChange} type="number" />
 									<InputStatusMessage error={errors.healthScore} />
 								</>
 							</div>
@@ -194,14 +183,7 @@ export default function AddRecipe() {
 							<div className="form-diets-content">
 								<div className="diets-container">
 									{dietTypes.map((diet) => {
-										return (
-											<SelectTag
-												key={diet}
-												diet={diet}
-												handleChange={handleCheckBox}
-												selected={input.dietTypes.includes(diet)}
-											/>
-										);
+										return <SelectTag key={diet} diet={diet} handleChange={handleCheckBox} selected={input.dietTypes.includes(diet)} />;
 									})}
 								</div>
 								<InputStatusMessage error={errors.dietTypes} />
