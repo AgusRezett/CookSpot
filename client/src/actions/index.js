@@ -35,6 +35,7 @@ export function getRecipes() {
 				return dispatch({ type: GET_RECIPES, payload: response.data });
 			})
 			.catch((error) => {
+				dispatch(toggleLoading(false));
 				console.log(error);
 			});
 	};
@@ -137,6 +138,7 @@ export function getRecipesByName(payload) {
 				return dispatch({ type: SEARCH_RECIPE, payload: response.data });
 			})
 			.catch((error) => {
+				dispatch(toggleLoading(false));
 				console.log(error);
 			});
 	};
@@ -152,6 +154,7 @@ export function getDietTypes() {
 				return dispatch({ type: GET_DIET_TYPES, payload: response.data.map((d) => d.name) });
 			})
 			.catch((error) => {
+				dispatch(toggleLoading(false));
 				console.log(error);
 			});
 	};

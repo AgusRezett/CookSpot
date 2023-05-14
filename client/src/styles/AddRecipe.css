@@ -100,6 +100,7 @@
 }
 .new-recipe-view-container .dark-layout .modal-status-container h4 {
   margin-top: 20px;
+  text-align: center;
 }
 .new-recipe-view-container .form-view-container {
   display: flex;

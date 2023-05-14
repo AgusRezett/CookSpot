@@ -20,8 +20,9 @@ let prevId = 1;
 
 export default function Recipes() {
 	const dispatch = useDispatch();
-	const allRecipes = useSelector((state) => state.allRecipes);
 	const recipes = useSelector((state) => state.recipes);
+	const loadingStatus = useSelector((state) => state.loadingStatus);
+
 	/* const allRecipes = [
 		{
 			id: 782585,
@@ -608,7 +609,7 @@ export default function Recipes() {
 			</div>
 			<Pagination recipesPage={recipesPage} allRecipes={recipes.length} paged={paged} currentPage={page} />
 			<div className="recipes-container">
-				{showRecipesPage.length > 0 ? (
+				{showRecipesPage.length > 0 && !loadingStatus ? (
 					showRecipesPage.map((e) => {
 						return (
 							<Recipe
@@ -631,17 +632,11 @@ export default function Recipes() {
 				) : (
 					<div className="no-content-container">
 						<img src={NoFood} alt="no-food-icon" />
-						<h2>No recipes selected...</h2>
+						<h2>Sorry, no recipes found...</h2>
 					</div>
 				)}
 			</div>
-			<Pagination
-				recipesPage={recipesPage}
-				allRecipes={recipes.length}
-				paged={paged}
-				currentPage={page}
-				style={{ paddingBottom: 150 }}
-			/>
+			<Pagination recipesPage={recipesPage} allRecipes={recipes.length} paged={paged} currentPage={page} style={{ paddingBottom: 150 }} />
 		</div>
 	);
 }
