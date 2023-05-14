@@ -84,6 +84,7 @@
   align-items: center;
   margin-top: 30px;
   opacity: 0;
+  pointer-events: none;
   animation: 2s ease-in-out 3s fadeIn;
   animation-fill-mode: forwards;
 }
@@ -101,14 +102,20 @@
   font-size: 1.5rem;
   margin-top: 20px;
 }
-.welcome .wordsColumnContainer .nextViewContainer,
-.welcome .wordsRowContainer .nextViewContainer {
+.welcome .wordsColumnContainer a,
+.welcome .wordsRowContainer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
   animation: 1s ease-in-out 3s fadeInAndUp;
   animation-fill-mode: forwards;
   margin-top: 85px;
+  width: 50px;
+  height: 50px;
 }
-.welcome .wordsColumnContainer .nextViewContainer .nextViewButton,
-.welcome .wordsRowContainer .nextViewContainer .nextViewButton {
+.welcome .wordsColumnContainer a .nextViewButton,
+.welcome .wordsRowContainer a .nextViewButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,12 +127,12 @@
   transition: all 100ms ease-in-out;
   position: absolute;
 }
-.welcome .wordsColumnContainer .nextViewContainer .nextViewButton:hover,
-.welcome .wordsRowContainer .nextViewContainer .nextViewButton:hover {
+.welcome .wordsColumnContainer a .nextViewButton:hover,
+.welcome .wordsRowContainer a .nextViewButton:hover {
   background-color: #3e3a36;
 }
-.welcome .wordsColumnContainer .nextViewContainer .nextViewButton svg,
-.welcome .wordsRowContainer .nextViewContainer .nextViewButton svg {
+.welcome .wordsColumnContainer a .nextViewButton svg,
+.welcome .wordsRowContainer a .nextViewButton svg {
   width: 28px;
   height: 28px;
   color: #fff;
@@ -148,6 +155,7 @@
   }
   to {
     opacity: 1;
+    pointer-events: all;
   }
 }
 @keyframes fadeInAndUp {
@@ -158,6 +166,7 @@
   to {
     opacity: 1;
     margin-top: 40px;
+    pointer-events: all;
   }
 }
 

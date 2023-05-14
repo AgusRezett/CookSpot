@@ -11,22 +11,15 @@ export default function Landing() {
 	return (
 		<div className={'welcome'}>
 			<div className={'wordsColumnContainer'}>
-				<img
-					src={CookSpotHorizontalLogo}
-					style={{ width: '140%', height: 'auto' }}
-					priority="true"
-					alt="CookSpot logo"
-				/>
+				<img src={CookSpotHorizontalLogo} style={{ width: '140%', height: 'auto' }} priority="true" alt="CookSpot logo" />
 				<div className={'welcomeDivisorContainer'}>
 					<div className={'welcomeLogoDivisor'}></div>
 					<h6 className={'subTitleText'}>RECIPES . SPOONACULAR . API</h6>
-					<div className={'nextViewContainer '}>
-						<a href="/home" id="click">
-							<div className={'nextViewButton'}>
-								<IoIosArrowForward />
-							</div>
-						</a>
-					</div>
+					<a href="/home" id="click">
+						<div className={'nextViewButton'}>
+							<IoIosArrowForward />
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>

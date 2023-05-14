@@ -113,7 +113,9 @@ export default function AddRecipe() {
 	useEffect(() => {
 		setErrors(validate(input));
 		return () => {
-			dispatch(getDietTypes());
+			if (!dietTypes) {
+				dispatch(getDietTypes());
+			}
 		};
 	}, [dispatch, input]);
 
