@@ -8,8 +8,8 @@ require('./db.js');
 
 const cors = {
 	origin: ['https://cookspot.vercel.app', 'http://localhost:3000'],
-	default: 'http://localhost:3000',
-	//default: 'https://cookspot.vercel.app',
+	//default: 'http://localhost:3000',
+	default: 'https://cookspot.vercel.app',
 };
 
 const server = express();
