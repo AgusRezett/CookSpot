@@ -778,18 +778,16 @@ export default function Home() {
 	const finalJapaneseRecipes = japaneseRecipes?.length > 0 ? japaneseRecipes : japaneseRecipesDefault;
 
 	useEffect(() => {
-		return () => {
-			if (randomPicks.length === 0) {
-				dispatch(getRandomPicks());
-				dispatch(getVeganRecipes(7));
-				dispatch(getAmericanRecipes(7));
-				dispatch(getCaribbeanRecipes(7));
-				dispatch(getItalianRecipes(7));
-				dispatch(getJapaneseRecipes(7));
-			} else {
-				console.log(randomPicks);
-			}
-		};
+		if (randomPicks.length === 0) {
+			dispatch(getRandomPicks());
+			dispatch(getVeganRecipes(7));
+			dispatch(getAmericanRecipes(7));
+			dispatch(getCaribbeanRecipes(7));
+			dispatch(getItalianRecipes(7));
+			dispatch(getJapaneseRecipes(7));
+		} else {
+			console.log(randomPicks);
+		}
 	}, [dispatch, randomPicks]);
 
 	const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
