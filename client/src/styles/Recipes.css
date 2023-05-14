@@ -94,6 +94,20 @@
 .all-recipes-container .search-recipe-container .search-button:hover {
   background: rgba(0, 0, 0, 0.0588235294);
 }
+.all-recipes-container .search-recipe-container .reload-animation {
+  animation: 0.8s ease-in-out 0s rotate;
+}
+.all-recipes-container .search-recipe-container .reload-animation:hover {
+  background: transparent;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .all-recipes-container .filter-selects-container {
   display: flex;
   flex-direction: row;
