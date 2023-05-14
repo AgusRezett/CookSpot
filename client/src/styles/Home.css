@@ -289,85 +289,32 @@
   width: 100%;
   position: relative;
   margin-bottom: 30px;
-  padding: 0px 80px;
-}
-@media screen and (max-width: 750px) {
-  .carousel-component-container .p-carousel {
-    padding: 0px 20px;
-  }
 }
 .carousel-component-container .p-carousel:last-child {
   margin-bottom: 0px;
   padding-bottom: 50px;
 }
-.carousel-component-container .p-carousel::before {
-  top: 0;
-  left: -20px;
-  position: absolute;
-  content: "";
-  width: 100px;
-  height: 256px;
-  background-color: #2f2a21;
-}
-@media screen and (max-width: 750px) {
-  .carousel-component-container .p-carousel::before {
-    width: 40px;
-  }
-}
-.carousel-component-container .p-carousel::after {
-  top: 0;
-  right: -20px;
-  position: absolute;
-  content: "";
-  width: 100px;
-  height: 256px;
-  background-color: #2f2a21;
-}
-@media screen and (max-width: 750px) {
-  .carousel-component-container .p-carousel::after {
-    width: 40px;
-  }
-}
 .carousel-component-container .p-carousel .p-carousel-content {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-x: auto;
-  background-color: #2f2a21;
-  /* width */
-  /* Track */
-  /* Handle */
-}
-.carousel-component-container .p-carousel .p-carousel-content::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-.carousel-component-container .p-carousel .p-carousel-content::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-.carousel-component-container .p-carousel .p-carousel-content::-webkit-scrollbar-thumb {
-  background: #c8b4a7;
   border-radius: 10px;
 }
 .carousel-component-container .p-carousel .p-carousel-content .p-carousel-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
   position: relative;
   border-radius: 10px;
-  /* .p-items-hidden {
-  	pointer-events: none;
-  } */
+  background-color: #2f2a21;
 }
 .carousel-component-container .p-carousel .p-carousel-content .p-carousel-container .p-carousel-prev {
   left: -20px;
 }
 .carousel-component-container .p-carousel .p-carousel-content .p-carousel-container .p-link {
-  display: none;
   position: absolute;
   width: calc(5% + 20px);
   height: 250px;
@@ -406,41 +353,30 @@
 .carousel-component-container .p-carousel .p-carousel-content .p-carousel-container .p-carousel-items-content {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  width: 90%;
   height: 250px !important;
+  overflow-x: hidden;
   position: relative;
-  flex-wrap: wrap;
   border-radius: 10px;
 }
 .carousel-component-container .p-carousel .p-carousel-content .p-carousel-container .p-carousel-items-content .p-carousel-items-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   border-radius: 10px;
 }
 .carousel-component-container .p-carousel .p-carousel-content .p-carousel-container .p-carousel-items-content .p-carousel-items-container .p-carousel-item {
-  width: 300px;
-  transition: all ease-in-out 300ms;
+  opacity: 0;
+  transition: all ease-in-out 500ms;
   padding: 0px 10px;
-}
-.carousel-component-container .p-carousel .p-carousel-content .p-carousel-container .p-carousel-items-content .p-carousel-items-container .p-carousel-item:first-child {
-  padding-left: 0;
-}
-.carousel-component-container .p-carousel .p-carousel-content .p-carousel-container .p-carousel-items-content .p-carousel-items-container .p-carousel-item:last-child {
-  padding-right: 0;
 }
 @media screen and (max-width: 750px) {
   .carousel-component-container .p-carousel .p-carousel-content .p-carousel-container .p-carousel-items-content .p-carousel-items-container .p-carousel-item {
-    width: 200px;
-    padding: 0px 5px;
-  }
-}
-@media screen and (max-width: 500px) {
-  .carousel-component-container .p-carousel .p-carousel-content .p-carousel-container .p-carousel-items-content .p-carousel-items-container .p-carousel-item {
-    width: 150px;
+    width: 10%;
     padding: 0px 5px;
   }
 }
@@ -462,7 +398,6 @@
   margin-right: -20px;
   margin-top: 10px;
   position: relative;
-  display: none;
 }
 .carousel-component-container .p-carousel .p-carousel-content .p-carousel-indicators .p-carousel-indicator {
   margin-right: 30px;

@@ -7,7 +7,7 @@ import '../styles/Home.css';
 
 // Components
 import PrincipalRecipe from '../components/PrincipalRecipe';
-import { Carousel } from '../components/Carousel';
+import { CarouselContainer } from '../components/Carousel';
 
 // Redux
 import { useState, useEffect } from 'react';
@@ -796,6 +796,29 @@ export default function Home() {
 	const d = new Date();
 	let day = weekday[d.getDay()];
 
+	const responsiveOptions = [
+		{
+			breakpoint: '1199px',
+			numVisible: 5,
+			numScroll: 1,
+		},
+		{
+			breakpoint: '874px',
+			numVisible: 4,
+			numScroll: 1,
+		},
+		{
+			breakpoint: '567px',
+			numVisible: 3,
+			numScroll: 1,
+		},
+		{
+			breakpoint: '446px',
+			numVisible: 2,
+			numScroll: 1,
+		},
+	];
+
 	return (
 		<div className="home">
 			<div className="home-todays-picks-title-container">
@@ -816,15 +839,15 @@ export default function Home() {
 			<div className="carousel-component-container">
 				<div className="background"></div>
 				<h3>Nutritious vegan recipes</h3>
-				<Carousel value={finalVeganRecipes} />
+				<CarouselContainer value={finalVeganRecipes} responsiveOptions={responsiveOptions} />
 				<h3>Caribbean surprises</h3>
-				<Carousel value={finalCaribbeanRecipes} />
+				<CarouselContainer value={finalCaribbeanRecipes} responsiveOptions={responsiveOptions} />
 				<h3>Popular American recipes</h3>
-				<Carousel value={finalAmericanRecipes} />
+				<CarouselContainer value={finalAmericanRecipes} responsiveOptions={responsiveOptions} />
 				<h3>Italy food</h3>
-				<Carousel value={finalItalianRecipes} />
+				<CarouselContainer value={finalItalianRecipes} responsiveOptions={responsiveOptions} />
 				<h3>Japanese tradition</h3>
-				<Carousel value={finalJapaneseRecipes} />
+				<CarouselContainer value={finalJapaneseRecipes} responsiveOptions={responsiveOptions} />
 			</div>
 		</div>
 	);

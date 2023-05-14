@@ -269,81 +269,28 @@
 		width: 100%;
 		position: relative;
 		margin-bottom: 30px;
-		padding: 0px 80px;
-
-		@media screen and (max-width: 750px) {
-			padding: 0px 20px;
-		}
 
 		&:last-child {
 			margin-bottom: 0px;
 			padding-bottom: 50px;
 		}
 
-		&::before {
-			top: 0;
-			left: -20px;
-			position: absolute;
-			content: '';
-			width: 100px;
-			height: 256px;
-			background-color: #2f2a21;
-
-			@media screen and (max-width: 750px) {
-				width: 40px;
-			}
-		}
-
-		&::after {
-			top: 0;
-			right: -20px;
-			position: absolute;
-			content: '';
-			width: 100px;
-			height: 256px;
-			background-color: #2f2a21;
-
-			@media screen and (max-width: 750px) {
-				width: 40px;
-			}
-		}
-
 		.p-carousel-content {
-			position: relative;
 			@include displayFlex(column, center, center);
-			overflow-x: auto;
-			background-color: #2f2a21;
-
-			/* width */
-			&::-webkit-scrollbar {
-				width: 6px;
-				height: 6px;
-			}
-
-			/* Track */
-			&::-webkit-scrollbar-track {
-				//box-shadow: inset 0 0 5px grey;
-				border-radius: 10px;
-			}
-
-			/* Handle */
-			&::-webkit-scrollbar-thumb {
-				background: #c8b4a7;
-				border-radius: 10px;
-			}
+			border-radius: 10px;
 
 			.p-carousel-container {
-				@include displayFlex(row, flex-start, center);
+				@include displayFlex(row, center, center);
 				width: 100%;
 				position: relative;
 				border-radius: 10px;
+				background-color: #2f2a21;
 
 				.p-carousel-prev {
 					left: -20px;
 				}
 
 				.p-link {
-					display: none;
 					position: absolute;
 					width: calc(5% + 20px);
 					height: 250px;
@@ -386,47 +333,32 @@
 				}
 
 				.p-carousel-items-content {
-					@include displayFlex(row, flex-start, center);
-					//width: 100%;
+					@include displayFlex(row, space-between, center);
+					width: 90%;
 					height: 250px !important;
-					//overflow-x: scroll;
+					overflow-x: hidden;
 					position: relative;
-					flex-wrap: wrap;
 					border-radius: 10px;
 
 					.p-carousel-items-container {
-						@include displayFlex(row, flex-start, center);
+						@include displayFlex(row, space-between, center);
 						width: 100%;
-						//overflow-x: auto;
 						border-radius: 10px;
 
 						.p-carousel-item {
-							//opacity: 0;
-							width: 300px;
-							transition: all ease-in-out 300ms;
+							opacity: 0;
+							transition: all ease-in-out 500ms;
 							padding: 0px 10px;
 
-							&:first-child {
-								padding-left: 0;
-							}
-
-							&:last-child {
-								padding-right: 0;
-							}
-
 							@media screen and (max-width: 750px) {
-								width: 200px;
-								padding: 0px 5px;
-							}
-
-							@media screen and (max-width: 500px) {
-								width: 150px;
+								width: 10%;
 								padding: 0px 5px;
 							}
 						}
 
 						.p-carousel-item-active {
 							opacity: 1;
+							//filter: sepia();
 						}
 
 						.p-carousel-item-start {
@@ -438,10 +370,6 @@
 						}
 					}
 				}
-
-				/* .p-items-hidden {
-					pointer-events: none;
-				} */
 			}
 
 			.p-carousel-indicators {
@@ -450,7 +378,7 @@
 				margin-right: -20px;
 				margin-top: 10px;
 				position: relative;
-				display: none;
+				//display: none;
 
 				.p-carousel-indicator {
 					margin-right: 30px;
