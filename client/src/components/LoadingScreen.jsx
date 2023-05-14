@@ -30,7 +30,7 @@ export const LoadingScreen = ({ styles }) => {
 			{loadingStatus === 'error' ? (
 				<>
 					<IoSad size={95} color="#2f2a21" />
-					<span className="subtitle-loading">An error has occurred</span>
+					<span className="subtitle-loading">An error has occurred.</span>
 					<a
 						className="go-back-button"
 						onClick={(e) => {
@@ -38,7 +38,7 @@ export const LoadingScreen = ({ styles }) => {
 							navigate(-1);
 						}}
 					>
-						Volver
+						Go back
 					</a>
 				</>
 			) : (
