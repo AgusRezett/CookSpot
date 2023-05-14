@@ -144,7 +144,7 @@ export default function AddRecipe() {
 					<div className="modal-status-container">
 						<img src={DisconnectedIcon} alt="disconnected-icon" />
 						<h4>
-							Couldn't retrieve the diets tags. <br /> Try later.
+							Couldn't retrieve the diet tags. <br /> Try later.
 						</h4>
 					</div>
 				</div>
