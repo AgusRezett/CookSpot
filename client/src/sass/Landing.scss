@@ -17,6 +17,7 @@
 	.wordsRowContainer {
 		@include displayFlex(null, center, center);
 		position: absolute;
+		width: 100%;
 		//opacity: 0;
 
 		.soyHenryText {
@@ -39,6 +40,7 @@
 
 		.welcomeDivisorContainer {
 			@include displayFlex(column, center, center);
+			width: 100%;
 			margin-top: 30px;
 			opacity: 0;
 			pointer-events: none;
@@ -48,7 +50,7 @@
 
 		.welcomeLogoDivisor {
 			position: relative;
-			width: 500px;
+			width: 50%;
 			height: 1px;
 			background: #000;
 		}
@@ -56,7 +58,7 @@
 		.subTitleText {
 			font-family: 'Aftika';
 			font-weight: 100;
-			font-size: 1.5rem;
+			font-size: 1.1rem;
 			margin-top: 20px;
 		}
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Components
 import { Link } from 'react-router-dom';
@@ -54,19 +54,25 @@ const CarouselItem = (item) => {
 };
 
 export const CarouselContainer = ({ value, responsiveOptions }) => {
-	/* <div className="p-carousel p-component p-carousel-horizontal">
-					<div className="p-carousel-content">
-						<div className="p-carousel-container">
-							<div className="p-carousel-items-content" style={{ height: 'auto' }}>
-								<div className="p-carousel-items-container">
-									{value?.map((recipe) => {
-										return <CarouselItem item={recipe} key={recipe.id} />;
-									})}
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> */
+	useEffect(() => {
+		const buttons = document.getElementsByClassName('p-link');
+		const buttonsList = Array.prototype.slice.call(buttons);
+		buttonsList.forEach((e) => {
+			e.addEventListener('click', () => {
+				navigator.vibrate(20);
+			});
+		});
+
+		return () => {
+			buttonsList.forEach((e) => {
+				e.removeEventListener('click', () => {
+					navigator.vibrate(20);
+				});
+			});
+		};
+		/* buttons.map((button) => {
+		}); */
+	}, []);
 
 	return <Carousel value={value} numScroll={1} numVisible={5} responsiveOptions={responsiveOptions} itemTemplate={CarouselItem} />;
 };

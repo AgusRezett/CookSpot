@@ -181,6 +181,7 @@
   padding-right: 25px;
   font-family: "HarmoniaSans";
   font-size: 1rem;
+  background: #fff;
   border: 1px solid #000;
   border-radius: 0px;
 }
@@ -357,6 +358,7 @@
   width: 100%;
   height: auto;
   margin-top: 50px;
+  padding-bottom: 100px;
 }
 .all-recipes-container .recipes-container .no-content-container img {
   width: 120px;

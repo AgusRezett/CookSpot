@@ -111,6 +111,7 @@ export default function AddRecipe() {
 	}
 
 	useEffect(() => {
+		document.getElementsByClassName('main-container')[0].scrollTo({ top: 0, behavior: 'instant' });
 		setErrors(validate(input));
 		if (dietTypes.length <= 0) {
 			dispatch(getDietTypes());

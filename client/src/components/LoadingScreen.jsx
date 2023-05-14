@@ -9,7 +9,7 @@ import '../styles/LoadingScreen.css';
 
 // Redux
 import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const LoadingScreen = ({ styles }) => {
 	let navigate = useNavigate();
@@ -31,15 +31,16 @@ export const LoadingScreen = ({ styles }) => {
 				<>
 					<IoSad size={95} color="#2f2a21" />
 					<span className="subtitle-loading">An error has occurred.</span>
-					<a
+					<div
 						className="go-back-button"
 						onClick={(e) => {
 							e.preventDefault();
 							navigate(-1);
 						}}
+						href="#"
 					>
 						Go back
-					</a>
+					</div>
 				</>
 			) : (
 				<>

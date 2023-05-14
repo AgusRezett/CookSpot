@@ -57,6 +57,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  width: 100%;
 }
 .welcome .wordsColumnContainer .soyHenryText,
 .welcome .wordsRowContainer .soyHenryText {
@@ -82,6 +83,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   margin-top: 30px;
   opacity: 0;
   pointer-events: none;
@@ -91,7 +93,7 @@
 .welcome .wordsColumnContainer .welcomeLogoDivisor,
 .welcome .wordsRowContainer .welcomeLogoDivisor {
   position: relative;
-  width: 500px;
+  width: 50%;
   height: 1px;
   background: #000;
 }
@@ -99,7 +101,7 @@
 .welcome .wordsRowContainer .subTitleText {
   font-family: "Aftika";
   font-weight: 100;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   margin-top: 20px;
 }
 .welcome .wordsColumnContainer a,

@@ -15,6 +15,7 @@ export default function SearchBar() {
 
 	function handleSubmit(e) {
 		e.preventDefault();
+		navigator.vibrate(20);
 		try {
 			if (searchValue === '') {
 				dispatch(getRecipes());
@@ -30,6 +31,7 @@ export default function SearchBar() {
 
 	function handleRefresh(e) {
 		e.preventDefault();
+		navigator.vibrate(20);
 		setRefreshing(true);
 		try {
 			dispatch(getRecipes());

@@ -5,24 +5,6 @@
 	@include displayFlex(row, center, center);
 	width: 100%;
 	height: 100%;
-	overflow: auto;
-
-	/* width */
-	&::-webkit-scrollbar {
-		width: 1px;
-	}
-
-	/* Track */
-	&::-webkit-scrollbar-track {
-		//box-shadow: inset 0 0 5px grey;
-		border-radius: 10px;
-	}
-
-	/* Handle */
-	&::-webkit-scrollbar-thumb {
-		background: #c8b4a7;
-		border-radius: 10px;
-	}
 
 	.image-container {
 		position: absolute;
@@ -43,7 +25,8 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		margin-top: 65px;
+		top: 0;
+		bottom: 0;
 		left: 0;
 		background-color: #00000099;
 		z-index: 4;
@@ -51,8 +34,9 @@
 		.modal-status-container {
 			@include displayFlex(column, center, center);
 			width: 30%;
-			min-width: 200px;
+			min-width: 250px;
 			height: auto;
+			min-height: 270px;
 			background-color: #fff;
 			border-radius: 10px;
 			padding: 20px;
@@ -63,7 +47,7 @@
 			}
 
 			h4 {
-				margin-top: 20px;
+				margin-top: 30px;
 				text-align: center;
 			}
 		}
