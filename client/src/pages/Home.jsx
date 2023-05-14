@@ -780,12 +780,12 @@ export default function Home() {
 	useEffect(() => {
 		return () => {
 			if (randomPicks.length === 0) {
-				/* dispatch(getRandomPicks());
-				dispatch(getVeganRecipes(2));
-				dispatch(getAmericanRecipes(2));
-				dispatch(getCaribbeanRecipes(2));
-				dispatch(getItalianRecipes(2));
-				dispatch(getJapaneseRecipes(2)); */
+				dispatch(getRandomPicks());
+				dispatch(getVeganRecipes(7));
+				dispatch(getAmericanRecipes(7));
+				dispatch(getCaribbeanRecipes(7));
+				dispatch(getItalianRecipes(7));
+				dispatch(getJapaneseRecipes(7));
 			} else {
 				console.log(randomPicks);
 			}

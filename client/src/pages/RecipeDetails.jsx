@@ -28,6 +28,7 @@ export default function RecipeDetails() {
 	const recipeDetails = useSelector((state) => state.recipeDetails);
 
 	useEffect(() => {
+		document.getElementsByClassName('main-container')[0].scrollTo({ top: 0, behavior: 'instant' });
 		dispatch(getRecipeDetails(id));
 	}, [dispatch, id]);
 
@@ -575,15 +576,15 @@ export default function RecipeDetails() {
 						</div>
 						<h4>
 							{recipeDetails.creditsText
-								? `Photo by ${recipeDetails.creditsText}, ${recipeDetails.sourceName}; ${recipeDetails.license}`
+								? `Photo by ${recipeDetails.creditsText}, ${recipeDetails.sourceName}${
+										recipeDetails.license != undefined ? '; ' + recipeDetails.license : ''
+								  }`
 								: 'Demo photo'}
 						</h4>
 					</div>
 
 					<h3 className="middle-article-title">Recipe</h3>
-					<h1 className="middle-recipe-title">
-						{recipeDetails.title ? recipeDetails.title : recipeDetails.name}
-					</h1>
+					<h1 className="middle-recipe-title">{recipeDetails.title ? recipeDetails.title : recipeDetails.name}</h1>
 
 					<div className="score-recipes-container">
 						<div className="score-recipe-container">
@@ -664,11 +665,7 @@ export default function RecipeDetails() {
 							return (
 								<div key={value}>
 									{selectedIcon && (
-										<div
-											className="diet-icon-container"
-											key={value}
-											title={value.toLocaleUpperCase()}
-										>
+										<div className="diet-icon-container" key={value} title={value.toLocaleUpperCase()}>
 											{selectedIcon}
 										</div>
 									)}
@@ -704,6 +701,7 @@ export default function RecipeDetails() {
 							</div>
 						);
 					})} */}
+						{/* <button onClick={() => }>Go up</button> */}
 					</div>
 				</div>
 			)}
