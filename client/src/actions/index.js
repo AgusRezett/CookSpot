@@ -189,10 +189,15 @@ export function deleteRecipe(payload) {
 export function getRecipeDetails(payload) {
 	return async function (dispatch) {
 		dispatch(toggleLoading(true));
-		axios.get(`${LOCAL_HOST}/api/recipes/${payload}`).then((response) => {
-			dispatch(toggleLoading(false));
-			return dispatch({ type: GET_RECIPE_DETAILS, payload: response.data });
-		});
+		axios
+			.get(`${LOCAL_HOST}/api/recipes/${payload}`)
+			.then((response) => {
+				dispatch(toggleLoading(false));
+				return dispatch({ type: GET_RECIPE_DETAILS, payload: response.data });
+			})
+			.catch((error) => {
+				dispatch(toggleLoading('error'));
+			});
 	};
 }
 

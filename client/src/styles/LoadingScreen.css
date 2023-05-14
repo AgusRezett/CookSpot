@@ -56,6 +56,13 @@
   font-family: "Aftika";
   font-size: 14px;
 }
+.loading-screen-container .go-back-button {
+  margin-top: 10px;
+  cursor: pointer;
+}
+.loading-screen-container .go-back-button:hover {
+  text-decoration: underline;
+}
 .loading-screen-container div svg circle,
 .loading-screen-container div svg line {
   stroke-width: 5px;
