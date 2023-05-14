@@ -352,5 +352,9 @@
 .new-recipe-view-container .form-view-container form .form-steps-container .navigation-btns .navigate-back-btn {
   margin-right: 10px;
 }
+input,
+textarea {
+  background-color: var(--background-rgb);
+}
 
 /*# sourceMappingURL=AddRecipe.css.map */
